@@ -1,0 +1,142 @@
+﻿<Page x:Class="mD_WPF_chSheet_01.pages.defaultPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:mD_WPF_chSheet_01.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="defaultPage">
+
+    <Grid Background="LightGreen">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Upper Row: Header-->
+        <StackPanel Margin="5" Orientation="Horizontal"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.ColumnSpan="3">
+            <Label Content="Name:"/>
+            <Label Width="150"/>
+
+            <Label Content="Age:"/>
+            <Label Width="50"/>
+
+            <Label Content="Race:"/>
+            <Label Width="100"/>
+
+            <Label Content="Gender:"/>
+            <Label Width="100"/>
+
+            <Label Content="Background:"/>
+            <Label Width="100"/>
+
+            <Label Content="Religion"/>
+            <Label Width="100"/>
+
+        </StackPanel>
+
+        <!--Middle Row: Data Option Column-->
+        <StackPanel Margin="5" Grid.Row="1" Grid.Column="0">
+            <Label Content="Data options" FontSize="24" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!--Middle Row: Character model Column-->
+        <Grid Margin="5" Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button One"
+                    x:Name="BTN_AttributionOne"
+                    Click="BTN_AttributionOne_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Two"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Two"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Two"/>
+            </StackPanel>
+
+            <Label Content="Character Model" FontSize="24" FontWeight="Bold"
+                   Grid.ColumnSpan="3" Grid.Row="3"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <!--Middle Row: Characteristic panel-->
+        <StackPanel Margin="5" Grid.Row="1" Grid.Column="2">
+            <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!--Lower Row: Characterbuild Panel-->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Grid.Row="2" Grid.ColumnSpan="3">
+
+            <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    x:Name="BTN_0"/>
+
+            <Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="4" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="5" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="6" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="7" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="8" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="9" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>

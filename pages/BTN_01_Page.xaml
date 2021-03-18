@@ -1,0 +1,218 @@
+﻿<Page x:Class="mD_WPF_chSheet_01.pages.BTN_01_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:mD_WPF_chSheet_01.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="BTN_01_Page">
+
+    <Grid Background="LightGreen">
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="50"/>-->
+            <!--<RowDefinition Height="10*"/>-->
+            <!--<RowDefinition Height="50"/>-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Upper Row: Header-->
+        <!--<StackPanel Margin="0,5,0,5" Orientation="Horizontal"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.ColumnSpan="3" Background="Green">
+
+            <Label Content="Name:"/>
+            <Label Width="75"/>
+
+            <Label Content="Age:"/>
+            <Label Width="75"/>
+
+            <Label Content="Race:"/>
+            <Label Width="75"/>
+
+            <Label Content="Gender:"/>
+            <Label Width="75"/>
+
+            <Label Content="Background:"/>
+            <Label Width="75"/>
+
+            <Label Content="Religion"/>
+            <Label Width="75"/>
+
+        </StackPanel>-->
+
+        <!--Middle Row: Data Option Column-->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="5"
+                        Grid.Row="0" Grid.Column="0"
+                        Orientation="Vertical">
+                <Label Content="Vitality"
+                       FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+
+                <TextBox x:Name="TBO_leftUpperBox"
+                         Height="275" Width="Auto"
+                         TextWrapping="Wrap" IsReadOnly="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Margin="5"
+                        Grid.Row="0" Grid.Column="1"
+                        Orientation="Vertical">
+                <Label Content="Dexterity"
+                       FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+
+                <TextBox x:Name="TBO_rightUpperBox"
+                         Height="275" Width="Auto"
+                         TextWrapping="Wrap" IsReadOnly="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Margin="5" Grid.Row="1" Grid.Column="0"
+                        Orientation="Vertical">
+                <Label Content="Data options" FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="TBL_lowerLeftBlock"
+                        Height="275" Width="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.CanContentScroll="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Margin="5" Grid.Row="1" Grid.Column="1"
+                        Orientation="Vertical">
+                <Label Content="Data options" FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="TBL_lowerRightBlock"
+                        Height="275" Width="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.CanContentScroll="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            </StackPanel>
+        </Grid>
+
+
+        <!--Middle Row: Character model Column-->
+        <Grid Margin="5" Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="..\images\chImages\twoThief.png"
+                   Grid.ColumnSpan="3" Grid.RowSpan="7" Stretch="Fill"/>
+
+            <StackPanel Grid.Row="0" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button One"
+                        x:Name="BTN_one" Click="BTN_one_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Two"
+                        x:Name="BTN_two" Click="BTN_two_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Three"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Button Content="Button Flour"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
+                    VerticalAlignment="Center"
+                    Margin="5" Padding="5"/>
+            </StackPanel>
+
+            <Label Content="Page 01" FontSize="24" FontWeight="Bold"
+                   Grid.ColumnSpan="3" Grid.Row="3" Foreground="Aquamarine"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <!--Middle Row: Characteristic panel-->
+        <StackPanel Margin="5" Grid.Row="0" Grid.Column="2">
+            <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0"
+                    HorizontalAlignment="Left" VerticalAlignment="Center">
+
+        </StackPanel>
+
+        <!--Lower Row: Characterbuild Panel-->
+        <!--<StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Grid.Row="2" Grid.ColumnSpan="3">
+
+            <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    x:Name="BTN_0"/>
+
+            <Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="4" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="5" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="6" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="7" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="8" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <Button Content="9" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    x:Name="BTN_9"/>
+        </StackPanel>-->
+    </Grid>
+</Page>

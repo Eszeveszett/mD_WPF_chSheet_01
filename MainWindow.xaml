@@ -1,0 +1,76 @@
+﻿<Window x:Class="mD_WPF_chSheet_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mD_WPF_chSheet_01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600" FontWeight="Bold" FontSize="14"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized">
+    <!--WindowStyle="None" WindowState="Maximized"-->
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <Image Source="images\bgImages\startScreen.jpg" Stretch="Fill"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center"
+                    x:Name="SP_Buttons">
+            
+            <Button Content="New Game" Margin="5" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="200" Height="50"
+                FontSize="24"
+                x:Name="BTN_newGame" Click="BTN_newGame_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Load Game" Margin="5" Background="{x:Null}"
+                HorizontalAlignment="Center"  Width="200" Height="50"
+                FontSize="24">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Game Options" Margin="5" Background="{x:Null}"
+                HorizontalAlignment="Center"  Width="200" Height="50"
+                FontSize="24">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <Button Content="Quit Game" Margin="5" Background="{x:Null}"
+                HorizontalAlignment="Center"  Width="200" Height="50"
+                FontSize="24"
+                x:Name="BTN_quitGame" Click="BTN_quitGame_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <Button Content="Testing" Margin="5" Background="{x:Null}"
+                HorizontalAlignment="Center"  Width="200" Height="50"
+                FontSize="24"
+                x:Name="BTN_testing" Click="BTN_testing_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+        </StackPanel>
+
+        <!--<Frame x:Name="FRM_startPage" NavigationUIVisibility="Hidden"/>-->
+    </Grid>
+</Window>

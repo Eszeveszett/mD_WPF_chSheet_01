@@ -1,0 +1,118 @@
+﻿<Window x:Class="mD_WPF_chSheet_01.windows.clearSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
+        mc:Ignorable="d"
+        Title="testWindow" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen" FontSize="16">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Upper Row: Header-->
+        <StackPanel Margin="0,5,0,5" Orientation="Horizontal"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.ColumnSpan="3" Background="Aqua">
+
+            <Label Content="Name:"/>
+            <Label Width="75"/>
+
+            <Label Content="Age:"/>
+            <Label Width="75"/>
+
+            <Label Content="Race:"/>
+            <Label Width="75"/>
+
+            <Label Content="Gender:"/>
+            <Label Width="75"/>
+
+            <Label Content="Background:"/>
+            <Label Width="75"/>
+
+            <Label Content="Religion"/>
+            <Label Width="75"/>
+
+        </StackPanel>
+
+        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+               x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="0"
+                    HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
+                    VerticalAlignment="Center"
+                    Margin="5" Padding="5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Grid.Row="2" Grid.ColumnSpan="3">
+            
+        <!--Button. Gender, name, race-->
+        <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                x:Name="BTN_0" Click="BTN_0_Click"/>
+            
+        <!--Button. Attributions, inborn resistance-->
+        <Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                x:Name="BTN_One" Click="BTN_One_Click"/>
+            
+        <!--Butoff. Background, abilitys-->
+        <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+            
+        <!--Butoff. Presence... outlooking... appearance... meg az anyád, az-->
+        <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="4" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="5" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="6" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="7" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="8" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+
+        <Button Content="9" Margin="5,10,15,10" Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                x:Name="BTN_9"/>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2"
+                    HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Content="FINALY"
+                    VerticalAlignment="Center"
+                    Margin="5" Padding="5"
+                    x:Name="BTN_finaly" Click="BTN_finaly_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

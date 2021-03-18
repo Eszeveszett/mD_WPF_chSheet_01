@@ -1,0 +1,6 @@
+﻿Orc; 70;
+Human; 80;
+Parasite; 0;
+Symbiont; 0;
+Elf; 570;
+Dwarf; 220;
