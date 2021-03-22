@@ -24,52 +24,23 @@ namespace mD_WPF_chSheet_01.pages
     /// </summary>
     public partial class BTN_00_Page : Page
     {
-        List<string> race = new List<string>();
         List<string> gender = new List<string>();
-        List<string> raceDescription = new List<string>();
-        List<string> attributumDescription = new List<string>();
-        List<string> backgroundDescription = new List<string>();
 
 
         List<testClass> tc = new List<testClass>();
         public BTN_00_Page()
         {
+            gender.Add("Male"); gender.Add("Female"); gender.Add("Transgender"); gender.Add("Genderless");
+
             InitializeComponent();
-
-            //Demo adatok (Kurvasok, kurva felesleges)
-            #region demoadatok
-            //race.Add("Orc"); race.Add("Human"); race.Add("Gnome"); race.Add("Goblin"); race.Add("Parasit"); race.Add("Symbiont");
-
-            //gender.Add("Male"); gender.Add("Female"); gender.Add("Transgender"); gender.Add("Genderless");
-
-            //attributumDescription.Add("Vitality");
-            //attributumDescription.Add("Endurence");
-            //attributumDescription.Add("Toughness");
-            //attributumDescription.Add("Strength");
-
-            //attributumDescription.Add("Dexterity");
-            //attributumDescription.Add("Perception");
-            //attributumDescription.Add("Quickness");
-            //attributumDescription.Add("Agility");
-
-            //attributumDescription.Add("Intuition");
-            //attributumDescription.Add("Wisdom");
-            //attributumDescription.Add("Intelligence");
-            //attributumDescription.Add("Resourcefull");
-
-            //attributumDescription.Add("Charisma");
-            //attributumDescription.Add("Appearance");
-            //attributumDescription.Add("Influence");
-            //attributumDescription.Add("Luck");
-
-            //backgroundDescription.Add("None"); backgroundDescription.Add("Sailor");
-            //backgroundDescription.Add("Fisher"); backgroundDescription.Add("Woodcutter");
-            //backgroundDescription.Add("Vilager"); backgroundDescription.Add("Nooble");
-            #endregion
             olvaso();
             LBO_race.DataContext = tc;
-        }
+            LBO_race.SelectedIndex = -1;
+            LBO_gender.DataContext = gender;
+            LBO_gender.SelectedIndex = -1;
 
+            
+        }
         private void olvaso()
         {
             StreamReader sr = new StreamReader("../../documents/raceAge.txt");
@@ -80,6 +51,31 @@ namespace mD_WPF_chSheet_01.pages
 
                 tc.Add(new testClass(szo[0], (Convert.ToInt32(szo[1]))));
             }
+        }
+
+        private void LBO_race_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void LBO_gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        //private void BTN_race_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void BTN_background_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        private void BTN_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -47,5 +47,9 @@ namespace mD_WPF_chSheet_01
             this.Intuition = Intuition;
             this.Charisma = Charisma;
         }
+        public primaryAttribution()
+        {
+
+        }
     }
 }

@@ -22,33 +22,29 @@ namespace mD_WPF_chSheet_01.pages
     /// </summary>
     public partial class BTN_01_Page : Page
     {
+        List<string> advantages = new List<string>();
+
         public BTN_01_Page()
         {
             InitializeComponent();
         }
+
         private void BTN_Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
         }
 
-        private void BTN_one_Click(object sender, RoutedEventArgs e)
+        private void BTN_advantages_Click(object sender, RoutedEventArgs e)
         {
-            StreamReader sr = new StreamReader("../../documents/Ipsum.txt");
-            while (!sr.EndOfStream)
+            StreamReader adasr = new StreamReader("../../documents/Ipsum.txt");
+            while (!adasr.EndOfStream)
             {
-                string szo = sr.ReadLine();
-                TBO_leftUpperBox.Text = szo;
-            }
-        }
+                string sor = adasr.ReadLine();
 
-        private void BTN_two_Click(object sender, RoutedEventArgs e)
-        {
-            StreamReader sr = new StreamReader("../../documents/Lorem.txt");
-            while (!sr.EndOfStream)
-            {
-                string szo = sr.ReadLine();
-                TBO_rightUpperBox.Text = szo;
+                advantages.Add(sor);
             }
+            adasr.Close();
+            LBO_advantages.ItemsSource = advantages;
         }
     }
 }

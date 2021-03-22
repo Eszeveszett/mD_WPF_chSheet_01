@@ -1,0 +1,47 @@
+﻿<Page x:Class="mD_WPF_chSheet_01.pages.BTN_07_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:mD_WPF_chSheet_01.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="BTN_07_Page">
+
+    <Grid Background="LightGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Character Background"
+                   HorizontalAlignment="Center"
+                   FontSize="16" FontWeight="Bold"/>
+            <ListBox Width="375" Height="600" x:Name="LBO_characterBackground"
+                   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                   ScrollViewer.CanContentScroll="True"
+                   ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Page Background" FontSize="24" FontWeight="Bold"
+                   Foreground="Aquamarine" Background="Red"
+                   HorizontalAlignment="Center"/>
+            <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
+                    VerticalAlignment="Center"
+                    Margin="5" Padding="5"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BTN_Background" Click="BTN_Background_Click"
+                        Margin="5" Padding="5"
+                        Content="Character Background"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

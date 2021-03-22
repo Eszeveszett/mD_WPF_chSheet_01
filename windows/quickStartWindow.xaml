@@ -5,41 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d"
-        Title="quickStartWindow" Height="450" Width="800"
+        Title="quickStartWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" >
     <Grid>
-        <Image Source="..\images\bgImages\chreateCharacter.jpg"/>
+        <!--<Image Source="..\images\bgImages\chreateCharacter.jpg" Stretch="Fill"/>-->
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-            <Button Content="New Caracter" Margin="10" Width="150"
+            <Button Content="New Caracter" Margin="10" Padding="10" Width="150"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_newCharacter"
                 Click="BTN_newCharacter_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
             </Button>
 
-            <Button Content="Ready Characters" Margin="10" Width="150"
+            <Button Content="Ready Characters" Margin="10" Padding="10" Width="150"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_readyCharacter"
                 Click="BTN_readyCharacter_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
             </Button>
 
-            <Button Content="Back" Margin="10" Width="150"
+            <Button Content="Back" Margin="10" Padding="10" Width="150"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_back"
                 Click="BTN_back_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
             </Button>

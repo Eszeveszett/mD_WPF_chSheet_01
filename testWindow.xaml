@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01"
         mc:Ignorable="d"
-        Title="testWindow" Height="800" Width="1200"
+        Title="testWindow" Height="800" Width="1200" WindowState="Maximized"
         WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -88,8 +88,8 @@
 
 
 <!--Middle Row: Character model Column-->
-        <!--<Grid Margin="5" Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
+        <Grid Margin="5" Grid.Row="1" Grid.Column="1">
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -135,8 +135,8 @@
             <Label Content="Character Model" FontSize="24" FontWeight="Bold"
                    Grid.ColumnSpan="3" Grid.Row="3"
                    HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"/>
-        </Grid>-->
+                   VerticalContentAlignment="Center"/>-->
+        </Grid>
 
 <!--Middle Row: Characteristic panel-->
         <!--<StackPanel Margin="5" Grid.Row="1" Grid.Column="2">
@@ -160,8 +160,14 @@
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Grid.Row="2" Grid.ColumnSpan="3">
-            
-<!--Button. Gender, name, race-->
+
+
+            <Button Content="Test" Margin="5,10,15,10" Padding="10,0,10,0"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    x:Name="BTN_Test" Click="BTN_Test_Click"/>
+
+            <!--Button. Gender, name, race-->
             <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
                     VerticalContentAlignment="Center"
                     HorizontalContentAlignment="Center"
@@ -176,18 +182,24 @@
 <!--Butoff. Background, abilitys-->
             <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"/>
+                    HorizontalContentAlignment="Center"
+                    x:Name="BTN_2" Click="BTN_2_Click"/>
             
 <!--Butoff. Presence, outlooking, appearance, meg az anyád, az-->
             <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"/>
+                    HorizontalContentAlignment="Center"
+                    x:Name="BTN_3" Click="BTN_3_Click"/>
 
             <Button Content="4" Margin="5,10,15,10" Padding="10,0,10,0"
-                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    x:Name="BTN_4" Click="BTN_4_Click"/>
 
             <Button Content="5" Margin="5,10,15,10" Padding="10,0,10,0"
-                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    x:Name="BTN_5" Click="BTN_5_Click"/>
 
             <Button Content="6" Margin="5,10,15,10" Padding="10,0,10,0"
                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>

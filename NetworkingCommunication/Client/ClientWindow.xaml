@@ -1,0 +1,37 @@
+﻿<Window x:Class="mD_WPF_chSheet_01.NetworkingCommunication.Client.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mD_WPF_chSheet_01.NetworkingCommunication.Client"
+        mc:Ignorable="d" Background="BlanchedAlmond"
+        Title="ClientWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <!--Ide majd a létrehozott karakter neve fog bekerülni-->
+                <Label Content="Név: " Margin="5,5,10,5"/>
+                <TextBox x:Name="TBO_Nev" Margin="5" Width="120"/>
+                <Button x:Name="BTN_Kapcsolodas" 
+                Content="Connect" Margin="35,5,5,5" Padding="5"
+                Click="BTN_Kapcsolodas_Click"/>
+                <Button x:Name="BTN_Disconnect" Content="Disconnect"
+                Margin="150,5,0,5" Padding="5" Click="BTN_Disconnect_Click"/>
+                <Label x:Name="LBL_Kapcsolodas"/>
+            </StackPanel>
+
+            <StackPanel>
+                <ListBox x:Name="LBO_Uzenetek" 
+                Margin="5" Height="300"/>                
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ütenet: " Margin="5"/>
+                <TextBox x:Name="TBO_Uzenet" 
+                Margin="5" Width="300"/>
+                <Button x:Name="BTN_Kuldes" Click="BTN_Kuldes_Click"
+                Content="Send" Margin="5" Padding="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

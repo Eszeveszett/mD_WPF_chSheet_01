@@ -1,0 +1,31 @@
+﻿<Page x:Class="mD_WPF_chSheet_01.pages.BTN_06_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:mD_WPF_chSheet_01.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="BTN_06_Page">
+
+    <Grid Background="LightGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Page 06" FontSize="24" FontWeight="Bold"
+                   Foreground="Aquamarine" Background="Red"
+                   HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

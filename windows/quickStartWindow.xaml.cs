@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using mD_WPF_chSheet_01.pages;
+using mD_WPF_chSheet_01.pages.selectorPage;
+
 namespace mD_WPF_chSheet_01.windows
 {
     /// <summary>
@@ -34,14 +36,15 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_readyCharacter_Click(object sender, RoutedEventArgs e)
         {
-
+            drawnCharacterSelectorWindow dcsw = new drawnCharacterSelectorWindow();
+            dcsw.Show();
         }
 
         private void BTN_back_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
+            //MainWindow mw = new MainWindow();
             this.Close();
-            mw.Show();
+            //mw.Show();
         }
     }
 }

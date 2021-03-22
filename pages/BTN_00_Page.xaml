@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:mD_WPF_chSheet_01.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="1200"
       Title="BTN_00_Page">
 
     <Grid Background="LightGreen">
@@ -14,25 +14,73 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-<!--Race and gender selection-->
-        <StackPanel Margin="5" Grid.Column="0">
-            <ListBox Width="200" Height="440"
+
+        <!--Race and gender selection-->
+        <StackPanel Grid.Column="0">
+            <Label Content="Select a race" HorizontalAlignment="Center"
+                   FontSize="16" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0"
+                        x:Name="SP_raceandgender">
+                <ListBox Width="200" Height="300"
                 Name="LBO_race" ItemsSource="{Binding}"
-                IsSynchronizedWithCurrentItem="True">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderThickness="1" BorderBrush="Red"
+                IsSynchronizedWithCurrentItem="True" SelectionChanged="LBO_race_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="Red"
                                 CornerRadius="3">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding race}" Width="75"/>
-                                <Label Content="{Binding age}" Width="75"/>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="ikon"/>
+                                    <Label Content="{Binding race}" Width="75"/>
+                                    <Label Content="{Binding age}" Width="75"
+                                        HorizontalContentAlignment="Center"
+                                        BorderBrush="Red" BorderThickness="2"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <ListBox Width="160" Height="300" Margin="20,0,0,0"
+                    x:Name="LBO_gender" ItemsSource="{Binding}"
+                    IsSynchronizedWithCurrentItem="True" SelectionChanged="LBO_gender_SelectionChanged">
+                </ListBox>
+            </StackPanel>
+
+            <StackPanel Margin="10,10,0,0" HorizontalAlignment="Left">
+                <TextBox Width="380" Height="300" x:Name="TBO_raceModifier"
+                   Text="Faji sajátosságok" FontSize="36" FontWeight="Bold"
+                   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                   ScrollViewer.CanContentScroll="True"
+                   ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                </TextBox>
+            </StackPanel>
         </StackPanel>
 
+        <!--CharacterImage-->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <!--<Button Content="Fajok és nemek"
+                x:Name="BTN_race" Click="BTN_race_Click">
+            </Button>
+            <Button Content="Előélet, előnyök, hátrányok"
+                x:Name="BTN_background" Click="BTN_background_Click"/>-->
+            <Label Content="Page 00" FontSize="24" FontWeight="Bold"
+                   Grid.Row="3" Foreground="Aquamarine" Background="Red"
+                   HorizontalContentAlignment="Center"/>
+            <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
+                    VerticalAlignment="Center"
+                    Margin="5" Padding="5"/>
+        </StackPanel>
+
+        <!--Általános leírása, történelme-->
+        <StackPanel Grid.Column="2">
+            <Label Content="History" HorizontalAlignment="Center"
+                   FontSize="16" FontWeight="Bold"/>
+            <TextBox Width="375" Height="600" Margin="0,5,0,0"
+                   x:Name="TBO_placeOfLive"
+                   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                   ScrollViewer.CanContentScroll="True"
+                   ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            </TextBox>
+        </StackPanel>
     </Grid>
 </Page>

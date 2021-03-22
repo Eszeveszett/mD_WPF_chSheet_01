@@ -1,0 +1,57 @@
+﻿<Window x:Class="mD_WPF_chSheet_01.NetworkingCommunication.Server.ServerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mD_WPF_chSheet_01.NetworkingCommunication.Server"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Background="Chartreuse"
+        Title="ServerWindow" Height="300" Width="600">
+    <Grid>
+        <StackPanel Orientation="Horizontal" 
+            HorizontalAlignment="Center" Margin="5">
+            <StackPanel Margin="5" Width="175">
+                <Label Content="Szerver" Margin="5"/>
+                <ListBox x:Name="LBO_Server"
+                    Width="100" Height="150" Margin="5">
+                    <TextBox x:Name="TBO_Server"
+                        TextWrapping="WrapWithOverflow" 
+                        Width="90" IsReadOnly="True"/>
+                    <TextBox x:Name="TBO_ServerMessage"
+                        TextWrapping="WrapWithOverflow" 
+                        Width="90" IsReadOnly="True"/>
+                </ListBox>
+            </StackPanel>
+
+            <StackPanel Margin="5" Width="175">
+                <Label Content="Gombok"/>
+                <Label Content="Connection to Server"
+                    HorizontalAlignment="Center"/>
+                <Button Content="Connect" 
+                    x:Name="BTN_ServerConnection" 
+                    Click="BTN_ServerConnection_Click"
+                    Margin="5" Padding="5" Width="75"/>
+
+                <Label Content="Disconnected from server"
+                    HorizontalAlignment="Center"/>
+                <Button Content="Disconnect"
+                    x:Name="BTN_ServerDisconnect"
+                    Click="BTN_ServerDisconnect_Click"
+                    Margin="5" Padding="5" Width="75"/>
+                
+                <Label Content="Close Connection Window"
+                    HorizontalAlignment="Center"/>
+                <Button Content="Close/Back/Exit" 
+                    x:Name="BTN_CloseConnection"
+                    Click="BTN_CloseConnection_Click"
+                    Margin="5" Padding="5" Width="75"/>                
+            </StackPanel>
+
+            <StackPanel Margin="5" Width="175">
+                <Label Content="Kliens"/>
+                <ListBox x:Name="LBO_Client"
+                    Width="100" Height="150"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

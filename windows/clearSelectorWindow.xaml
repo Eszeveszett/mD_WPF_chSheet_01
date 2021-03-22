@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d"
-        Title="testWindow" Height="800" Width="1200"
+        Title="Clear Selector Window" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid Background="WhiteSmoke">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -19,11 +20,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-
-        <!--Upper Row: Header-->
+<!--Upper Row: Header-->
+        
         <StackPanel Margin="0,5,0,5" Orientation="Horizontal"
-                HorizontalAlignment="Center" VerticalAlignment="Center"
-                Grid.ColumnSpan="3" Background="Aqua">
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Grid.ColumnSpan="3" Background="Aqua">
 
             <Label Content="Name:"/>
             <Label Width="75"/>
@@ -42,77 +43,506 @@
 
             <Label Content="Religion"/>
             <Label Width="75"/>
-
         </StackPanel>
 
-        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-               x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>
+        
+        
+        
+    <TabControl Grid.Row="1" Grid.ColumnSpan="3">
+        <TabItem Header="Button Zero">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+<!--Race and gender selection-->
+            <StackPanel Grid.Column="0">
+                <Label Content="Select a race" HorizontalAlignment="Center"
+                FontSize="16" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="5,0,0,0"
+                x:Name="SP_raceandgender">
+                <ListBox Width="380" Height="300"
+                Name="LBO_rRace" ItemsSource="{Binding}"
+                IsSynchronizedWithCurrentItem="True" 
+                SelectionChanged="LBO_rRace_SelectionChanged">
+                <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="Firebrick" 
+                    CornerRadius="5" Margin="30,0,30,0">
+                    <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                        Margin="5,5,15,5">
+                    <Image Source="..\images\bgImages\startScreen.jpg" 
+                        Stretch="Fill" Width="105" Height="80"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                    <TextBlock Text="{Binding RaceName}" Width="125"
+                        TextAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+                    <TextBlock Text="{Binding Gender}"
+                        TextAlignment="Center"/>
+                    </StackPanel>
+
+
+                    </Grid>
+                    </Border>
+                </DataTemplate>
+                </ListBox.ItemTemplate>
+                </ListBox>
+                    <!--<ListBox Width="160" Height="300" Margin="10,0,0,0"
+                    x:Name="LBO_gender" ItemsSource="{Binding}"
+                    IsSynchronizedWithCurrentItem="True" >
+                    --><!--SelectionChanged="LBO_gender_SelectionChanged"--><!--
+                    </ListBox>-->
+            </StackPanel>
+
+            <StackPanel Margin="5,10,0,0" HorizontalAlignment="Left">
+                <TextBox Width="380" Height="300" x:Name="TBO_raceModifier"
+                Text="Faji sajátosságok" FontSize="36" FontWeight="Bold"
+                TextWrapping="Wrap"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                </TextBox>
+            </StackPanel>
+            </StackPanel>
+
+<!--CharacterImage-->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <!--<Button Content="Fajok és nemek"
+            x:Name="BTN_race" Click="BTN_race_Click">
+            </Button>
+            <Button Content="Előélet, előnyök, hátrányok"
+            x:Name="BTN_background" Click="BTN_background_Click"/>-->
+            <Label Content="Page 00" FontSize="24" FontWeight="Bold"
+            Grid.Row="3" Foreground="Aquamarine" Background="Red"
+            HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+<!--Általános leírása, történelme-->
+        <StackPanel Grid.Column="2">
+            <Label Content="History" HorizontalAlignment="Center"
+            FontSize="16" FontWeight="Bold"/>
+            <TextBox Width="375" Height="600" Margin="0,5,0,0"
+            x:Name="TBO_placeOfLive" FontSize="36" FontWeight="Bold"
+            TextWrapping="Wrap" TextAlignment="Center"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            </TextBox>
+            </StackPanel>
+            </Grid>
+        </TabItem>
+        
+        
+<!--Előnyök és háztányok fül. Ablak. Lista. Még nem csinál semmit, 
+később lesz szerepe. Csak itt most elfér-->
+        <TabItem Header="Button One">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+            <Label Content="Advantages and disadvantages"
+            HorizontalAlignment="Center"
+            FontSize="16" FontWeight="Bold"/>
+            <ListBox Width="375" Height="600" x:Name="LBO_advantages"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+            <Border>
+                <StackPanel>
+                    
+                </StackPanel>
+            </Border>
+            </DataTemplate>
+            </ListBox.ItemTemplate>
+            </ListBox>
+            </StackPanel>
+
+<!--Gombok, amiket a felhasználó nyomkodhat-->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Page 01" FontSize="24" FontWeight="Bold"
+            Foreground="Aquamarine" Background="Red"
+            HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+            <Button x:Name="BTN_advantages" 
+            Margin="5" Padding="10"
+            Content="Advantages and disadvantages"/>
+<!--Click="BTN_advantages_Click"-->
+            </StackPanel>
+            </StackPanel>
+
+<!--Nem tudom ki vot az az istenverte túlintelligens faszparaszt
+aki szerint az jó, hogy a megjegyzéseket három helyen négy
+különmböző jelkombináció közé kell tenni, és nem mondom, hogy bassza
+meg egy elefánt. Megelégszem azzal, ha megujjazza-->
+            <StackPanel Grid.Column="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.ColumnSpan="2">
+                    <Label Content="Attributions" FontSize="16" FontWeight="Bold"
+                HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
+                    <ListBox x:Name="myVitality" Width="200" Height="295">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border>
+                            <StackPanel>
+                                
+    <Label Content="Vitality" HorizontalContentAlignment="Center"/>
+    <TextBox x:Name="TBO_myVitality" Width="150" IsReadOnly="True" TextAlignment="Center"/>
+    <ProgressBar x:Name="PBR_myVitality" Minimum="30" Maximum="55"
+    Height="10" Margin="5" Foreground="Purple"/>
+
+    <StackPanel Orientation="Horizontal">
+    <Label Content="Strength" Width="125"/>
+    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_cswStrength"
+    ToolTip="Strength" IsReadOnly="True" Width="50"/>
+    </StackPanel>
+    <ProgressBar x:Name="PBR_cswStrength" Minimum="3" Maximum="30"
+    Height="10" Margin="5" Foreground="BlueViolet"/>
+
+    <StackPanel Orientation="Horizontal">
+    <Label Content="Influence" Width="125"/>
+    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Influence"
+    ToolTip="Influence" IsReadOnly="True" Width="50"/>
+    </StackPanel>
+    <ProgressBar x:Name="PBR_Influence" Minimum="3" Maximum="30"
+    Height="10" Margin="5" Foreground="DarkViolet"/>
+
+    <StackPanel Orientation="Horizontal">
+    <Label Content="Luck" Width="125"/>
+    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Luck"
+    ToolTip="Luck" IsReadOnly="True" Width="50"/>
+    </StackPanel>
+    <ProgressBar x:Name="PBR_Luck" Minimum="3" Maximum="30"
+    Height="10" Margin="5" Foreground="DarkOrchid"/>
+                                
+                            </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                    <ListBox Width="200" Height="295">
+
+                    </ListBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="0" Grid.Row="2" Margin="5">
+                    <ListBox Width="200" Height="295">
+
+                    </ListBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="2" Margin="5">
+                    <ListBox Width="200" Height="295">
+
+                    </ListBox>
+                </StackPanel>
+            </Grid>
+            </StackPanel>
+            </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Button Two">
+                <Grid Background="LightGreen">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Upper Row: Header-->
+
+                    <!--Middle Row: Data Option Column-->
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="5"
+                        Grid.Row="0" Grid.Column="0"
+                        Orientation="Vertical">
+                            <Label Content="Vitality"
+                       FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+
+                            <TextBox x:Name="TBO_leftUpperBox"
+                         Height="275" Width="Auto"
+                         TextWrapping="Wrap" IsReadOnly="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5"
+                        Grid.Row="0" Grid.Column="1"
+                        Orientation="Vertical">
+                            <Label Content="Dexterity"
+                       FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+
+                            <TextBox x:Name="TBO_rightUpperBox"
+                         Height="275" Width="Auto"
+                         TextWrapping="Wrap" IsReadOnly="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5" Grid.Row="1" Grid.Column="0"
+                        Orientation="Vertical">
+                            <Label Content="Data options" FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+                            <TextBox x:Name="TBL_lowerLeftBlock"
+                        Height="275" Width="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.CanContentScroll="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5" Grid.Row="1" Grid.Column="1"
+                        Orientation="Vertical">
+                            <Label Content="Data options" FontSize="24" FontWeight="Bold"
+                       HorizontalContentAlignment="Center"/>
+                            <TextBox x:Name="TBL_lowerRightBlock"
+                        Height="275" Width="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.CanContentScroll="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                        </StackPanel>
+                    </Grid>
+
+
+                    <!--Middle Row: Character model Column-->
+                    <Grid Margin="5" Grid.Row="0" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--<Image Source="..\images\chImages\twoThief.png"
+                   Grid.ColumnSpan="3" Grid.RowSpan="7" Stretch="Fill"/>-->
+
+                        <StackPanel Grid.Row="0" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                            <Button Content="Button One"
+                        x:Name="BTN_one" />
+                            <!--Click="BTN_one_Click"-->
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                            <Button Content="Button Two"
+                        x:Name="BTN_two" />
+                            <!--Click="BTN_two_Click"-->
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4" Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                            <Button Content="Button Three"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6" Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                            <Button Content="Button Flour"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6" Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                        </StackPanel>
+
+                        <Label Content="Page 02" FontSize="24" FontWeight="Bold"
+                   Grid.ColumnSpan="3" Grid.Row="3" Foreground="Aquamarine"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+                    </Grid>
+
+                    <!--Middle Row: Characteristic panel-->
+                    <StackPanel Margin="5" Grid.Column="2">
+                        <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"/>
+                        <ListBox Margin="5" Width="350" Height="575">
+
+                        </ListBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Button Three (Három? Fa? Három fa?)">
+                <Grid Background="LightGreen">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Label Content="Page 03" FontSize="24" FontWeight="Bold"
+                   Foreground="Aquamarine" Background="Red"
+                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Button Flour">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Page 04" FontSize="24" FontWeight="Bold"
+            Foreground="Aquamarine" Background="Red"
+            HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel>
+
+            </StackPanel>
+            </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <!--<Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+        x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>-->
 
         <StackPanel Grid.Row="3" Grid.Column="0"
-                    HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left" VerticalAlignment="Center">
             <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
-                    VerticalAlignment="Center"
-                    Margin="5" Padding="5"/>
+            VerticalAlignment="Center"
+            Margin="5" Padding="5"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Grid.Row="2" Grid.ColumnSpan="3">
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Grid.Row="2" Grid.ColumnSpan="3">
             
-        <!--Button. Gender, name, race-->
+<!--Button. Gender, name, race-->
         <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                x:Name="BTN_0" Click="BTN_0_Click"/>
-            
-        <!--Button. Attributions, inborn resistance-->
+            VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+            x:Name="BTN_0"/>
+
+<!--Button. Attributions, inborn resistance-->
+        
         <Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                x:Name="BTN_One" Click="BTN_One_Click"/>
-            
-        <!--Butoff. Background, abilitys-->
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_01"/>
+        
+<!--Butoff. Background, abilitys-->
+        
         <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_02"/>
             
-        <!--Butoff. Presence... outlooking... appearance... meg az anyád, az-->
+<!--Butoff. Presence... outlooking... appearance... meg az anyád, az-->
+        
         <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_03"/>
 
         <Button Content="4" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_04"/>
 
         <Button Content="5" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_05"/>
 
         <Button Content="6" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
 
         <Button Content="7" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
 
         <Button Content="8" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
 
         <Button Content="9" Margin="5,10,15,10" Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                x:Name="BTN_9"/>
-            
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            x:Name="BTN_9"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2"
-                    HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="FINALY"
-                    VerticalAlignment="Center"
-                    Margin="5" Padding="5"
-                    x:Name="BTN_finaly" Click="BTN_finaly_Click"/>
+            HorizontalAlignment="Right" VerticalAlignment="Center">
+        <Button Content="FINALY"
+            VerticalAlignment="Center"
+            Margin="5" Padding="5"
+            x:Name="BTN_finaly" Click="BTN_finaly_Click"/>
         </StackPanel>
     </Grid>
 </Window>

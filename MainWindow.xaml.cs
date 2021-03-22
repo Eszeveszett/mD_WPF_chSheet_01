@@ -15,11 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using System.ComponentModel;
+
 using System.Collections.ObjectModel;
 
 using mD_WPF_chSheet_01.pages;
 using mD_WPF_chSheet_01.windows;
+using mD_WPF_chSheet_01.NetworkingCommunication;
 
 namespace mD_WPF_chSheet_01
 {
@@ -38,7 +39,7 @@ namespace mD_WPF_chSheet_01
         {
             InitializeComponent();
             //FRM_startPage.Content = new mainWindowPage();
-            //Demo adatok (Kurvasok, kurva felesleges)
+            //Demo adatok (Kurvasok, kurvafelesleges)
             race.Add("Orc"); race.Add("Human"); race.Add("Gnome"); race.Add("Goblin"); race.Add("Parasit"); race.Add("Symbiont");
 
             gender.Add("Male"); gender.Add("Female"); gender.Add("Transgender"); gender.Add("Genderless");
@@ -67,12 +68,15 @@ namespace mD_WPF_chSheet_01
             backgroundDescription.Add("Fisher"); backgroundDescription.Add("Woodcutter");
             backgroundDescription.Add("Vilager"); backgroundDescription.Add("Nooble");
             #endregion
+
+
+
         }
 
         private void BTN_newGame_Click(object sender, RoutedEventArgs e)
         {
             quickStartWindow arbitrament = new quickStartWindow();
-            arbitrament.ShowDialog();
+            arbitrament.Show();
         }
 
         private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
@@ -93,8 +97,17 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_testing_Click(object sender, RoutedEventArgs e)
         {
-            testWindow tw = new testWindow();
-            tw.ShowDialog();
+
+            clearSelectorWindow arbitrament = new clearSelectorWindow();
+            arbitrament.Show();
+            //testWindow tw = new testWindow();
+            //tw.ShowDialog();
+        }
+
+        private void BTN_Connection_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectionSelectorWindow csw = new ConnectionSelectorWindow();
+            csw.Show();
         }
     }
 }

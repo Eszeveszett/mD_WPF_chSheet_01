@@ -1,0 +1,33 @@
+﻿<Window x:Class="mD_WPF_chSheet_01.NetworkingCommunication.ConnectionSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mD_WPF_chSheet_01.NetworkingCommunication"
+        mc:Ignorable="d" Background="LightGray" WindowStartupLocation="CenterScreen"
+        Title="ConnectionSelectorWindow" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <Label Content="Server os Client?" HorizontalAlignment="Center"
+                   FontSize="24" FontWeight="Bold" Margin="15"/>
+            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+                <Button Content="Server" 
+                    Margin="25" Padding="15" Width="75"
+                    x:Name="BTN_Server" Click="BTN_Server_Click"/>
+                
+                <Button Content="Client" 
+                    Margin="25" Padding="15" Width="75"
+                    x:Name="BTN_Client" Click="BTN_Client_Click"/>
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Back" 
+                    Margin="25" Padding="15" Width="75"
+                    x:Name="BTN_Back" Click="BTN_Back_Click"/>
+            </StackPanel>
+
+            
+
+        </StackPanel>
+    </Grid>
+</Window>
