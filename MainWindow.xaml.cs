@@ -40,33 +40,33 @@ namespace mD_WPF_chSheet_01
             InitializeComponent();
             //FRM_startPage.Content = new mainWindowPage();
             //Demo adatok (Kurvasok, kurvafelesleges)
-            race.Add("Orc"); race.Add("Human"); race.Add("Gnome"); race.Add("Goblin"); race.Add("Parasit"); race.Add("Symbiont");
+            //race.Add("Orc"); race.Add("Human"); race.Add("Gnome"); race.Add("Goblin"); race.Add("Parasit"); race.Add("Symbiont");
 
-            gender.Add("Male"); gender.Add("Female"); gender.Add("Transgender"); gender.Add("Genderless");
+            //gender.Add("Male"); gender.Add("Female"); gender.Add("Transgender"); gender.Add("Genderless");
             #region attributumDescription
-            attributumDescription.Add("Vitality");
-            attributumDescription.Add("Endurence");
-            attributumDescription.Add("Toughness");
-            attributumDescription.Add("Strength");
+            //attributumDescription.Add("Vitality");
+            //attributumDescription.Add("Endurence");
+            //attributumDescription.Add("Toughness");
+            //attributumDescription.Add("Strength");
 
-            attributumDescription.Add("Dexterity");
-            attributumDescription.Add("Perception");
-            attributumDescription.Add("Quickness");
-            attributumDescription.Add("Agility");
+            //attributumDescription.Add("Dexterity");
+            //attributumDescription.Add("Perception");
+            //attributumDescription.Add("Quickness");
+            //attributumDescription.Add("Agility");
 
-            attributumDescription.Add("Intuition");
-            attributumDescription.Add("Wisdom");
-            attributumDescription.Add("Intelligence");
-            attributumDescription.Add("Resourcefull");
+            //attributumDescription.Add("Intuition");
+            //attributumDescription.Add("Wisdom");
+            //attributumDescription.Add("Intelligence");
+            //attributumDescription.Add("Resourcefull");
 
-            attributumDescription.Add("Charisma");
-            attributumDescription.Add("Appearance");
-            attributumDescription.Add("Influence");
-            attributumDescription.Add("Luck");
+            //attributumDescription.Add("Charisma");
+            //attributumDescription.Add("Appearance");
+            //attributumDescription.Add("Influence");
+            //attributumDescription.Add("Luck");
 
-            backgroundDescription.Add("None"); backgroundDescription.Add("Sailor");
-            backgroundDescription.Add("Fisher"); backgroundDescription.Add("Woodcutter");
-            backgroundDescription.Add("Vilager"); backgroundDescription.Add("Nooble");
+            //backgroundDescription.Add("None"); backgroundDescription.Add("Sailor");
+            //backgroundDescription.Add("Fisher"); backgroundDescription.Add("Woodcutter");
+            //backgroundDescription.Add("Vilager"); backgroundDescription.Add("Nooble");
             #endregion
 
 
@@ -81,7 +81,7 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBoxResult quitGame = MessageBox.Show("Bioztosan kilép?", "Mineral Dust End?", MessageBoxButton.YesNo);
+            //MessageBoxResult quitGame = MessageBox.Show("Biztosan kilép?", "Mineral Dust End?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             //switch (quitGame)
             //{
             //    case MessageBoxResult.Yes:

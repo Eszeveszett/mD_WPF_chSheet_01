@@ -535,7 +535,30 @@
     <Resource Include="documents\raceAge.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\chIcon\" />
+    <Resource Include="images\chIcon\5.jpg" />
+    <Resource Include="images\chIcon\6.jpg" />
+    <Resource Include="images\chIcon\7.jpg" />
+    <Resource Include="images\chIcon\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\chIcon\1.jpg" />
+    <Resource Include="images\chIcon\10.jpg" />
+    <Resource Include="images\chIcon\11.jpg" />
+    <Resource Include="images\chIcon\12.jpg" />
+    <Resource Include="images\chIcon\13.jpg" />
+    <Resource Include="images\chIcon\14.jpg" />
+    <Resource Include="images\chIcon\15.jpg" />
+    <Resource Include="images\chIcon\16.jpg" />
+    <Resource Include="images\chIcon\17.jpg" />
+    <Resource Include="images\chIcon\18.jpg" />
+    <Resource Include="images\chIcon\19.jpg" />
+    <Resource Include="images\chIcon\2.jpg" />
+    <Resource Include="images\chIcon\20.jpg" />
+    <Resource Include="images\chIcon\21.jpg" />
+    <Resource Include="images\chIcon\22.jpg" />
+    <Resource Include="images\chIcon\3.jpg" />
+    <Resource Include="images\chIcon\4.jpg" />
+    <Resource Include="images\chIcon\9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

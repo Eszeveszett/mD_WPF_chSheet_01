@@ -33,6 +33,8 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
             public string dName { get; set; }
             public string dRace { get; set; }
             public string dGender { get; set; }
+
+            public BitmapImage dImage { get; set; }
         }
 
 
@@ -51,6 +53,7 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
         ObservableCollection<displayedData> raceList { get; set; }
 
         //ObservableCollection<displayedData> Expandinglist = new ObservableCollection<displayedData>();
+
         public drawnCharacterPage()
         {
             InitializeComponent();
@@ -84,22 +87,34 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
             {
                 skills.Add(item);
             }
+
+
+
             for (int c = 0; c < characters.Count; c++)
             {
+
+
                 for (int r = 0; r < races.Count; r++)
                 {
                     if (characters[c].RaceId == races[r].Id)
                     {
+                BitmapImage bi = new BitmapImage();
+
+                bi.BeginInit();
+                bi.UriSource = new Uri(@"/images/chIcon/" + characters[c].RaceId + ".jpg", UriKind.RelativeOrAbsolute);
                         dData.Add(new displayedData()
                         {
                             dcId = characters[c].Id,
                             drId = characters[c].RaceId,
                             dName = characters[c].Name,
                             dRace = races[r].RaceName,
-                            dGender = races[r].Gender
+                            dGender = races[r].Gender,
+                            dImage = bi
                         });
+                bi.EndInit();
                     }
                 }
+
             }
 
             LBO_PlayingCharacter.ItemsSource = dData;
@@ -279,6 +294,18 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
                     }
                 }
             }
+
+            //if (LBO_PlayingCharacter.SelectedItem != null)
+            //{
+            //    BitmapImage bi = new BitmapImage();
+
+            //    bi.BeginInit();
+            //    bi.UriSource = new Uri(@"/images/chIcon/" + ((displayedData)LBO_PlayingCharacter.SelectedItem).drId.ToString() + ".jpg", UriKind.RelativeOrAbsolute);
+            //    bi.EndInit();
+
+                
+            //}
+
             LBO_characterSkills.ItemsSource = karakterskillek;
 
             LBO_raceSkills.ItemsSource = fajskillek;

@@ -6,97 +6,113 @@
         xmlns:local="clr-namespace:mD_WPF_chSheet_01"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1400" FontWeight="Bold" FontSize="14"
-        WindowStartupLocation="CenterScreen">
-    <!-- Height="900" Width="1600" WindowStyle="None" 
-    WindowState="Maximized"-->
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
+    <!-- Height="900" Width="1600"  
+    -->
     <Window.Resources>
-        
+        <Style x:Key="gombStilus" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Blue"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
-        <!--<Image Source="images\bgImages\startScreen.jpg" Stretch="Fill"/>-->
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center"
-                    x:Name="SP_Buttons">
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="50"/>-->
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="50"/>-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="images\bgImages\startScreen.jpg" Stretch="Fill" Grid.ColumnSpan="3"/>
+        <Viewbox Grid.Column="1">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="SP_Buttons">
 
-            <Button Content="Connection" Margin="5" Background="{x:Null}"
+            <Button Content="Connection" Margin="5,35,5,2" Background="{x:Null}"
                 x:Name="BTN_Connection" Click="BTN_Connection_Click"
-                HorizontalAlignment="Center" Width="200" Height="50"
-                FontSize="24">
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="Red"/>
+                        <Setter Property="BorderThickness" Value="25"/>
+                        </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Continue" Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
 
-            <Button Content="Continue" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center" Width="200" Height="50"
-                FontSize="24">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            
-            <Button Content="New Game" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center" Width="200" Height="50"
-                FontSize="24"
+            <Button Content="New Game" Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12"
                 x:Name="BTN_newGame" Click="BTN_newGame_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
 
-
-
-            <Button Content="Load Game" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center"  Width="200" Height="50"
-                FontSize="24">
+            <Button Content="Load Game" Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
 
-            <Button Content="Options" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center"  Width="200" Height="50"
-                FontSize="24">
+            <Button Content="Options" Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            
-            <Button Content="Testing" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center"  Width="200" Height="50"
-                FontSize="24"
+
+            <Button Content="Testing" Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12"
                 x:Name="BTN_testing" Click="BTN_testing_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>            
-            
-            <Button Content="Quit" Margin="5" Background="{x:Null}"
-                HorizontalAlignment="Center"  Width="200" Height="50"
-                FontSize="24"
-                x:Name="BTN_quitGame" Click="BTN_quitGame_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            
 
-            
+            <Button Content="Quit" Margin="5,5,5,35" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12"
+                x:Name="BTN_quitGame" Click="BTN_quitGame_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
-
+        </Viewbox>
         <!--<Frame x:Name="FRM_startPage" NavigationUIVisibility="Hidden"/>-->
     </Grid>
 </Window>

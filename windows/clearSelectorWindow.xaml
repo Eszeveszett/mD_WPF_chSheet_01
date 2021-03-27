@@ -4,13 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
-        mc:Ignorable="d"
-        Title="Clear Selector Window" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen" FontSize="16">
-    <Grid Background="WhiteSmoke">
+        mc:Ignorable="d" x:Name="WDW_Csw"
+        Title="Clear Selector Window" Height="900" Width="1600"
+        WindowStartupLocation="CenterScreen" FontWeight="Bold">
+        <Window.Resources>
+        </Window.Resources>
+    
+    
+        <Viewbox x:Name="VBX_Csw"
+                 Margin="10,0,0,0">
+        <Grid Background="WhiteSmoke"
+          Height="{Binding ElementName=WDW_Csw, Path=ActualHeight}"
+          Width="{Binding ElementName=WDW_Csw, Path=ActualWidth}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <!--<RowDefinition Height="50"/>-->
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
@@ -19,10 +27,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        
 <!--Upper Row: Header-->
         
-        <StackPanel Margin="0,5,0,5" Orientation="Horizontal"
+        <!--<StackPanel Margin="0,5,0,5" Orientation="Horizontal"
             HorizontalAlignment="Center" VerticalAlignment="Center"
             Grid.ColumnSpan="3" Background="Aqua">
 
@@ -43,12 +51,12 @@
 
             <Label Content="Religion"/>
             <Label Width="75"/>
-        </StackPanel>
+        </StackPanel>-->
 
         
         
         
-    <TabControl Grid.Row="1" Grid.ColumnSpan="3">
+    <TabControl Grid.Row="0" Grid.ColumnSpan="3">
         <TabItem Header="Button Zero">
             <Grid Background="LightGreen">
             <Grid.ColumnDefinitions>
@@ -58,48 +66,58 @@
             </Grid.ColumnDefinitions>
 
 <!--Race and gender selection-->
-            <StackPanel Grid.Column="0">
-                <Label Content="Select a race" HorizontalAlignment="Center"
-                FontSize="16" FontWeight="Bold"/>
-                <StackPanel Orientation="Horizontal" Margin="5,0,0,0"
-                x:Name="SP_raceandgender">
-                <ListBox Width="380" Height="300"
-                Name="LBO_rRace" ItemsSource="{Binding}"
-                IsSynchronizedWithCurrentItem="True" 
-                SelectionChanged="LBO_rRace_SelectionChanged">
-                <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderThickness="1" BorderBrush="Firebrick" 
-                    CornerRadius="5" Margin="30,0,30,0">
-                    <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
+            <Grid Name="GRD_rgGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" x:Name="GRD_rgGridColumnOne"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <Viewbox>    
+            <StackPanel Grid.Column="0" Grid.Row="0" 
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Select a race" HorizontalAlignment="Center"
+            FontSize="16" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="5"
+            x:Name="SP_raceandgender" 
+            Width="{Binding ElementName=Sp_rgUpperpanel, Path=ActualWidth}">
+            <ListBox Width="380" Height="300"
+            Name="LBO_rRace" ItemsSource="{Binding}"
+            IsSynchronizedWithCurrentItem="True" 
+            SelectionChanged="LBO_rRace_SelectionChanged">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+            <Border BorderThickness="1" BorderBrush="Firebrick" 
+            CornerRadius="5" Margin="30,0,30,0">
+                
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                        Margin="5,5,15,5">
-                    <Image Source="..\images\bgImages\startScreen.jpg" 
-                        Stretch="Fill" Width="105" Height="80"/>
-                    </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                Margin="5,5,15,5">
+<!--Image Source="..\images\bgImages\startScreen.jpg" -->
+            <Image Source="{Binding picture}"
+                Stretch="UniformToFill" Width="115" Height="85"/>
+            </StackPanel>
 
-                    <StackPanel Grid.Row="0" Grid.Column="1">
-                    <TextBlock Text="{Binding RaceName}" Width="125"
-                        TextAlignment="Center"/>
-                    </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="{Binding RaceName}" Width="125"
+                TextAlignment="Center"/>
+            </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="2">
-                    <TextBlock Text="{Binding Gender}"
-                        TextAlignment="Center"/>
-                    </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Text="{Binding Gender}"
+                TextAlignment="Center"/>
+            </StackPanel>
 
 
-                    </Grid>
-                    </Border>
+            </Grid>
+            </Border>
                 </DataTemplate>
                 </ListBox.ItemTemplate>
                 </ListBox>
@@ -109,33 +127,78 @@
                     --><!--SelectionChanged="LBO_gender_SelectionChanged"--><!--
                     </ListBox>-->
             </StackPanel>
-
-            <StackPanel Margin="5,10,0,0" HorizontalAlignment="Left">
-                <TextBox Width="380" Height="300" x:Name="TBO_raceModifier"
-                Text="Faji sajátosságok" FontSize="36" FontWeight="Bold"
-                TextWrapping="Wrap"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                ScrollViewer.VerticalScrollBarVisibility="Visible"
-                ScrollViewer.CanContentScroll="True"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                </TextBox>
             </StackPanel>
-            </StackPanel>
+            </Viewbox>
 
+            <Viewbox Grid.Column="0" Grid.Row="1" Margin="10,0,10,30">
+            <StackPanel Margin="10" VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
+            <TextBox Width="380" Height="300" x:Name="TBO_raceModifier"
+            Text="Faji sajátosságok" FontSize="36" FontWeight="Bold"
+            TextWrapping="Wrap"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            </TextBox>
+            </StackPanel>   
+            </Viewbox>
+            </Grid>
 <!--CharacterImage-->
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <!--<Button Content="Fajok és nemek"
-            x:Name="BTN_race" Click="BTN_race_Click">
-            </Button>
-            <Button Content="Előélet, előnyök, hátrányok"
-            x:Name="BTN_background" Click="BTN_background_Click"/>-->
-            <Label Content="Page 00" FontSize="24" FontWeight="Bold"
-            Grid.Row="3" Foreground="Aquamarine" Background="Red"
-            HorizontalContentAlignment="Center"/>
+            <StackPanel Grid.Column="1" VerticalAlignment="Bottom">
+                <Viewbox Margin="10,0,10,50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+                        <Image x:Name="IMG_Race" Width="175" Height="175"
+                        Stretch="UniformToFill"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+                        <Label Content="Base Health" FontSize="8"
+                            HorizontalContentAlignment="Center"/>
+                        <ProgressBar Minimum="0" Maximum="60" Height="5" x:Name="PBR_baseHealth"
+                            Foreground="Red"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
+                        <Label Content="Base Stamina" FontSize="8"
+                            HorizontalContentAlignment="Center"/>
+                        <ProgressBar Minimum="0" Maximum="60" Height="5" x:Name="PBR_baseStamina"
+                            Foreground="Yellow"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
+                        <Label Content="Base Mana" FontSize="8"
+                            HorizontalContentAlignment="Center"/>
+                        <ProgressBar Minimum="0" Maximum="60" Height="5" x:Name="PBR_baseMana"
+                            Foreground="Blue"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
+                        <Label Content="Base Impact" FontSize="8"
+                            HorizontalContentAlignment="Center"/>
+                        <ProgressBar Minimum="0" Maximum="60" Height="5" x:Name="PBR_baseImpact"
+                            Foreground="Magenta"/>
+                    </StackPanel>
+
+                </Grid>
+                </Viewbox>
             </StackPanel>
 
 <!--Általános leírása, történelme-->
-        <StackPanel Grid.Column="2">
+            <Viewbox Grid.Column="2">
+            <StackPanel Margin="10,10,10,30">
             <Label Content="History" HorizontalAlignment="Center"
             FontSize="16" FontWeight="Bold"/>
             <TextBox Width="375" Height="600" Margin="0,5,0,0"
@@ -146,6 +209,7 @@
             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             </TextBox>
             </StackPanel>
+            </Viewbox>
             </Grid>
         </TabItem>
         
@@ -161,23 +225,60 @@ később lesz szerepe. Csak itt most elfér-->
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
+            </Grid.RowDefinitions>
+                
+            <Viewbox Grid.Row="0">
             <Label Content="Advantages and disadvantages"
             HorizontalAlignment="Center"
             FontSize="16" FontWeight="Bold"/>
-            <ListBox Width="375" Height="600" x:Name="LBO_advantages"
+            </Viewbox>
+                
+            <Viewbox Grid.Row="1">
+            <ListBox Width="300" Height="300" x:Name="LBO_advantages"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
-            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListBox.ItemTemplate>
             <DataTemplate>
-            <Border>
+            <Border BorderBrush="Aqua" BorderThickness="2" CornerRadius="5">
                 <StackPanel>
-                    
+                <TextBox Text="{Binding adId}" TextWrapping="Wrap"
+                    IsReadOnly="True"/>
+                <TextBox Text="{Binding adName}" TextWrapping="Wrap"
+                    IsReadOnly="True"/>
+                <TextBox Text="{Binding adDesc}" TextWrapping="Wrap"
+                    IsReadOnly="True"/>
                 </StackPanel>
             </Border>
             </DataTemplate>
             </ListBox.ItemTemplate>
             </ListBox>
+            </Viewbox>
+                
+            <Viewbox Grid.Row="2">
+            <ListBox Width="300" Height="300" x:Name="LBO_disadvantages"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+            <Border BorderBrush="Aqua" BorderThickness="2" CornerRadius="5">
+                <StackPanel>
+                <TextBox Text="{Binding disId}" TextWrapping="Wrap"/>
+                <TextBox Text="{Binding disName}" TextWrapping="Wrap"/>
+                <TextBox Text="{Binding disDesc}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+            </DataTemplate>
+            </ListBox.ItemTemplate>
+            </ListBox>
+            </Viewbox>
+            </Grid>
             </StackPanel>
 
 <!--Gombok, amiket a felhasználó nyomkodhat-->
@@ -197,7 +298,7 @@ később lesz szerepe. Csak itt most elfér-->
 aki szerint az jó, hogy a megjegyzéseket három helyen négy
 különmböző jelkombináció közé kell tenni, és nem mondom, hogy bassza
 meg egy elefánt. Megelégszem azzal, ha megujjazza-->
-            <StackPanel Grid.Column="2">
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -213,64 +314,234 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 HorizontalAlignment="Center"/>
                 </StackPanel>
 
-                <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
-                    <ListBox x:Name="myVitality" Width="200" Height="295">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border>
-                            <StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="20,0,0,5">
+                    <ListBox x:Name="LBO_MyVitality" Width="200" Height="295"
+                    HorizontalContentAlignment="Center">
+                    <StackPanel Height="{Binding ElementName=LBO_MyVitality, Path=ActualHeight}">
                                 
-    <Label Content="Vitality" HorizontalContentAlignment="Center"/>
-    <TextBox x:Name="TBO_myVitality" Width="150" IsReadOnly="True" TextAlignment="Center"/>
-    <ProgressBar x:Name="PBR_myVitality" Minimum="30" Maximum="55"
-    Height="10" Margin="5" Foreground="Purple"/>
+                    <Label Content="Vitality" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_MyVitality" Width="150" IsReadOnly="True" 
+                    TextAlignment="Center"/>
+                    <ProgressBar x:Name="PBR_myVitality" Minimum="0" Maximum="75"
+                    Height="10" Margin="5">
+                    <ProgressBar.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="1,0">
+                            <GradientStop Color="Red" Offset="0"/>
+                            <GradientStop Color="DarkRed" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ProgressBar.Foreground>   
+                    </ProgressBar>
 
-    <StackPanel Orientation="Horizontal">
-    <Label Content="Strength" Width="125"/>
-    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_cswStrength"
-    ToolTip="Strength" IsReadOnly="True" Width="50"/>
-    </StackPanel>
-    <ProgressBar x:Name="PBR_cswStrength" Minimum="3" Maximum="30"
-    Height="10" Margin="5" Foreground="BlueViolet"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyStrengthMin"
+                    ToolTip="Strength" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Strength" Width="75" HorizontalContentAlignment="Center"/>
 
-    <StackPanel Orientation="Horizontal">
-    <Label Content="Influence" Width="125"/>
-    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Influence"
-    ToolTip="Influence" IsReadOnly="True" Width="50"/>
-    </StackPanel>
-    <ProgressBar x:Name="PBR_Influence" Minimum="3" Maximum="30"
-    Height="10" Margin="5" Foreground="DarkViolet"/>
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyStrengthMax"
+                    ToolTip="Strength" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myStrength" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Firebrick"/>
 
-    <StackPanel Orientation="Horizontal">
-    <Label Content="Luck" Width="125"/>
-    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Luck"
-    ToolTip="Luck" IsReadOnly="True" Width="50"/>
-    </StackPanel>
-    <ProgressBar x:Name="PBR_Luck" Minimum="3" Maximum="30"
-    Height="10" Margin="5" Foreground="DarkOrchid"/>
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyEnduranceMin"
+                    ToolTip="Strength" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>        
+                    <Label Content="Endurence" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyEnduranceMax"
+                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myEndurance" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Crimson"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myToughtnessMin"
+                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Toughtness" Width="75" HorizontalContentAlignment="Center"/>
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myToughtnessMax"
+                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myToughtness" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Tomato"/>
                                 
-                            </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
+                    </StackPanel>
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
-                    <ListBox Width="200" Height="295">
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,20,0">
+                    <ListBox x:Name="LBO_MyDexterity" Width="200" Height="295"
+                    HorizontalContentAlignment="Center">
+                    <StackPanel Height="{Binding ElementName=LBO_MyDexterity, Path=ActualHeight}">
+                                
+                    <Label Content="Dexterity" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_MyDexterity" Width="150" IsReadOnly="True" 
+                    TextAlignment="Center"/>
+                    <ProgressBar x:Name="PBR_myDexterity" Minimum="0" Maximum="75"
+                    Height="10" Margin="5" Foreground="SeaGreen"/>
 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAgilityMin"
+                    ToolTip="Agility" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Agility" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAgilityMax"
+                    ToolTip="Agility" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myAgility" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="DarkGreen"/>
+
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyPerceptionMin"
+                    ToolTip="Perception" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
+                        
+                    <Label Content="Perception" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyPerceptionMax"
+                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myPerception" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="YellowGreen"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myQuicknessMin"
+                    ToolTip="Quickness" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Quickness" Width="75" HorizontalContentAlignment="Center"/>
+                        
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myQuicknessMax"
+                    ToolTip="Quickness" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myQuickness" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Olive"/>
+                                
+                    </StackPanel>
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel Grid.Column="0" Grid.Row="2" Margin="5">
-                    <ListBox Width="200" Height="295">
+                <StackPanel Grid.Column="0" Grid.Row="2" Margin="20,5,0,0">
+                    <ListBox x:Name="LBO_MyIntuition" Width="200" Height="295"
+                    HorizontalContentAlignment="Center">
+                    <StackPanel Height="{Binding ElementName=LBO_MyIntuition, Path=ActualHeight}">
+                                
+                    <Label Content="Intuition" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_MyIntuition" Width="150" IsReadOnly="True" 
+                    TextAlignment="Center"/>
+                    <ProgressBar x:Name="PBR_myIntuition" Minimum="0" Maximum="75"
+                    Height="10" Margin="5" Foreground="SeaGreen"/>
 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyIntelligenceMin"
+                    ToolTip="IntelligenceMin" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Intelligence" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyIntelligenceMax"
+                    ToolTip="IntelligenceMax" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myIntelligence" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="DarkGreen"/>
+
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyWisdomMin"
+                    ToolTip="Wisdom" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
+                        
+                    <Label Content="Wisdom" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyWisdomMax"
+                    ToolTip="Wisdom" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myWisdom" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="YellowGreen"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyResourcefullMin"
+                    ToolTip="ResourcefullMin" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Resourcefull" Width="75" HorizontalContentAlignment="Center"/>
+                        
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyResourcefullMax"
+                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myLuck" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Olive"/>
+                                
+                    </StackPanel>
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" Grid.Row="2" Margin="5">
-                    <ListBox Width="200" Height="295">
+                <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,5,20,0">
+                    <ListBox x:Name="LBO_MyCharism" Width="200" Height="295"
+                    HorizontalContentAlignment="Center">
+                    <StackPanel Height="{Binding ElementName=LBO_MyCharism, Path=ActualHeight}">
+                                
+                    <Label Content="Charism" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_MyCharism" Width="150" IsReadOnly="True" 
+                    TextAlignment="Center"/>
+                    <ProgressBar x:Name="PBR_myCharism" Minimum="0" Maximum="75"
+                    Height="10" Margin="5" Foreground="SeaGreen"/>
 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAppearanceMin"
+                    ToolTip="AppearanceMin" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Intelligence" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAppearanceMax"
+                    ToolTip="AppearanceMax" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myAppearance" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="DarkGreen"/>
+
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyInfluenceMin"
+                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
+                        
+                    <Label Content="Influence" Width="75" HorizontalContentAlignment="Center"/>
+
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyInfluenceMax"
+                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myInfluence" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="YellowGreen"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyLuckMin"
+                    ToolTip="LuckMin" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        
+                    <Label Content="Resourcefull" Width="75" HorizontalContentAlignment="Center"/>
+                        
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyLuckMax"
+                    ToolTip="Resourcefull" IsReadOnly="True" Width="30"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <ProgressBar x:Name="PBR_myResourcefull" Minimum="3" Maximum="30"
+                    Height="10" Margin="5" Foreground="Olive"/>
+                                
+                    </StackPanel>
                     </ListBox>
                 </StackPanel>
             </Grid>
@@ -484,16 +755,16 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             Grid.Row="2" Grid.ColumnSpan="3">
             
 <!--Button. Gender, name, race-->
-        <Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
+        <!--<Button Content="0" Margin="5,10,15,10" Padding="10,0,10,0"
             VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-            x:Name="BTN_0"/>
+            x:Name="BTN_0"/>-->
 
 <!--Button. Attributions, inborn resistance-->
         
-        <Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
+        <!--<Button Content="1" Margin="5,10,15,10" Padding="10,0,10,0"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
-            x:Name="BTN_01"/>
+            x:Name="BTN_01"/>-->
         
 <!--Butoff. Background, abilitys-->
         
@@ -504,7 +775,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             
 <!--Butoff. Presence... outlooking... appearance... meg az anyád, az-->
         
-        <Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
+        <!--<Button Content="3" Margin="5,10,15,10" Padding="10,0,10,0"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             x:Name="BTN_03"/>
@@ -534,7 +805,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
         <Button Content="9" Margin="5,10,15,10" Padding="10,0,10,0"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
-            x:Name="BTN_9"/>
+            x:Name="BTN_9"/>-->
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2"
@@ -545,4 +816,5 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             x:Name="BTN_finaly" Click="BTN_finaly_Click"/>
         </StackPanel>
     </Grid>
+    </Viewbox>
 </Window>
