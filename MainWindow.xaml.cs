@@ -81,16 +81,16 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBoxResult quitGame = MessageBox.Show("Biztosan kilép?", "Mineral Dust End?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-            //switch (quitGame)
-            //{
-            //    case MessageBoxResult.Yes:
-            //        Close();
-            //        break;
-            //    case MessageBoxResult.No:
-            //        break;
-            //}
-            //Thread.Sleep(250);
+            MessageBoxResult quitGame = MessageBox.Show("Really escape?", "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch (quitGame)
+            {
+                case MessageBoxResult.Yes:
+                    Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+            Thread.Sleep(250);
             Close();
 
         }

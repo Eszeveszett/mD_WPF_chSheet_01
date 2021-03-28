@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1400" FontWeight="Bold" FontSize="14"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
-    <!-- Height="900" Width="1600"  
-    -->
+    <!-- Height="900" Width="1600"  -->
+    
     <Window.Resources>
         <Style x:Key="gombStilus" TargetType="{x:Type Button}">
             <Style.Triggers>

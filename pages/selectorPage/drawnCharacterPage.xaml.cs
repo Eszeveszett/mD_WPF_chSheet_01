@@ -13,7 +13,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Microsoft.EntityFrameworkCore;
-
 using System.Linq;
 using System.Collections.ObjectModel;
 
@@ -21,9 +20,9 @@ using mD_WPF_chSheet_01.Models.dzeta;
 
 namespace mD_WPF_chSheet_01.pages.selectorPage
 {
-    /// <summary>
-    /// Interaction logic for drawnCharacterPage.xaml
-    /// </summary>
+    // <summary>
+    // Interaction logic for drawnCharacterPage.xaml
+    // </summary>
     public partial class drawnCharacterPage : Page
     {
         public class displayedData

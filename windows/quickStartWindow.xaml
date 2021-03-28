@@ -8,7 +8,8 @@
         Title="quickStartWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" >
     <Grid>
-        <!--<Image Source="..\images\bgImages\chreateCharacter.jpg" Stretch="Fill"/>-->
+        <!---->
+        <Image Source="..\images\bgImages\chreateCharacter.jpg" Stretch="Fill"/>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
             <Button Content="New Caracter" Margin="10" Padding="10" Width="150"
