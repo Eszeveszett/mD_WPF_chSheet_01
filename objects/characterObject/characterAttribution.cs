@@ -17,9 +17,9 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         public int charisma { get; set; }
         public int charismaBonus { get; set; }
 
-        public int endurance { get; set; }
-        public int enduranceA { get; set; }
-        public int enduranceP { get; set; }
+        public int endurence { get; set; }
+        public int endurenceA { get; set; }
+        public int endurenceP { get; set; }
         public int toughness { get; set; }
         public int toughnessA { get; set; }
         public int toughnessP { get; set; }
@@ -59,7 +59,7 @@ namespace mD_WPF_chSheet_01.objects.characterObject
 
         public characterAttribution
             (int vitality, int vitalityBonus, int dexterity, int dexterityBonus, int intuition, int intuitionBonus, int charisma, int charismaBonus,
-            int endurance, int enduranceA, int enduranceP, int toughness, int toughnessA, int toughnessP, int strength, int strengthA, int strengthP,
+            int endurence, int endurenceA, int endurenceP, int toughness, int toughnessA, int toughnessP, int strength, int strengthA, int strengthP,
             int perception, int perceptionA, int perceptionP, int quickness, int quicknessA, int quicknessP, int agility, int agilityA, int agilityP,
             int intelligence, int intelligenceA, int intelligenceP, int wisdom, int wisdomA, int wisdomP, int resourcefull, int resourcefullA, int resourcefullP,
             int influence, int influenceA, int influenceP, int appearance, int appearanceA, int appearanceP, int luck, int luckA, int luckP)
@@ -73,9 +73,9 @@ namespace mD_WPF_chSheet_01.objects.characterObject
             this.charisma = charisma;
             this.charismaBonus = charismaBonus;
 
-            this.endurance = endurance;
-            this.enduranceA = enduranceA;
-            this.enduranceP = enduranceP;
+            this.endurence = endurence;
+            this.endurenceA = endurenceA;
+            this.endurenceP = endurenceP;
 
             this.toughness = toughness;
             this.toughnessA = toughnessA;
@@ -126,7 +126,7 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         //    return string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}{20}{21}" +
         //        "{22}{23}{24}{25}{26}{27}{28}{29}{30}{31}{32}{33}{34}{35}{36}{37}{38}{39}{40}{41}{42}{43}",
         //        vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
-        //        endurance, toughness, strength, enduranceA, toughnessA, strengthA, enduranceP, toughnessP, strengthP,
+        //        endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
         //        perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,
         //        intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
         //        influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
@@ -134,11 +134,11 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         public override string ToString()
         {
             return string.Format("Vitality: {0} Base Health: {4}\t\tDexterity: {1} Base Exhaustion: {5}\tIntuition: {2} Base Mana: {6}\tCharisma: {3} Base Charm: {7}\n" +
-            "endurance: {8}\tI: {11} II: {14}\t\tagility:    {19} I: {22} II: {25}\t\tintelligence: {26} I: {29} II: {32}\tinfluence:  {35} I: {38} II: {41}\n" +
+            "endurence: {8}\tI: {11} II: {14}\t\tagility:    {19} I: {22} II: {25}\t\tintelligence: {26} I: {29} II: {32}\tinfluence:  {35} I: {38} II: {41}\n" +
             "toughness: {9}\tI: {12} II: {15}\t\tperception: {17} I: {20} II: {23}\t\twisdom:       {27} I: {30} II: {33}\tappearance: {36} I: {39} II: {42}\n" +
             "strength:  {10}\tI: {13} II: {16}\t\tquickness:  {18} I: {21} II: {24}\t\tresourcefull: {28} I: {31} II: {34}\tluck:       {37} I: {40} II: {43}\n",
                     vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
-                    endurance, toughness, strength, enduranceA, toughnessA, strengthA, enduranceP, toughnessP, strengthP,
+                    endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
                     perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,
                     intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
                     influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);

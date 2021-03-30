@@ -65,5 +65,9 @@
                     HorizontalAlignment="Left" Width="125"/>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Column="2" Margin="5">
+            <TextBox x:Name="TBO_error" Width="300" Margin="5"/>
+            <TextBox x:Name="TBO_display" Width="300" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Page>

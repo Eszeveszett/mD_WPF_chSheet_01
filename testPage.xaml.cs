@@ -34,66 +34,86 @@ namespace mD_WPF_chSheet_01
         public testPage()
         {
                 InitializeComponent();
+                //allAttribution();
+        }
+
+        public void allAttribution()
+        {
+            List<characterAttribution> attributionValue = new List<characterAttribution>();
+            attributionValue.Add(new characterAttribution(0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0));                      //44
+            List<attributionBonus> bonus = new List<attributionBonus>(); bonus.Add(new attributionBonus(0, 0, 0));                                             //3
+            mainAttributionselector(attributionValue, bonus);
+
+            for (int i = 0; i < attributionValue.Count; i++)
+            {
+                TBO_display.Text = string.Format("{0}",attributionValue[i]);
+            }
+
+            //Console.WriteLine("allAttributum");
         }
 
         public void mainAttributionselector(List<characterAttribution> attributionMain, List<attributionBonus> bonus)
         {
-            List<raceAttributionBorder> attributumBorder = new List<raceAttributionBorder>();
-            raceSelector(attributumBorder);
+            List<raceAttributionBorder> attributionBorder = new List<raceAttributionBorder>();
+            raceSelector(attributionBorder);
             List<string> attributumName = new List<string>();
             List<string> myattributumName = new List<string>(); List<int> myattributumValue = new List<int>();
             attributumName.Add("Vitality"); attributumName.Add("Dexterity"); attributumName.Add("Intuition"); attributumName.Add("Charisma");
             int distributedPoint = 50;
             List<int> minValue = new List<int>();
-            minValue.Add(attributumBorder[0].enduranceMin + attributumBorder[0].toughnessMin + attributumBorder[0].strengthMin);
-            minValue.Add(attributumBorder[0].agilityMin + attributumBorder[0].quicknessMin + attributumBorder[0].perceptionMin);
-            minValue.Add(attributumBorder[0].intelligenceMin + attributumBorder[0].resourcefullMin + attributumBorder[0].wisdomMin);
-            minValue.Add(attributumBorder[0].appearanceMin + attributumBorder[0].influenceMin + attributumBorder[0].luckMin);
+            minValue.Add(attributionBorder[0].endurenceMin + attributionBorder[0].toughnessMin + attributionBorder[0].strengthMin);
+            minValue.Add(attributionBorder[0].agilityMin + attributionBorder[0].quicknessMin + attributionBorder[0].perceptionMin);
+            minValue.Add(attributionBorder[0].intelligenceMin + attributionBorder[0].resourcefullMin + attributionBorder[0].wisdomMin);
+            minValue.Add(attributionBorder[0].appearanceMin + attributionBorder[0].influenceMin + attributionBorder[0].luckMin);
 
             while (distributedPoint != 30)
             {
                 for (int i = 0; i < attributumName.Count; i++)
                 {
-                    Console.WriteLine("\t{0,5} {1,5} {2,5}", i + 1, attributumName[i], minValue[i]);
+                    TBO_display.Text = string.Format("\t{0,5} {1,5} {2,5}", i + 1, attributumName[i], minValue[i]);
                 }
                 for (int i = 0; i < attributumName.Count; i++)
                 {
                     if (distributedPoint < minValue[i]) //  Max Value Chesk is missing
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Clear();
-                        Console.WriteLine("The character is unviable");
+                        //Console.ForegroundColor = ConsoleColor.Red;
+                        //Console.Clear();
+                        TBO_display.Text = string.Format("The character is unviable");
                         Thread.Sleep(500);
-                        Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        //Console.Clear();
+                        //Console.ForegroundColor = ConsoleColor.Gray;
                         distributedPoint = 50;
                         attributumName.Clear(); minValue.Clear();
                         attributumName.Add("Vitality"); attributumName.Add("Dexterity"); attributumName.Add("Intuition"); attributumName.Add("Charisma");
-                        minValue.Add(attributumBorder[0].enduranceMin + attributumBorder[0].toughnessMin + attributumBorder[0].strengthMin);
-                        minValue.Add(attributumBorder[0].agilityMin + attributumBorder[0].quicknessMin + attributumBorder[0].perceptionMin);
-                        minValue.Add(attributumBorder[0].intelligenceMin + attributumBorder[0].resourcefullMin + attributumBorder[0].wisdomMin);
-                        minValue.Add(attributumBorder[0].appearanceMin + attributumBorder[0].influenceMin + attributumBorder[0].luckMin);
+                        minValue.Add(attributionBorder[0].endurenceMin + attributionBorder[0].toughnessMin + attributionBorder[0].strengthMin);
+                        minValue.Add(attributionBorder[0].agilityMin + attributionBorder[0].quicknessMin + attributionBorder[0].perceptionMin);
+                        minValue.Add(attributionBorder[0].intelligenceMin + attributionBorder[0].resourcefullMin + attributionBorder[0].wisdomMin);
+                        minValue.Add(attributionBorder[0].appearanceMin + attributionBorder[0].influenceMin + attributionBorder[0].luckMin);
                         for (int q = 0; q < attributumName.Count; q++)
                         {
-                            Console.WriteLine("\t{0,5} {1,5}", q + 1, attributumName[q]);
+                            TBO_display.Text = string.Format("{0,5} {1,5}", q + 1, attributumName[q]);
                         }
                     }
                 }
                 if (distributedPoint.Equals(50))
                 {
-                    Console.WriteLine("What is youre first ability?");
+                    TBO_display.Text = string.Format("What is youre first ability?");
                 }
                 else if (distributedPoint.Equals(45))
                 {
-                    Console.WriteLine("What is youre second ability?");
+                    TBO_display.Text = string.Format("What is youre second ability?");
                 }
                 else if (distributedPoint.Equals(40))
                 {
-                    Console.WriteLine("What is youre third ability?");
+                    TBO_display.Text = string.Format("What is youre third ability?");
                 }
                 else
                 {
-                    Console.WriteLine("What is youre fourth ability?");
+                    TBO_display.Text = string.Format("What is youre fourth ability?");
                 }
                 try
                 {
@@ -106,7 +126,7 @@ namespace mD_WPF_chSheet_01
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Relax");
+                    TBO_display.Text = string.Format("Relax");
                 }
             }
             for (int i = 0; i < myattributumName.Count; i++)
@@ -134,16 +154,16 @@ namespace mD_WPF_chSheet_01
             }
             foreach (var item in attributionMain)
             {
-                Console.WriteLine("{0,-5}", item);
+                TBO_display.Text = string.Format("{0,-5}", item);
             }
-            vitality(attributionMain, bonus, attributumBorder);
-            Console.Clear();
-            dexterity(attributionMain, bonus, attributumBorder);
-            Console.Clear();
-            intuition(attributionMain, bonus, attributumBorder);
-            Console.Clear();
-            charisma(attributionMain, bonus, attributumBorder);
-            Console.Clear();
+            //vitality(attributionMain, bonus, attributumBorder);
+            //Console.Clear();
+            //dexterity(attributionMain, bonus, attributumBorder);
+            //Console.Clear();
+            //intuition(attributionMain, bonus, attributumBorder);
+            //Console.Clear();
+            //charisma(attributionMain, bonus, attributumBorder);
+            //Console.Clear();
             //for (int i = 0; i < myattributumName.Count; i++)
             //{
             //    Console.WriteLine("{0}",myattributumName[i]);
@@ -261,24 +281,7 @@ namespace mD_WPF_chSheet_01
             }
         }
 
-        public void allAttribution()
-        {
-            List<characterAttribution> attributumValue = new List<characterAttribution>();
-            attributumValue.Add(new characterAttribution(0, 0, 0, 0, 0, 0, 0, 0,
-                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                            0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                            0, 0, 0, 0, 0, 0, 0, 0, 0));                      //44
-            List<attributionBonus> bonus = new List<attributionBonus>(); bonus.Add(new attributionBonus(0, 0, 0));                                             //3
-            mainAttributionselector(attributumValue, bonus);
 
-            for (int i = 0; i < attributumValue.Count; i++)
-            {
-                Console.WriteLine(attributumValue[i]);
-            }
-
-            //Console.WriteLine("allAttributum");
-        }
 
         public void attributionBonus(List<attributionBonus> bonus)
         {
@@ -297,7 +300,7 @@ namespace mD_WPF_chSheet_01
             int mainAttributes = 3; int value = 50;
             while (!mainAttributes.Equals(-1))
             {
-                if ((attributumBorder[0].enduranceMin + attributumBorder[0].toughnessMin + attributumBorder[0].strengthMin).Equals(value))
+                if ((attributumBorder[0].endurenceMin + attributumBorder[0].toughnessMin + attributumBorder[0].strengthMin).Equals(value))
                 {
                     if (mainAttributes.Equals(3))
                     {
@@ -381,17 +384,17 @@ namespace mD_WPF_chSheet_01
         public void vitality(List<characterAttribution> attributionMain, List<attributionBonus> bonus, List<raceAttributionBorder> attributionBorder)
         {
             List<int> lowerBorder = new List<int>(); List<int> upperBorder = new List<int>();
-            lowerBorder.Add(attributionBorder[0].enduranceMin); lowerBorder.Add(attributionBorder[0].toughnessMin); lowerBorder.Add(attributionBorder[0].strengthMin);
-            upperBorder.Add(attributionBorder[0].enduranceMax); upperBorder.Add(attributionBorder[0].toughnessMax); upperBorder.Add(attributionBorder[0].strengthMax);
+            lowerBorder.Add(attributionBorder[0].endurenceMin); lowerBorder.Add(attributionBorder[0].toughnessMin); lowerBorder.Add(attributionBorder[0].strengthMin);
+            upperBorder.Add(attributionBorder[0].endurenceMax); upperBorder.Add(attributionBorder[0].toughnessMax); upperBorder.Add(attributionBorder[0].strengthMax);
             attributionBonus(bonus);
             List<string> attributumName = new List<string>();
-            attributumName.Add("Endurance"); attributumName.Add("Toughness"); attributumName.Add("Strength");
+            attributumName.Add("endurence"); attributumName.Add("Toughness"); attributumName.Add("Strength");
             List<int> attributumValue = new List<int>();
             attributumValue.Add(lowerBorder[0]); attributumValue.Add(lowerBorder[1]); attributumValue.Add(lowerBorder[2]);
             List<int> activebonusValue = new List<int>(); List<int> passivebonusValue = new List<int>();
             activebonusValue.Add(-9); activebonusValue.Add(-9); activebonusValue.Add(-9);
             passivebonusValue.Add(-9); passivebonusValue.Add(-9); passivebonusValue.Add(-9);
-            int remainingPoint = attributionMain[0].vitality - (attributionBorder[0].enduranceMin + attributionBorder[0].toughnessMin + attributionBorder[0].strengthMin);
+            int remainingPoint = attributionMain[0].vitality - (attributionBorder[0].endurenceMin + attributionBorder[0].toughnessMin + attributionBorder[0].strengthMin);
             while (remainingPoint != 0)
             {
                 for (int i = 0; i < attributumName.Count; i++)
@@ -481,7 +484,7 @@ namespace mD_WPF_chSheet_01
                     Console.WriteLine();
                 }
             }
-            attributionMain[0].endurance = attributumValue[0]; attributionMain[0].enduranceA = activebonusValue[0]; attributionMain[0].enduranceP = passivebonusValue[0];
+            attributionMain[0].endurence = attributumValue[0]; attributionMain[0].endurenceA = activebonusValue[0]; attributionMain[0].endurenceP = passivebonusValue[0];
             attributionMain[0].toughness = attributumValue[1]; attributionMain[0].toughnessA = activebonusValue[1]; attributionMain[0].toughnessP = passivebonusValue[1];
             attributionMain[0].strength = attributumValue[2];  attributionMain[0].strengthA = activebonusValue[2];  attributionMain[0].strengthP = passivebonusValue[2];
         }

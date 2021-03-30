@@ -8,8 +8,8 @@ namespace mD_WPF_chSheet_01.objects.characterObject
 {
     public class raceAttributionBorder
     {
-        public int enduranceMin { get; set; }
-        public int enduranceMax { get; set; }
+        public int endurenceMin { get; set; }
+        public int endurenceMax { get; set; }
         public int toughnessMin { get; set; }
         public int toughnessMax { get; set; }
         public int strengthMin { get; set; }
@@ -36,13 +36,13 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         public int luckMin { get; set; }
         public int luckMax { get; set; }
 
-        public raceAttributionBorder(int enduranceMin, int enduranceMax, int toughnessMin, int toughnessMax, int strengthMin, int strengthMax,
+        public raceAttributionBorder(int endurenceMin, int endurenceMax, int toughnessMin, int toughnessMax, int strengthMin, int strengthMax,
                                     int perceptionMin, int perceptionMax, int quicknessMin, int quicknessMax, int agilityMin, int agilityMax,
                                     int intelligenceMin, int intelligenceMax, int wisdomMin, int wisdomMax, int resourcefullMin, int resourcefullMax,
                                     int influenceMin, int influenceMax, int appearanceMin, int appearanceMax, int luckMin, int luckMax)
         {
-            this.enduranceMin = enduranceMin;
-            this.enduranceMax = enduranceMax;
+            this.endurenceMin = endurenceMin;
+            this.endurenceMax = endurenceMax;
             this.toughnessMin = toughnessMin;
             this.toughnessMax = toughnessMax;
             this.strengthMin = strengthMin;
@@ -74,7 +74,7 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         {
             return string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} " +
                                  "{12} {13} {14} {15} {16} {17} {18} {19} {20} {21} {22} {23}",
-                                enduranceMin, enduranceMax, toughnessMin, toughnessMax, strengthMin, strengthMax,
+                                endurenceMin, endurenceMax, toughnessMin, toughnessMax, strengthMin, strengthMax,
                                 perceptionMin, perceptionMax, quicknessMin, quicknessMax, agilityMin, agilityMax,
                                 intelligenceMin, intelligenceMax, wisdomMin, wisdomMax, resourcefullMin, resourcefullMax,
                                 influenceMin, influenceMax, appearanceMin, appearanceMax, luckMin, luckMax);
