@@ -131,12 +131,24 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         //        intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
         //        influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
         //}
+        //public override string ToString()
+        //{
+        //    return string.Format("Vitality: {0} Base Health: {4}\t\tDexterity: {1} Base Exhaustion: {5}\tIntuition: {2} Base Mana: {6}\tCharisma: {3} Base Charm: {7}\n" +
+        //    "endurence: {8}\tI: {11} II: {14}\t\tagility:    {19} I: {22} II: {25}\t\tintelligence: {26} I: {29} II: {32}\tinfluence:  {35} I: {38} II: {41}\n" +
+        //    "toughness: {9}\tI: {12} II: {15}\t\tperception: {17} I: {20} II: {23}\t\twisdom:       {27} I: {30} II: {33}\tappearance: {36} I: {39} II: {42}\n" +
+        //    "strength:  {10}\tI: {13} II: {16}\t\tquickness:  {18} I: {21} II: {24}\t\tresourcefull: {28} I: {31} II: {34}\tluck:       {37} I: {40} II: {43}\n",
+        //            vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
+        //            endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
+        //            perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,
+        //            intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
+        //            influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
+        //}
         public override string ToString()
         {
-            return string.Format("Vitality: {0} Base Health: {4}\t\tDexterity: {1} Base Exhaustion: {5}\tIntuition: {2} Base Mana: {6}\tCharisma: {3} Base Charm: {7}\n" +
-            "endurence: {8}\tI: {11} II: {14}\t\tagility:    {19} I: {22} II: {25}\t\tintelligence: {26} I: {29} II: {32}\tinfluence:  {35} I: {38} II: {41}\n" +
-            "toughness: {9}\tI: {12} II: {15}\t\tperception: {17} I: {20} II: {23}\t\twisdom:       {27} I: {30} II: {33}\tappearance: {36} I: {39} II: {42}\n" +
-            "strength:  {10}\tI: {13} II: {16}\t\tquickness:  {18} I: {21} II: {24}\t\tresourcefull: {28} I: {31} II: {34}\tluck:       {37} I: {40} II: {43}\n",
+            return string.Format("Vitality: {0} Base Health: {4}Dexterity: {1} Base Exhaustion: {5}Intuition: {2} Base Mana: {6}Charisma: {3} Base Charm: {7}\n" +
+            "endurence: {8}I: {11} II: {14}agility:    {19} I: {22} II: {25}intelligence: {26} I: {29} II: {32}influence:  {35} I: {38} II: {41}\n" +
+            "toughness: {9}I: {12} II: {15}perception: {17} I: {20} II: {23}wisdom:       {27} I: {30} II: {33}appearance: {36} I: {39} II: {42}\n" +
+            "strength:  {10}I: {13} II: {16}quickness:  {18} I: {21} II: {24}resourcefull: {28} I: {31} II: {34}luck:       {37} I: {40} II: {43}\n",
                     vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
                     endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
                     perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,

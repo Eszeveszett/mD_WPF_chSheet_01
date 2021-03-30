@@ -361,5 +361,8 @@ Hát a lónak a faszát-->
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button x:Name="BTN_rPrint" Content="Print" Click="BTN_rPrint_Click"
+            VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+            Margin="5" Padding="5" Width="100"/>
     </Grid>
 </Page>

@@ -31,22 +31,26 @@ namespace mD_WPF_chSheet_01
     /// </summary>
     public partial class testPage : Page
     {
+        List<characterAttribution> attributionValue = new List<characterAttribution>();
         public testPage()
         {
-                InitializeComponent();
-                //allAttribution();
+            InitializeComponent();
+
+            
+            allAttribution();
+            SP_Attributions.DataContext = attributionValue;
         }
 
         public void allAttribution()
         {
-            List<characterAttribution> attributionValue = new List<characterAttribution>();
+            //List<characterAttribution> attributionValue = new List<characterAttribution>();
             attributionValue.Add(new characterAttribution(0, 0, 0, 0, 0, 0, 0, 0,
                                             0, 0, 0, 0, 0, 0, 0, 0, 0,
                                             0, 0, 0, 0, 0, 0, 0, 0, 0,
                                             0, 0, 0, 0, 0, 0, 0, 0, 0,
                                             0, 0, 0, 0, 0, 0, 0, 0, 0));                      //44
             List<attributionBonus> bonus = new List<attributionBonus>(); bonus.Add(new attributionBonus(0, 0, 0));                                             //3
-            mainAttributionselector(attributionValue, bonus);
+            //mainAttributionselector(attributionValue, bonus);
 
             for (int i = 0; i < attributionValue.Count; i++)
             {
@@ -59,7 +63,7 @@ namespace mD_WPF_chSheet_01
         public void mainAttributionselector(List<characterAttribution> attributionMain, List<attributionBonus> bonus)
         {
             List<raceAttributionBorder> attributionBorder = new List<raceAttributionBorder>();
-            raceSelector(attributionBorder);
+            //raceSelector(attributionBorder);
             List<string> attributumName = new List<string>();
             List<string> myattributumName = new List<string>(); List<int> myattributumValue = new List<int>();
             attributumName.Add("Vitality"); attributumName.Add("Dexterity"); attributumName.Add("Intuition"); attributumName.Add("Charisma");
@@ -83,7 +87,7 @@ namespace mD_WPF_chSheet_01
                         //Console.ForegroundColor = ConsoleColor.Red;
                         //Console.Clear();
                         TBO_display.Text = string.Format("The character is unviable");
-                        Thread.Sleep(500);
+                        //Thread.Sleep(500);
                         //Console.Clear();
                         //Console.ForegroundColor = ConsoleColor.Gray;
                         distributedPoint = 50;
@@ -117,7 +121,7 @@ namespace mD_WPF_chSheet_01
                 }
                 try
                 {
-                    int pickingattributum = Convert.ToInt32(Console.ReadLine());
+                    int pickingattributum = Convert.ToInt32(Console.ReadLine());            //  ???
                     minValue.Remove(minValue[pickingattributum - 1]);
                     myattributumName.Add(attributumName[pickingattributum - 1]);
                     myattributumValue.Add(distributedPoint);
@@ -180,103 +184,104 @@ namespace mD_WPF_chSheet_01
             pickedRace.Add("Townsman"); pickedRace.Add("Nomad"); pickedRace.Add("Savage");
             for (int i = 0; i < pickedRace.Count; i++)
             {
-                Console.WriteLine("{0} {1}", i + 1, pickedRace[i]);
+                TBO_display.Text = string.Format("{0} {1}", i + 1, pickedRace[i]);
             }
 
             bool pick = false;
             while (!pick.Equals(true))
             {
-                Console.WriteLine("Picking you'r race");
+                TBO_display.Text = string.Format("Picking you'r race");
                 try
                 {
-                    int picked = Convert.ToInt32(Console.ReadLine());
-                    switch (picked)
+                    //int picked = Convert.ToInt32(Console.ReadLine());
+                    TBO_error.Text = "";
+                    switch (Convert.ToInt32(TBO_error.Text))
                     {
                         case (1):
                             mountainDwarf(attributionBorder); Console.WriteLine("You are one Dwarf. Mountain Dwarf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}",item);
                             }
                             pick = true; break;
                         case (2):
                             shadowElf(attributionBorder); Console.WriteLine("You are one Elf. Shadow Elf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (3):
                             surfaceDwarf(attributionBorder); Console.WriteLine("You are one Dwarf. Surface Dwarf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (4):
                             hillDwarf(attributionBorder); Console.WriteLine("You are one Dwarf. Hill Dwarf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (5):
                             northmen(attributionBorder); Console.WriteLine("You are one Human. Nord. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (6):
                             forestElf(attributionBorder); Console.WriteLine("You are one Elf. Forest Elf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (7):
                             swampElf(attributionBorder); Console.WriteLine("You are one Elf. The real, liar, bastard Swamp Elf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (8):
                             townElf(attributionBorder); Console.WriteLine("You are one Elf. Town Elf. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (9):
                             townsman(attributionBorder); Console.WriteLine("You are Human. Townsman. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (10):
                             nomad(attributionBorder); Console.WriteLine("You are one Human. Nomad. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         case (11):
                             savage(attributionBorder); Console.WriteLine("You are one Human. Savage. Your ability minimum and maximum is.:");
                             foreach (var item in attributionBorder)
                             {
-                                Console.WriteLine(item);
+                                TBO_display.Text = string.Format("{0}", item);
                             }
                             pick = true; break;
                         default:
-                            Console.WriteLine("Feltöltés alatt");
+                            TBO_display.Text = "Feltöltés alatt";
                             break;
                     }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Relax");
+                    TBO_display.Text = "Relax";
                 }
             }
         }
@@ -869,5 +874,6 @@ namespace mD_WPF_chSheet_01
             attributionBorder.Add(new raceAttributionBorder(5, 16, 3, 16, 5, 18, 10, 25, 10, 25, 10, 25, 5, 16, 5, 16, 5, 20, 3, 15, 5, 20, 5, 25));
         }
         #endregion
+
     }
 }

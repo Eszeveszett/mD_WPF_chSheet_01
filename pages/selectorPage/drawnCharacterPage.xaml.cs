@@ -309,5 +309,10 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
 
             LBO_raceSkills.ItemsSource = fajskillek;
         }
+
+        private void BTN_rPrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

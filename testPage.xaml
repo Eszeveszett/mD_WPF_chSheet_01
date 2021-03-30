@@ -18,38 +18,162 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="5"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel x:Name="SP_Attributions" 
+            Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="5"
+            HorizontalAlignment="Center" VerticalAlignment="Center">
             
             <StackPanel Orientation="Horizontal" Margin="5">
                 <StackPanel>
                     <Label Content="Vitality" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                <ListBox x:Name="LBO_tVitality" Height="300" Width="200" Margin="5">
-                    
-                </ListBox>
+                    <TextBox x:Name="TBO_tVitalityQuality" IsReadOnly="True"
+                        Width="100" HorizontalContentAlignment="Center"/>
+                    <ListBox x:Name="LBO_tVitality" Height="300" Width="200" Margin="5" 
+                    ItemsSource="{Binding}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                
+                                <Label Content="Endurence"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Text="{Binding endurence}" Margin="5"
+                                    BorderBrush="Red" BorderThickness="2"/>
+                                <TextBox Text="{Binding endurenceA}" Margin="5"
+                                    BorderBrush="Red" BorderThickness="2"/>
+                                <TextBox Text="{Binding endurenceP}" Margin="5"
+                                    BorderBrush="Red" BorderThickness="2"/>
+                            </StackPanel>
+                                
+                                <Label Content="Toughness"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Text="{Binding toughness}" Margin="5"/>
+                                <TextBox Text="{Binding toughnessA}" Margin="5"/>
+                                <TextBox Text="{Binding toughnessP}" Margin="5"/>
+                            </StackPanel>
+                                
+                                <Label Content="Strength"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Text="{Binding strength}" Margin="5"/>
+                                <TextBox Text="{Binding strengthA}" Margin="5"/>
+                                <TextBox Text="{Binding strengthP}" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
                 
                 <StackPanel>
                     <Label Content="Dexterity" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                <ListBox x:Name="LBO_tDexterity" Height="300" Width="200" Margin="5">
+                    <TextBox x:Name="TBO_tDexterityQuality" IsReadOnly="True"
+                        Width="100" HorizontalContentAlignment="Center"/>
+                    <ListBox x:Name="LBO_tDexterity" Height="300" Width="200" Margin="5"
+                    ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
 
-                </ListBox>
+                                    <Label Content="perception"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding perception}"/>
+                                        <TextBox Text="{Binding perceptionA}"/>
+                                        <TextBox Text="{Binding perceptionP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="quickness"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding quickness}"/>
+                                        <TextBox Text="{Binding quicknessA}"/>
+                                        <TextBox Text="{Binding quicknessP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="agility"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding agility}"/>
+                                        <TextBox Text="{Binding agilityA}"/>
+                                        <TextBox Text="{Binding agilityP}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <StackPanel>
                     <Label Content="Intuition" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                <ListBox x:Name="LBO_tIntuition" Height="300" Width="200" Margin="5">
+                    <TextBox x:Name="TBO_tIntuitionQuality" IsReadOnly="True"
+                        Width="100" HorizontalContentAlignment="Center"/>
+                    <ListBox x:Name="LBO_tIntuition" Height="300" Width="200" Margin="5"
+                    ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
 
-                </ListBox>
+                                    <Label Content="intelligence"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding intelligence}"/>
+                                        <TextBox Text="{Binding intelligenceA}"/>
+                                        <TextBox Text="{Binding intelligenceP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="wisdom"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding wisdom}"/>
+                                        <TextBox Text="{Binding wisdomA}"/>
+                                        <TextBox Text="{Binding wisdomP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="resourcefull"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding resourcefull}"/>
+                                        <TextBox Text="{Binding resourcefullA}"/>
+                                        <TextBox Text="{Binding resourcefullP}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
                 
                 <StackPanel>
                     <Label Content="Charisma" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                <ListBox x:Name="LBO_tCharisma" Height="300" Width="200" Margin="5">
+                    <TextBox x:Name="TBO_tCharismaQuality" IsReadOnly="True"
+                        Width="100" HorizontalContentAlignment="Center"/>
+                    <ListBox x:Name="LBO_tCharisma" Height="300" Width="200" Margin="5"
+                    ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
 
-                </ListBox>
+                                    <Label Content="influence"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding influence}"/>
+                                        <TextBox Text="{Binding influenceA}"/>
+                                        <TextBox Text="{Binding influenceP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="appearance"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding appearance}"/>
+                                        <TextBox Text="{Binding appearanceA}"/>
+                                        <TextBox Text="{Binding appearanceP}"/>
+                                    </StackPanel>
+
+                                    <Label Content="luck"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding luck}"/>
+                                        <TextBox Text="{Binding luckA}"/>
+                                        <TextBox Text="{Binding luckP}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -67,7 +191,7 @@
         </StackPanel>
         <StackPanel Grid.Column="2" Margin="5">
             <TextBox x:Name="TBO_error" Width="300" Margin="5"/>
-            <TextBox x:Name="TBO_display" Width="300" Margin="5"/>
+            <TextBox x:Name="TBO_display" Width="1200" Height="600" Margin="5" TextWrapping="Wrap"/>
         </StackPanel>
     </Grid>
 </Page>
