@@ -81,16 +81,16 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult quitGame = MessageBox.Show("Really escape?", "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            switch (quitGame)
-            {
-                case MessageBoxResult.Yes:
-                    Close();
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }
-            Thread.Sleep(250);
+            //MessageBoxResult quitGame = MessageBox.Show("Really escape?", "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //switch (quitGame)
+            //{
+            //    case MessageBoxResult.Yes:
+            //        Close();
+            //        break;
+            //    case MessageBoxResult.No:
+            //        break;
+            //}
+            //Thread.Sleep(250);
             Close();
 
         }
@@ -98,10 +98,10 @@ namespace mD_WPF_chSheet_01
         private void BTN_testing_Click(object sender, RoutedEventArgs e)
         {
 
-            clearSelectorWindow arbitrament = new clearSelectorWindow();
-            arbitrament.Show();
-            //testWindow tw = new testWindow();
-            //tw.ShowDialog();
+            //clearSelectorWindow arbitrament = new clearSelectorWindow();
+            //arbitrament.Show();
+            testWindow tw = new testWindow();
+            tw.ShowDialog();
         }
 
         private void BTN_Connection_Click(object sender, RoutedEventArgs e)
@@ -109,5 +109,51 @@ namespace mD_WPF_chSheet_01
             ConnectionSelectorWindow csw = new ConnectionSelectorWindow();
             csw.Show();
         }
+
+        private void BTN_Connection_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BTN_Connection.Width = 125;
+            
+        }
+
+        private void BTN_Connection_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BTN_Connection.Width = 100;
+            
+        }
+
+        private void BTN_Continue_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TBL_cLower.FontSize = 14;
+            TBL_cUpper.FontSize = 14;
+        }
+
+        private void BTN_Continue_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TBL_cLower.FontSize = 12;
+            TBL_cUpper.FontSize = 12;
+        }
+
+        private void BTN_newGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BTN_newGame.Width = 125;
+        }
+
+        private void BTN_newGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BTN_newGame.Width = 100;
+        }
+
+        private void BTN_quitGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BTN_quitGame.Width = 125;
+        }
+
+        private void BTN_quitGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BTN_quitGame.Width = 100;
+        }
+
+
     }
 }

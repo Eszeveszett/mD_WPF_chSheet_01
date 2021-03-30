@@ -32,7 +32,7 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
             public string dName { get; set; }
             public string dRace { get; set; }
             public string dGender { get; set; }
-
+            //Igen baszod? Kell? Nesze baszod
             public BitmapImage dImage { get; set; }
         }
 
@@ -56,6 +56,8 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
         public drawnCharacterPage()
         {
             InitializeComponent();
+
+            // Sok sok lófasz betöltése, listába pakolása
 
             context.Races.Load();
             foreach (var item in context.Races)
@@ -91,8 +93,6 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
 
             for (int c = 0; c < characters.Count; c++)
             {
-
-
                 for (int r = 0; r < races.Count; r++)
                 {
                     if (characters[c].RaceId == races[r].Id)

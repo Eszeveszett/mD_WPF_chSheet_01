@@ -6,16 +6,29 @@
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d"
         Title="quickStartWindow" Height="600" Width="800"
-        WindowStartupLocation="CenterScreen" >
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Uid="buttonForeground" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <!---->
         <Image Source="..\images\bgImages\chreateCharacter.jpg" Stretch="Fill"/>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-            <Button Content="New Caracter" Margin="10" Padding="10" Width="150"
+            <Button Margin="10" Padding="10" Width="150" Height="40"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_newCharacter"
                 Click="BTN_newCharacter_Click">
+
+                <Canvas>
+                    <TextBlock Text="New Caracter" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="New Caracter" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>
+
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -23,10 +36,18 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Ready Characters" Margin="10" Padding="10" Width="150"
+            <Button Margin="10" Padding="10" Width="150" Height="40"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_readyCharacter"
                 Click="BTN_readyCharacter_Click">
+
+                <Canvas>
+                    <TextBlock Text="Ready Characters" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="Ready Characters" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>
+
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -34,10 +55,18 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Back" Margin="10" Padding="10" Width="150"
+            <Button Margin="10" Padding="10" Width="150" Height="40"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_back"
                 Click="BTN_back_Click">
+
+                <Canvas>
+                    <TextBlock Text="B a c k" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="B a c k" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>
+
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>

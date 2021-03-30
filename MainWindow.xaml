@@ -5,19 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1400" FontWeight="Bold" FontSize="14"
+        Title="MainWindow" Height="900" Width="1400" FontWeight="Bold"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
     <!-- Height="900" Width="1600"  -->
     
     <Window.Resources>
-        <Style x:Key="gombStilus" TargetType="{x:Type Button}">
+        <!--<Style x:Uid="canvasStyle" TargetType="{x:Type Canvas}">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Blue"/>
+                    <Setter Property="Background" Value="Violet"/>
+                    <Setter Property="Width" Value="100"/>
+                    <Setter Property="Height" Value="25"/>
                 </Trigger>
-                <Trigger Property="IsMouseOver" Value="False">
-                    <Setter Property="Background" Value="White"/>
+            </Style.Triggers>
+        </Style>-->
+        <Style x:Uid="gombStilus" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="OpacityMask">
+                        <Setter.Value>
+                            <DrawingBrush Viewport="0,0,1,1" TileMode="Tile">
+                                <DrawingBrush.Drawing>
+                                    <GeometryDrawing>
+                                        <GeometryDrawing.Brush>
+                                            <RadialGradientBrush>
+                                                <RadialGradientBrush.GradientStops>
+                                                    <GradientStop Offset="0.25" Color="Red"/>
+                                                    <GradientStop Offset="1" Color="Transparent"/>
+                                                </RadialGradientBrush.GradientStops>
+                                            </RadialGradientBrush>
+                                        </GeometryDrawing.Brush>
+                                        <GeometryDrawing.Geometry>
+                                            <RectangleGeometry Rect="0,0 2.5,2.5" RadiusX="1" RadiusY="1"/>
+                                        </GeometryDrawing.Geometry>
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="Firebrick" Thickness="0"/>
+                                        </GeometryDrawing.Pen>
+                                    </GeometryDrawing>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Setter.Value>
+                    </Setter>
                 </Trigger>
+                <!--<Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>-->
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -33,36 +66,71 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Image Source="images\bgImages\startScreen.jpg" Stretch="Fill" Grid.ColumnSpan="3"/>
+        
+        <Viewbox Grid.Column="0">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Label Content="Left" Foreground="DarkGray"/>
+                </StackPanel>
+            </StackPanel>
+        </Viewbox>
+        
         <Viewbox Grid.Column="1">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="SP_Buttons">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="SP_Buttons" Grid.Column="1">
 
-            <Button Content="Connection" Margin="5,35,5,2" Background="{x:Null}"
+            <Button  Margin="5,35,5,5" Background="{x:Null}"
                 x:Name="BTN_Connection" Click="BTN_Connection_Click"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                        <Setter Property="BorderBrush" Value="Red"/>
-                        <Setter Property="BorderThickness" Value="25"/>
-                        </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button Content="Continue" Margin="5,5,5,2" Background="{x:Null}"
-                HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12">
+                FontSize="12" 
+                MouseEnter="BTN_Connection_MouseEnter" MouseLeave="BTN_Connection_MouseLeave">
+                
+                <Canvas x:Name="CVS_Con">
+                    <TextBlock Text="Connection" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}"  TextAlignment="Center"/>
+                    <TextBlock Text="Connection" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
+                
             </Button>
 
-            <Button Content="New Game" Margin="5,5,5,2" Background="{x:Null}"
+            <Button Margin="5,5,5,2" Background="{x:Null}" x:Name="BTN_Continue"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12"
+                FontSize="12" BorderBrush="{x:Null}"
+                MouseEnter="BTN_Continue_MouseEnter" MouseLeave="BTN_Continue_MouseLeave">
+                
+                <Canvas>
+                    <TextBlock Text="Continue" Width="80" Canvas.Top="-10" Canvas.Right="-40"
+                    Background="{x:Null}" TextAlignment="Center" x:Name="TBL_cLower"/>
+                    <TextBlock Text="Continue" Width="80" Canvas.Top="-11" Canvas.Right="-41"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"  x:Name="TBL_cUpper"/>
+                </Canvas>
+                 
+                
+                <!--<Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>-->
+            </Button>
+
+            <Button Margin="5,5,5,2" Background="{x:Null}"
+                HorizontalAlignment="Center" Width="100" Height="25"
+                FontSize="12" MouseEnter="BTN_newGame_MouseEnter" MouseLeave="BTN_newGame_MouseLeave"
                 x:Name="BTN_newGame" Click="BTN_newGame_Click">
+                
+                <Canvas>
+                    <TextBlock Text="New Game" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="New Game" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>                   
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -70,9 +138,17 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Load Game" Margin="5,5,5,2" Background="{x:Null}"
+            <Button Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
                 FontSize="12">
+                
+                <Canvas>
+                    <TextBlock Text="Load Game" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="Load Game" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>                   
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -80,9 +156,17 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Options" Margin="5,5,5,2" Background="{x:Null}"
+            <Button Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
                 FontSize="12">
+                
+                <Canvas>
+                    <TextBlock Text="Options" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="Options" Width="80" Canvas.Top="-9" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>                  
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -101,10 +185,18 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Quit" Margin="5,5,5,35" Background="{x:Null}"
+            <Button Margin="5,5,5,35" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12"
+                FontSize="12" MouseEnter="BTN_quitGame_MouseEnter" MouseLeave="BTN_quitGame_MouseLeave"
                 x:Name="BTN_quitGame" Click="BTN_quitGame_Click">
+                
+                <Canvas>
+                    <TextBlock Text="Q u i t" Width="80" Canvas.Top="-7" Canvas.Right="-38"
+                    Background="{x:Null}" TextAlignment="Center"/>
+                    <TextBlock Text="Q u i t" Width="80" Canvas.Top="-8" Canvas.Right="-39"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                </Canvas>                  
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -113,6 +205,13 @@
             </Button>
         </StackPanel>
         </Viewbox>
+
+        <Viewbox Grid.Column="2">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Label Content="Right" Foreground="DarkGray"/>
+            </StackPanel>
+        </Viewbox>
+
         <!--<Frame x:Name="FRM_startPage" NavigationUIVisibility="Hidden"/>-->
     </Grid>
 </Window>

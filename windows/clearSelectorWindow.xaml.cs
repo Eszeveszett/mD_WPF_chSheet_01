@@ -176,7 +176,7 @@ namespace mD_WPF_chSheet_01.windows
                 TBO_placeOfLive.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
                     + " " + ((Races)LBO_rRace.SelectedItem).Description + "\n\n Csak a Bohr állandó";
 
-                #region vit
+                #region vitality
                 int? myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
                 int? myStrMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMax;
                 TBO_MyStrengthMin.Text = myStrMin.ToString();
@@ -199,7 +199,7 @@ namespace mD_WPF_chSheet_01.windows
                 PBR_myToughtness.Value = Convert.ToInt32(myTghMax);
                 #endregion
 
-                #region dex
+                #region dexterity
                 int? myAgiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
                 int? myAgiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
                 TBO_MyAgilityMin.Text = myAgiMin.ToString();
@@ -215,6 +215,7 @@ namespace mD_WPF_chSheet_01.windows
                 TBO_myQuicknessMin.Text = myQuiMin.ToString();
                 TBO_myQuicknessMax.Text = myQuiMax.ToString();
 
+                TBO_MyDexterity.Text = (myAgiMin + myPerMin + myQuiMin).ToString();
                 PBR_myDexterity.Value = Convert.ToInt32(myAgiMin + myPerMin + myQuiMin);
                 PBR_myAgility.Value = Convert.ToInt32(myPerMax);
                 PBR_myPerception.Value = Convert.ToInt32(myPerMax);
