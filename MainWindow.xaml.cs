@@ -97,9 +97,6 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_testing_Click(object sender, RoutedEventArgs e)
         {
-
-            //clearSelectorWindow arbitrament = new clearSelectorWindow();
-            //arbitrament.Show();
             testWindow tw = new testWindow();
             tw.ShowDialog();
         }

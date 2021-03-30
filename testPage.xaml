@@ -4,342 +4,66 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:mD_WPF_chSheet_01"
-      mc:Ignorable="d" Background="Moccasin" FontSize="20"
+      mc:Ignorable="d" Background="Moccasin" FontSize="24"
       d:DesignHeight="900" d:DesignWidth="1600"
       Title="testPage">
 
-    <Grid>
+    <Grid Visibility="Visible">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-
-        <!--Fajok és nem alapján rendezés-->
-        <StackPanel Grid.Row="1" Grid.Column="0">
-            <TextBox Width="300" Height="500" Margin="10,35,10,10" TextWrapping="Wrap"
-            Text=" Itt egy kép lesz a karakterről. Ami nem text. És nem is Block. De helyfoglalásra ez is jó"/>
-            <StackPanel Orientation="Horizontal" Margin="25,150,0,0">
-            <!--
-            <Button x:Name="BTN_Male" Click="BTN_Male_Click"
-            Content="Male" Margin="5" Padding="5" FontSize="10"/>
-            <Button x:Name="BTN_Female" Click="BTN_Female_Click"
-            Content="Female" Margin="5" Padding="5" FontSize="10"/>
-            <Button x:Name="BTN_allCharacter" Click="BTN_allCharacter_Click"
-            Content="All Character" Margin="5" Padding="5" FontSize="10"/>
-            -->
-                
-            <Label Content="Race"/>
-            <ComboBox x:Name="CBO_RaceSelector" Width="110" 
-            SelectionChanged="CBO_RaceSelector_SelectionChanged"/>
-            <Label Content="Gender"/>
-            <ComboBox x:Name="CBO_GenderSelector" Width="75"
-            SelectionChanged="CBO_GenderSelector_SelectionChanged"/>
-            </StackPanel>            
-        </StackPanel>
-
-
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,5,0,0">
-            <StackPanel Margin="0,30,0,0" Orientation="Horizontal"
-                HorizontalAlignment="Center">
-                <StackPanel>
-                    <Label Content="Characters"/>
-                    <ListBox Height="520" Width="350"
-                x:Name="LBO_PlayingCharacter"
-                SelectionChanged="LBO_PlayingCharacter_SelectionChanged">
-                    <ListBox.ItemTemplate>
-                    <DataTemplate>
-                    <Border BorderThickness="1" BorderBrush="Firebrick" CornerRadius="5">
-                    <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>                        
-                        
-                        
-                        
-                    <StackPanel Grid.Row="0" Grid.Column="0">
-                    <TextBlock Text="{Binding dName}" Width="200"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="1" Grid.Column="0">
-                    <TextBlock Text="{Binding dRace}"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="2" Grid.Column="0">
-                    <TextBlock Text="{Binding dGender}"/>
-                    </StackPanel>
-                        
-                    <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
-                        <Image Source="images\bgImages\startScreen.jpg" Stretch="Fill" Width="105" Height="80"/>
-                    </StackPanel>
-                        
-                    </Grid>
-                    </Border>
-                    </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                </StackPanel>
-
-
-                <!--
-                <Button x:Name="BTN_Male" Click="BTN_Male_Click"
-                    Content="Male" Margin="5" Padding="5"/>
-                <Button x:Name="BTN_Female" Click="BTN_Female_Click"
-                    Content="Female" Margin="5" Padding="5"/>
-                <Button x:Name="BTN_allCharacter" Click="BTN_allCharacter_Click"
-                    Content="All Character" Margin="5" Padding="5"/>
-                    
-                <Label Content="Race"/>
-                <ComboBox x:Name="CBO_RaceSelector" Width="110" 
-                SelectionChanged="CBO_RaceSelector_SelectionChanged"/>
-                <Label Content="Gender"/>
-                <ComboBox x:Name="CBO_GenderSelector" Width="75"
-                SelectionChanged="CBO_GenderSelector_SelectionChanged"/>                    
--->
-                
-                
-                <StackPanel VerticalAlignment="Center">                    
-                <Label Content="Race Skills"
-                HorizontalAlignment="Center"/>
-                <ListBox Margin="15,30,0,0" Height="220" Width="200"
-                x:Name="LBO_raceSkills" HorizontalAlignment="Right">
-                    <ListBox.ItemTemplate>
-                    <DataTemplate>
-                    <Border BorderThickness="2" Background="Wheat" CornerRadius="5" BorderBrush="Green">
-                    <StackPanel>
-                    <StackPanel>
-                    <TextBlock Text="{Binding SkillName}" Width="150" Padding="1,1,0,0"/>
-                    </StackPanel>
-
-                    <StackPanel>
-                    <TextBlock Text="{Binding SkillClass}" Padding="1,1,0,0"/>
-                    </StackPanel>
-
-                    <!--<StackPanel>
-                    <TextBlock Text="{Binding Id}"/>
-                    </StackPanel>-->
-                    </StackPanel>
-                    </Border>
-                    </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-                <Label Content="Character Skills" Margin="0,5,0,0" 
-                HorizontalAlignment="Center"/>
-                <ListBox Margin="15,5,0,0" Height="220" Width="200"
-                x:Name="LBO_characterSkills" HorizontalAlignment="Right">
-                    <ListBox.ItemTemplate>
-                    <DataTemplate>
-                    <Border  BorderThickness="2" Background="Wheat" CornerRadius="5" BorderBrush="LightSteelBlue">
-                    <StackPanel>
-                    <StackPanel>
-                    <TextBlock Text="{Binding SkillName}" Width="150" Padding="1,1,0,0" TextWrapping="Wrap"/>
-                    </StackPanel>
-
-                    <StackPanel>
-                    <TextBlock Text="{Binding SkillClass}"/>
-                    </StackPanel>
-
-                    <!--<StackPanel>
-                    <TextBlock Text="{Binding Id}"/>
-                    </StackPanel>-->
-                    </StackPanel>
-                    </Border>
-                    </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                    
-                </StackPanel>
-                
-            </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="5"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
             
-        </StackPanel>
-
-        <StackPanel Grid.Column="2" Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="TBX_Name" Width="250" IsReadOnly="True"
-                FontSize="16" FontWeight="Bold" Margin="0,10,0,10"
-                TextAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="TBX_Race" Width="250" IsReadOnly="True"
-                FontSize="16" FontWeight="Bold" Margin="0,10,0,10"
-                TextAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="TBX_Gender" Width="250" IsReadOnly="True"
-                FontSize="16" FontWeight="Bold" Margin="0,10,0,10"
-                TextAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="TBX_Desc" Width="250" IsReadOnly="True"
-                FontSize="16" FontWeight="Bold" Margin="0,10,0,10"
-                TextAlignment="Center" Background="{x:Null}"
-                Height="45" TextWrapping="Wrap"/>
-            </StackPanel>
-
-            <!--De most komolyan. Ennyi stackpanel egyben? Akinek így sem tetszik, az ott bassza meg a kurva anyját, ahogy van.
-    Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
-
-            <StackPanel Margin="0,25,0,0" Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Vertical" Margin="5">
-                    <Label Content="Vitality" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_Vitality" Width="150" IsReadOnly="True" TextAlignment="Center"/>
-                    <ProgressBar x:Name="PBR_Vitality" Minimum="30" Maximum="55"
-                    Height="10" Margin="5" Foreground="DarkRed"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Strength" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Strength"
-                    ToolTip="Strength" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Strength" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Firebrick"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Endurance" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Endurance" 
-                    ToolTip="Endurance" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Endurance" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Crimson"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Toughtness" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Toughtness"
-                    ToolTip="Toughtness" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Toughtness" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Tomato"/>
-                    </StackPanel>
-
-                    <!--Wait a minute. Most van egy vertikális panel, amiben van egy horizontális, ami tartalmaz egy verti... 
-    Hát a lónak a faszát-->
-
-                    <StackPanel Orientation="Vertical" Margin="5">
-                    <Label Content="Dexterity" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_Dexterity" Width="150" IsReadOnly="True" TextAlignment="Center"/>
-                    <ProgressBar x:Name="PBR_Dexterity" Minimum="30" Maximum="55"
-                    Height="10" Margin="5" Foreground="SeaGreen"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Agility" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Agility"
-                    ToolTip="Agility" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Agility" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkGreen"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Perception" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Perception"
-                    ToolTip="Perception" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Perception" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="YellowGreen"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Quickness" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Quickness"
-                    ToolTip="Quickness" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-
-                    <ProgressBar x:Name="PBR_Quickness" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="YellowGreen"/>
-
-                    </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel>
+                    <Label Content="Vitality" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <ListBox x:Name="LBO_tVitality" Height="300" Width="200" Margin="5">
+                    
+                </ListBox>
                 </StackPanel>
+                
+                <StackPanel>
+                    <Label Content="Dexterity" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <ListBox x:Name="LBO_tDexterity" Height="300" Width="200" Margin="5">
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Vertical" Margin="5">
-                    <Label Content="Intuition" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_Intuition" Width="150" IsReadOnly="True" TextAlignment="Center"/>
-                    <ProgressBar x:Name="PBR_Intuition" Minimum="30" Maximum="55"
-                    Height="10" Margin="5" Foreground="Blue"/>
+                </ListBox>
+                </StackPanel>
+            </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Intelligence" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Intelligence"
-                    ToolTip="Intelligence" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Intelligence" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkSlateBlue"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel>
+                    <Label Content="Intuition" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <ListBox x:Name="LBO_tIntuition" Height="300" Width="200" Margin="5">
 
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Wisdom" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Wisdom"
-                    ToolTip="Wisdom" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Wisdom" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="MediumSlateBlue"/>
+                </ListBox>
+                </StackPanel>
+                
+                <StackPanel>
+                    <Label Content="Charisma" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <ListBox x:Name="LBO_tCharisma" Height="300" Width="200" Margin="5">
 
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Resourcefull" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Resourcefull"
-                    ToolTip="Resourcefull" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Resourcefull" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DeepSkyBlue"/>
-
-                    </StackPanel>
-<!--Wait a minute. Most van egy vertikális panel, amiben van egy horizontális, ami tartalmaz egy verti... 
-    Hát a lónak a faszát-->
-                    <StackPanel Orientation="Vertical" Margin="5">
-                    <Label Content="Charisma" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_Charisma" Width="150" IsReadOnly="True" TextAlignment="Center"/>
-                    <ProgressBar x:Name="PBR_Charisma" Minimum="30" Maximum="55"
-                    Height="10" Margin="5" Foreground="Purple"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Appearance" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Appearance"
-                    ToolTip="Appearance" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Appearance" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="BlueViolet"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Influence" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Influence"
-                    ToolTip="Influence" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Influence" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkViolet"/>
-
-                    <StackPanel Orientation="Horizontal">
-                    <Label Content="Luck" Width="125"/>
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Luck"
-                    ToolTip="Luck" IsReadOnly="True" Width="50"/>
-                    </StackPanel>
-                    <ProgressBar x:Name="PBR_Luck" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkOrchid"/>
-                    </StackPanel>
+                </ListBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-
-
-
-
-
+        <StackPanel Grid.Column="1" Margin="5">
+            <StackPanel Margin="5">
+                <Button Content="Vitality" x:Name="BTN_tVitality" Padding="5" Margin="5" 
+                    HorizontalAlignment="Left" Width="125"/>
+                <Button Content="Dexterity" x:Name="BTN_tDexterity" Padding="5" Margin="5" 
+                    HorizontalAlignment="Left" Width="125"/>
+                <Button Content="Intuition" x:Name="BTN_tIntuition" Padding="5" Margin="5" 
+                    HorizontalAlignment="Left" Width="125"/>
+                <Button Content="Charisma" x:Name="BTN_tCharisma" Padding="5" Margin="5" 
+                    HorizontalAlignment="Left" Width="125"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

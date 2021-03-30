@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mD_WPF_chSheet_01.objects.characterObject
 {
-    class characterAttribution
+    public class characterAttribution
     {
         public int vitality { get; set; }
         public int vitalityBonus { get; set; }

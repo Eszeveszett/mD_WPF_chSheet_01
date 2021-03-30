@@ -205,6 +205,7 @@
     </Compile>
     <Compile Include="objects\characterObject\attributionBonus.cs" />
     <Compile Include="objects\characterObject\characterAttribution.cs" />
+    <Compile Include="objects\characterObject\raceAttributionBorder.cs" />
     <Compile Include="pages\BTN_00_Page.xaml.cs">
       <DependentUpon>BTN_00_Page.xaml</DependentUpon>
     </Compile>
