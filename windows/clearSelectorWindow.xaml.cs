@@ -70,6 +70,8 @@ namespace mD_WPF_chSheet_01.windows
 
         List<advantages> adv = new List<advantages>();
         List<disadvantages> dis = new List<disadvantages>();
+
+        List<int> abilityQuality = new List<int>() {50,45,40,35};
         #endregion
 
         public clearSelectorWindow()
@@ -299,6 +301,51 @@ namespace mD_WPF_chSheet_01.windows
                 TBO_raceModifier.Text = "Faji sajátosságok";
                 TBO_placeOfLive.Text = "Faj történelme és élőhelye";
             }
+        }
+
+        private void BTN_qualityOne_Click(object sender, RoutedEventArgs e)
+        {
+            if (abilityQuality.Count > 0)
+            {
+                TBO_vitalityQuality.Text = abilityQuality[0].ToString();
+                abilityQuality.Remove(abilityQuality[0]);
+            }
+        }
+
+        private void BTN_qualityTwo_Click(object sender, RoutedEventArgs e)
+        {
+            if (abilityQuality.Count > 0)
+            {
+                TBO_dexterityQuality.Text = abilityQuality[0].ToString();
+                abilityQuality.Remove(abilityQuality[0]);
+            }
+        }
+
+        private void BTN_qualityThree_Click(object sender, RoutedEventArgs e)
+        {
+            if (abilityQuality.Count > 0)
+            {
+                TBO_intuitionQuality.Text = abilityQuality[0].ToString();
+                abilityQuality.Remove(abilityQuality[0]);
+            }
+            
+        }
+
+        private void BTN_qualityFour_Click(object sender, RoutedEventArgs e)
+        {
+            if (abilityQuality.Count > 0)
+            {
+                TBO_charismQuality.Text = abilityQuality[0].ToString();
+                abilityQuality.Remove(abilityQuality[0]);
+            }
+            
+        }
+
+        private void BTN_qualityReset_Click(object sender, RoutedEventArgs e)
+        {
+            abilityQuality.Add(50); abilityQuality.Add(45); abilityQuality.Add(40); abilityQuality.Add(35);
+            TBO_vitalityQuality.Text = ""; TBO_dexterityQuality.Text = ""; 
+            TBO_intuitionQuality.Text = ""; TBO_charismQuality.Text = "";
         }
     }
 }

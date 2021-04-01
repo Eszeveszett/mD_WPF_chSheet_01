@@ -215,7 +215,9 @@
         </TabItem>
         
         
-<!--Előnyök és háztányok fül. Ablak. Lista. Még nem csinál semmit, 
+        
+        
+<!--Előnyök és hátrányok fül. Ablak. Lista. Még nem csinál semmit, 
 később lesz szerepe. Csak itt most elfér-->
         <TabItem Header="Step Two">
             <Grid Background="LightGreen">
@@ -550,6 +552,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             </Grid>
             </TabItem>
 
+        
+        
+        
 <!--Tulajdonságok beállítása, és egyéb karakterisztikai adatok. Védelmi és 
     támadási készségek-->
         <TabItem Header="Button Two">
@@ -560,7 +565,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Middle Row: Data Option Column-->
+<!--Middle Row: Data Option Column-->
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -574,57 +579,194 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <StackPanel Margin="5"
                 Grid.Row="0" Grid.Column="0"
                 Orientation="Vertical">
-                    <Label Content="Vitality" Margin="5,5,5,25"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="5,5,5,5">
+                            <Button Width="25" Height="25"/>
+                            <Button Width="25" Height="25"/>
+                            <Button Width="25" Height="25"/>
+                        </StackPanel>
+                        
+                    <StackPanel Grid.Column="1">
+                    <Label Content="Vitality" Margin="5,0,5,0"
                     FontSize="24" FontWeight="Bold"
                     HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_vitalityQuality" Width="100" Margin="5,0,5,5"
+                    TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
-                    <TextBox x:Name="TBO_leftUpperBox"
-                    Height="275" Width="Auto"
-                    TextWrapping="Wrap" IsReadOnly="True"
+                    <ListBox x:Name="LBO_leftUpperBox"
+                    Height="250" Width="Auto" DataContext="{Binding}"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    <ListBoxItem HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="Strength" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_strengthQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_strengthQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Endurence" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_endurenceQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_endurenceQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Toughtness" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_toughtnessQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_toughtnessQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                    </ListBox>
+                    </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Margin="5">
+                            <Button Width="25" Height="25"/>
+                            <Button Width="25" Height="25"/>
+                            <Button Width="25" Height="25"/>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
 
                 <StackPanel Margin="5"
                 Grid.Row="0" Grid.Column="1"
                 Orientation="Vertical">
-                            <Label Content="Dexterity" Margin="5,5,5,25"
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                    <Label Content="Dexterity" Margin="5,0,5,0"
                     FontSize="24" FontWeight="Bold"
                     HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_dexterityQuality" Width="100" Margin="5,0,5,5"
+                    TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
-                    <TextBox x:Name="TBO_rightUpperBox"
-                    Height="275" Width="Auto"
-                    TextWrapping="Wrap" IsReadOnly="True"
+                    <ListBox x:Name="LBO_rightUpperBox"
+                    Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+                </Grid>
                 </StackPanel>
 
                 <StackPanel Margin="5" Grid.Row="1" Grid.Column="0"
                 Orientation="Vertical">
-                            <Label Content="Data options" Margin="5,5,5,25"
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                    <Label Content="Intuition" Margin="5,0,5,0"
                     FontSize="24" FontWeight="Bold"
                     HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TBO_intuitionQuality" Width="100" Margin="5,0,5,5"
+                    TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         
-                    <TextBox x:Name="TBL_lowerLeftBlock"
-                    Height="275" Width="Auto"
+                    <ListBox x:Name="LBO_lowerLeftBlock"
+                    Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
                     </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+
+                </Grid>
+                </StackPanel>
 
                 <StackPanel Margin="5" Grid.Row="1" Grid.Column="1"
                     Orientation="Vertical">
-                            <Label Content="Data options" Margin="5,5,5,25"
+                    
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="1">
+                    <Label Content="Charism" Margin="5,0,5,0"
                     FontSize="24" FontWeight="Bold"
                     HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBL_lowerRightBlock"
-                    Height="275" Width="Auto"
+                    <TextBox x:Name="TBO_charismQuality" Width="100" Margin="5,0,5,5"
+                    TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        
+                    <ListBox x:Name="LBO_lowerRightBlock"
+                    Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
                     </StackPanel>
+                        
+                    <StackPanel Grid.Column="2" Margin="5">
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                        <Button Width="25" Height="25"/>
+                    </StackPanel>
+                    </Grid>
+                </StackPanel>
                 </Grid>
 
 
@@ -650,38 +792,41 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <StackPanel Grid.Row="0" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                    <Button Content="Button One"
-                    x:Name="BTN_qualityOne" 
-                    Margin="15" Padding="15"/>
-                    </StackPanel>
+                    <Button Content="Vitality"
+                        x:Name="BTN_qualityOne" 
+                        Margin="15" Padding="15" Click="BTN_qualityOne_Click"/>
+                </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                    <Button Content="Button Two"
-                    x:Name="BTN_qualityTwo"
-                    Margin="15" Padding="15"/>
-                    </StackPanel>
+                    <Button Content="Dexterity"
+                        x:Name="BTN_qualityTwo" Click="BTN_qualityTwo_Click"
+                        Margin="15" Padding="15"/>
+                </StackPanel>
 
                 <StackPanel Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                    <Button Content="Button Three"
-                    x:Name="BTN_qualityThree"
-                    Margin="15" Padding="15"/>
+                    <Button Content="Intuition"
+                        x:Name="BTN_qualityThree" Click="BTN_qualityThree_Click"
+                        Margin="15" Padding="15"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="6" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                    <Button Content="Button Flour"
-                    x:Name="BTN_qualityFour"
-                    Margin="15" Padding="15"/>
+                    <Button Content="Charism"
+                        x:Name="BTN_qualityFour" Click="BTN_qualityFour_Click"
+                        Margin="15" Padding="15"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="6" Grid.Column="0"
+                <StackPanel Grid.Row="6" Grid.Column="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom">
+                    <Button Content="Reset"
+                        x:Name="BTN_qualityReset" Click="BTN_qualityReset_Click"
+                        Margin="15" Padding="15"/>
                 </StackPanel>
 
                     <Label Content="Page 02" FontSize="24" FontWeight="Bold"
