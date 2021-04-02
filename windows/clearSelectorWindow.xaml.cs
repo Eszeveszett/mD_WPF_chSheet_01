@@ -308,8 +308,16 @@ namespace mD_WPF_chSheet_01.windows
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
                 TBO_strengthQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin);
+                PBR_strengthQuality.Minimum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+                PBR_strengthQuality.Maximum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
+
                 TBO_endurenceQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin);
+                PBR_endurenceQuality.Minimum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+                PBR_endurenceQuality.Maximum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
+
                 TBO_toughtnessQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin);
+                PBR_toughtnessQuality.Minimum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+                PBR_toughtnessQuality.Maximum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
 
                 int vq = (vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin +
                            vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin +
@@ -318,6 +326,11 @@ namespace mD_WPF_chSheet_01.windows
                 abilityQuality.Remove(abilityQuality[0]);
                 //BTN_qualityOne.Visibility = Visibility.Hidden;
                 BTN_vitalityQuality.IsEnabled = false;
+                PBR_strengthQuality.Value = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+                PBR_endurenceQuality.Value = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+                PBR_toughtnessQuality.Value = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+
+                BTN_strengthQualityM.IsEnabled = false; BTN_endurenceQualityM.IsEnabled = false; BTN_toughtnessQualityM.IsEnabled = false;
             }
             //if (abilityQuality.Count > 0)
             //{
@@ -393,6 +406,8 @@ namespace mD_WPF_chSheet_01.windows
             TBO_intelligenceQuality.Text = ""; TBO_wisdomQuality.Text = ""; TBO_resourcefullQuality.Text = "";
             TBO_appearanceQuality.Text = ""; TBO_influenceQuality.Text = ""; TBO_luckQuality.Text = "";
 
+            PBR_strengthQuality.Value = 0; PBR_endurenceQuality.Value = 0; PBR_toughtnessQuality.Value = 0;
+
             //BTN_qualityOne.Visibility = Visibility.Visible;
             BTN_vitalityQuality.IsEnabled = true; BTN_dexterityQuality.IsEnabled = true;
             BTN_intuitionQuality.IsEnabled = true; BTN_charismaQuality.IsEnabled = true;
@@ -400,6 +415,7 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_strengthQualityP_Click(object sender, RoutedEventArgs e)
         {
+            BTN_strengthQualityM.IsEnabled = true;
             int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
             int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
             int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
@@ -416,13 +432,14 @@ namespace mD_WPF_chSheet_01.windows
                     pool--;
                     TBO_vitalityQuality.Text = pool.ToString();
                     TBO_strengthQuality.Text = strAct.ToString();
-
+                    PBR_strengthQuality.Value = strAct;
                 }
             }
         }
 
         private void BTN_strengthQualityM_Click(object sender, RoutedEventArgs e)
         {
+            BTN_strengthQualityP.IsEnabled = true;
             int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
             int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
             int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
@@ -439,23 +456,107 @@ namespace mD_WPF_chSheet_01.windows
                     pool++;
                     TBO_vitalityQuality.Text = pool.ToString();
                     TBO_strengthQuality.Text = strAct.ToString();
+                    PBR_strengthQuality.Value = strAct;
                 }
             }
         }
 
         private void BTN_endurenceQualityP_Click(object sender, RoutedEventArgs e)
         {
+            BTN_endurenceQualityM.IsEnabled = true;
+            int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+            int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
+            int endMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (endAct >= endMax - 1)
+                {
+                    BTN_endurenceQualityP.IsEnabled = false;
+                }
+                if (endMin <= endAct)
+                {
+                    endAct++;
+                    pool--;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_endurenceQuality.Text = endAct.ToString();
+                    PBR_endurenceQuality.Value = endAct;
+                }
+            }
+        }
 
+        private void BTN_endurenceQualityM_Click(object sender, RoutedEventArgs e)
+        {
+            BTN_endurenceQualityP.IsEnabled = true;
+            int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+            int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
+            int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (endMin + 1 >= endAct)
+                {
+                    BTN_endurenceQualityM.IsEnabled = false;
+                }
+                if (endMin <= endAct)
+                {
+                    endAct--;
+                    pool++;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_endurenceQuality.Text = endAct.ToString();
+                    PBR_endurenceQuality.Value = endAct;
+                }
+            }
         }
 
         private void BTN_toughtnessQualityP_Click(object sender, RoutedEventArgs e)
         {
-
+            BTN_toughtnessQualityM.IsEnabled = true;
+            int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+            int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
+            int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (tghAct >= tghMax - 1)
+                {
+                    BTN_toughtnessQualityP.IsEnabled = false;
+                }
+                if (tghMin <= tghAct)
+                {
+                    tghAct++;
+                    pool--;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_toughtnessQuality.Text = tghAct.ToString();
+                    PBR_toughtnessQuality.Value = tghAct;
+                }
+            }
         }
 
         private void BTN_toughtnessQualityM_Click(object sender, RoutedEventArgs e)
         {
-
+            BTN_toughtnessQualityP.IsEnabled = true;
+            int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+            int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
+            int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (tghMin + 1 >= tghAct)
+                {
+                    BTN_toughtnessQualityM.IsEnabled = false;
+                }
+                if (tghMin <= tghAct)
+                {
+                    tghAct--;
+                    pool++;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_toughtnessQuality.Text = tghAct.ToString();
+                    PBR_toughtnessQuality.Value = tghAct;
+                }
+            }
         }
+
+
     }
 }
