@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d" x:Name="WDW_Csw"
-        Title="Clear Selector Window" Height="900" Width="1600"
+        Title="Clear Selector Window" Height="900" Width="1600" WindowStyle="None" WindowState="Maximized"
         WindowStartupLocation="CenterScreen" FontWeight="Bold">
     <!---->
         <Window.Resources>
@@ -58,7 +58,7 @@
         
         
     <TabControl Grid.Row="0" Grid.ColumnSpan="3">
-        <TabItem Header="Step One">
+        <TabItem Header="Race and Gender">
             <Grid Background="LightGreen">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -286,7 +286,7 @@ később lesz szerepe. Csak itt most elfér-->
 
 <!--Gombok, amiket a felhasználó nyomkodhat-->
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <Label Content="Page 01" FontSize="24" FontWeight="Bold"
+            <Label Content="Advantages and Disadvantages" FontSize="24" FontWeight="Bold"
             Foreground="Aquamarine" Background="Red"
             HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal">
@@ -318,12 +318,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="0" Grid.Row="1" Margin="20,0,0,5">
-                    <ListBox x:Name="LBO_MyVitality" Width="200" Height="295"
+                    <ListBox x:Name="LBO_myVitality" Width="200" Height="295"
                     HorizontalContentAlignment="Center">
-                    <StackPanel Height="{Binding ElementName=LBO_MyVitality, Path=ActualHeight}">
+                    <StackPanel Height="{Binding ElementName=LBO_myVitality, Path=ActualHeight}">
                                 
                     <Label Content="Vitality" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_MyVitality" Width="150" IsReadOnly="True" 
+                    <TextBox x:Name="TBO_myVitality" Width="150" IsReadOnly="True" 
                     TextAlignment="Center"/>
                     <ProgressBar x:Name="PBR_myVitality" Minimum="0" Maximum="75"
                     Height="10" Margin="5">
@@ -336,12 +336,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ProgressBar>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyStrengthMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myStrengthMin"
                     ToolTip="Strength" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="Strength" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyStrengthMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myStrengthMax"
                     ToolTip="Strength" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -349,12 +349,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="Firebrick"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyEnduranceMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myEnduranceMin"
                     ToolTip="Strength" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>        
                     <Label Content="Endurence" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyEnduranceMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myEnduranceMax"
                     ToolTip="Influence" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -378,24 +378,24 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,20,0">
-                    <ListBox x:Name="LBO_MyDexterity" Width="200" Height="295"
+                    <ListBox x:Name="LBO_myDexterity" Width="200" Height="295"
                     HorizontalContentAlignment="Center">
-                    <StackPanel Height="{Binding ElementName=LBO_MyDexterity, Path=ActualHeight}">
+                    <StackPanel Height="{Binding ElementName=LBO_myDexterity, Path=ActualHeight}">
                                 
                     <Label Content="Dexterity" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_MyDexterity" Width="150" IsReadOnly="True" 
+                    <TextBox x:Name="TBO_myDexterity" Width="150" IsReadOnly="True" 
                     TextAlignment="Center"/>
                     <ProgressBar x:Name="PBR_myDexterity" Minimum="0" Maximum="75"
                     Height="10" Margin="5" Foreground="SeaGreen"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAgilityMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAgilityMin"
                     ToolTip="Agility" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
                     <Label Content="Agility" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAgilityMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAgilityMax"
                     ToolTip="Agility" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -403,13 +403,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="DarkGreen"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyPerceptionMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myPerceptionMin"
                     ToolTip="Perception" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
                     <Label Content="Perception" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyPerceptionMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myPerceptionMax"
                     ToolTip="Influence" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -435,24 +435,24 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="0" Grid.Row="2" Margin="20,5,0,0">
-                    <ListBox x:Name="LBO_MyIntuition" Width="200" Height="295"
+                    <ListBox x:Name="LBO_myIntuition" Width="200" Height="295"
                     HorizontalContentAlignment="Center">
-                    <StackPanel Height="{Binding ElementName=LBO_MyIntuition, Path=ActualHeight}">
+                    <StackPanel Height="{Binding ElementName=LBO_myIntuition, Path=ActualHeight}">
                                 
                     <Label Content="Intuition" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_MyIntuition" Width="150" IsReadOnly="True" 
+                    <TextBox x:Name="TBO_myIntuition" Width="150" IsReadOnly="True" 
                     TextAlignment="Center"/>
                     <ProgressBar x:Name="PBR_myIntuition" Minimum="0" Maximum="75"
                     Height="10" Margin="5" Foreground="SeaGreen"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyIntelligenceMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myIntelligenceMin"
                     ToolTip="IntelligenceMin" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
                     <Label Content="Intelligence" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyIntelligenceMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myIntelligenceMax"
                     ToolTip="IntelligenceMax" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -460,13 +460,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="DarkGreen"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyWisdomMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myWisdomMin"
                     ToolTip="Wisdom" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
                     <Label Content="Wisdom" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyWisdomMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myWisdomMax"
                     ToolTip="Wisdom" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -474,13 +474,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="YellowGreen"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyResourcefullMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myResourcefullMin"
                     ToolTip="ResourcefullMin" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
                     <Label Content="Resourcefull" Width="75" HorizontalContentAlignment="Center"/>
                         
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyResourcefullMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myResourcefullMax"
                     ToolTip="Luck" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -492,24 +492,24 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,5,20,0">
-                    <ListBox x:Name="LBO_MyCharism" Width="200" Height="295"
+                    <ListBox x:Name="LBO_myCharism" Width="200" Height="295"
                     HorizontalContentAlignment="Center">
-                    <StackPanel Height="{Binding ElementName=LBO_MyCharism, Path=ActualHeight}">
+                    <StackPanel Height="{Binding ElementName=LBO_myCharism, Path=ActualHeight}">
                                 
                     <Label Content="Charism" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_MyCharism" Width="150" IsReadOnly="True" 
+                    <TextBox x:Name="TBO_myCharism" Width="150" IsReadOnly="True" 
                     TextAlignment="Center"/>
                     <ProgressBar x:Name="PBR_myCharism" Minimum="0" Maximum="75"
                     Height="10" Margin="5" Foreground="SeaGreen"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAppearanceMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAppearanceMin"
                     ToolTip="AppearanceMin" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Intelligence" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Appearance" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyAppearanceMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAppearanceMax"
                     ToolTip="AppearanceMax" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -517,13 +517,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="DarkGreen"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyInfluenceMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myInfluenceMin"
                     ToolTip="Influence" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
                     <Label Content="Influence" Width="75" HorizontalContentAlignment="Center"/>
 
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyInfluenceMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myInfluenceMax"
                     ToolTip="Influence" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -531,13 +531,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="10" Margin="5" Foreground="YellowGreen"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyLuckMin"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myLuckMin"
                     ToolTip="LuckMin" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Resourcefull" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Luck" Width="75" HorizontalContentAlignment="Center"/>
                         
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_MyLuckMax"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myLuckMax"
                     ToolTip="Resourcefull" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
@@ -557,7 +557,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
         
 <!--Tulajdonságok beállítása, és egyéb karakterisztikai adatok. Védelmi és 
     támadási készségek-->
-        <TabItem Header="Button Two">
+        <TabItem Header="Abilityes">
             <Grid Background="LightGreen">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -565,7 +565,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-<!--Middle Row: Data Option Column-->
+<!--Right or Left (I do not know) Row: Data Option Column-->
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -682,7 +682,48 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBoxItem HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="Agility" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_agilityQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_agilityQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Perception" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_perceptionQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_perceptionQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Quickness" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_quicknessQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_quicknessQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                    </ListBox>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Margin="5">
                         <Button Width="25" Height="25"/>
@@ -719,7 +760,48 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBoxItem HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="Intelligence" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_intelligenceQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_intelligenceQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Wisdom" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_wisdomQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_wisdomQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Resourcefull" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_resourcefullQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_resourcefullQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                    </ListBox>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Margin="5">
                         <Button Width="25" Height="25"/>
@@ -757,7 +839,48 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBoxItem HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="Appearance" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_appearanceQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_appearanceQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Influence" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_influenceQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_influenceQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                            <Label Content="Luck" HorizontalContentAlignment="Center"/>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                <Button Width="25" Height="25" Content="+" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                <TextBox x:Name="TBO_luckQuality" Width="100"
+                                    IsReadOnly="True"/>
+                                <Button Width="25" Height="25" Content="-" 
+                                    FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="PB_luckQuality" Width="100" Height="10" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                    </ListBox>
                     </StackPanel>
                         
                     <StackPanel Grid.Column="2" Margin="5">
@@ -770,7 +893,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </Grid>
 
 
-                <!--Middle Row: Character model Column-->
+<!--Middle Row: Character model Column-->
                 <Grid Margin="5" Grid.Row="0" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -790,93 +913,86 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 Grid.ColumnSpan="3" Grid.RowSpan="7" Stretch="Fill"/>-->
 
                 <StackPanel Grid.Row="0" Grid.Column="0"
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
-                    <Button Content="Vitality"
-                        x:Name="BTN_qualityOne" 
-                        Margin="15" Padding="15" Click="BTN_qualityOne_Click"/>
+                    <Button Content="Vitality" Width="75"
+                        x:Name="BTN_qualityOne" Click="BTN_qualityOne_Click"
+                        Margin="5" Padding="5"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="0"
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
-                    <Button Content="Dexterity"
+                    <Button Content="Dexterity" Width="75"
                         x:Name="BTN_qualityTwo" Click="BTN_qualityTwo_Click"
-                        Margin="15" Padding="15"/>
+                        Margin="5" Padding="5"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="4" Grid.Column="0"
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
-                    <Button Content="Intuition"
+                    <Button Content="Intuition" Width="75"
                         x:Name="BTN_qualityThree" Click="BTN_qualityThree_Click"
-                        Margin="15" Padding="15"/>
+                        Margin="5" Padding="5"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="6" Grid.Column="0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                    <Button Content="Charism"
-                        x:Name="BTN_qualityFour" Click="BTN_qualityFour_Click"
-                        Margin="15" Padding="15"/>
-                </StackPanel>
-
-                <StackPanel Grid.Row="6" Grid.Column="1"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom">
-                    <Button Content="Reset"
-                        x:Name="BTN_qualityReset" Click="BTN_qualityReset_Click"
-                        Margin="15" Padding="15"/>
+                VerticalAlignment="Center">
+                    <Button Content="Charism" Width="75"
+                        x:Name="BTN_qualityFour" Click="BTN_qualityFour_Click"
+                        Margin="5" Padding="5"/>
                 </StackPanel>
 
-                    <Label Content="Page 02" FontSize="24" FontWeight="Bold"
-                    Grid.ColumnSpan="3" Grid.Row="3" Foreground="Aquamarine"
+                <StackPanel Grid.Row="6" Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+                    <Button Content="Reset" Width="75"
+                        x:Name="BTN_qualityReset" Click="BTN_qualityReset_Click"
+                        Margin="5" Padding="5"/>
+                </StackPanel>
+
+                    <Label Content="Abilityes and Resistances" FontSize="24" FontWeight="Bold"
+                    Grid.ColumnSpan="3" Grid.Row="3" Foreground="Red"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"/>
                 </Grid>
 
-                <!--Middle Row: Characteristic panel-->
+<!--Right (or left. I don't know) Row: Characteristic panel-->
                 <StackPanel Margin="5" Grid.Column="2" x:Name="SP_Characteristic">
                     <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"
                         HorizontalContentAlignment="Center" Margin="5,5,5,25"/>
                     <ListBox Margin="15" 
                         Width="450" Height="650">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
+                        
                     </ListBox>
                 </StackPanel>
             </Grid>
         </TabItem>
 
+        <TabItem Header="Skills and Progression">
+            <Grid Background="LightGreen">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
 
-            <TabItem Header="Button Three (Három? Fa? Három fa?)">
-                <Grid Background="LightGreen">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel>
+                </StackPanel>
 
-                    </StackPanel>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Label Content="Skills and Progression" FontSize="24" FontWeight="Bold"
+                Foreground="Blue" Background="Red" HorizontalAlignment="Center"/>
+                </StackPanel>
 
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <Label Content="Page 03" FontSize="24" FontWeight="Bold"
-                   Foreground="Aquamarine" Background="Red"
-                   HorizontalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel>
 
-                    <StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
 
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-
-            <TabItem Header="Button Flour">
+        <TabItem Header="Wizarding Schools and Descriptions">
             <Grid Background="LightGreen">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -888,8 +1004,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             </StackPanel>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <Label Content="Page 04" FontSize="24" FontWeight="Bold"
-            Foreground="Aquamarine" Background="Red"
+            <Label Content="Wizarding Schools and Descriptions" FontSize="24" FontWeight="Bold"
+            Foreground="Blue" Background="Red"
             HorizontalAlignment="Center"/>
             </StackPanel>
 
@@ -897,8 +1013,81 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
             </StackPanel>
             </Grid>
-            </TabItem>
-        </TabControl>
+        </TabItem>
+        
+        <TabItem Header="Wizarding Schools and Spells">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Wizarding Schools and Spells" FontSize="24" FontWeight="Bold"
+            Foreground="Blue" Background="Red"
+            HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel>
+
+            </StackPanel>
+            </Grid>
+        </TabItem>
+    
+        <TabItem Header="Gods and Religions">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Gods and Religions" FontSize="24" FontWeight="Bold"
+            Foreground="Blue" Background="Red"
+            HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel>
+
+            </StackPanel>
+            </Grid>
+        </TabItem>
+        
+        <TabItem Header="Prayers and Beggings">
+            <Grid Background="LightGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <TextBox Text="Prayers and Beggings, avagy részeg vagy Goggle fordító" FontSize="24" FontWeight="Bold"
+            Foreground="Blue" Background="Red" HorizontalAlignment="Center" Width="300" TextWrapping="Wrap" 
+            TextAlignment="Center" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+
+            </StackPanel>
+            </Grid>
+        </TabItem>
+        
+        
+        
+        
+    </TabControl>
         
         <!--<Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
         x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>-->
@@ -928,10 +1117,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
         
 <!--Butoff. Background, abilitys-->
         
-        <Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
+        <!--<Button Content="2" Margin="5,10,15,10" Padding="10,0,10,0"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
-            x:Name="BTN_02"/>
+            x:Name="BTN_02"/>-->
             
 <!--Butoff. Presence... outlooking... appearance... meg az anyád, az-->
         
@@ -970,6 +1159,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
         <StackPanel Grid.Row="2" Grid.Column="2"
             HorizontalAlignment="Right" VerticalAlignment="Center">
+<!--Lusta vagyok mindenhonnan kikommentelni. This is not you'r friend-->
         <Button Content="FINALY"
             VerticalAlignment="Center"
             Margin="5" Padding="5"

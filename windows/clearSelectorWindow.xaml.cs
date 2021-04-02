@@ -181,20 +181,20 @@ namespace mD_WPF_chSheet_01.windows
                 #region vitality
                 int? myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
                 int? myStrMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMax;
-                TBO_MyStrengthMin.Text = myStrMin.ToString();
-                TBO_MyStrengthMax.Text = myStrMax.ToString();
+                TBO_myStrengthMin.Text = myStrMin.ToString();
+                TBO_myStrengthMax.Text = myStrMax.ToString();
 
                 int? myEndMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMin;
                 int? myEndMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMax;
-                TBO_MyEnduranceMin.Text = myEndMin.ToString();
-                TBO_MyEnduranceMax.Text = myEndMax.ToString();
+                TBO_myEnduranceMin.Text = myEndMin.ToString();
+                TBO_myEnduranceMax.Text = myEndMax.ToString();
 
                 int? myTghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMin;
                 int? myTghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMax;
                 TBO_myToughtnessMin.Text = myTghMin.ToString();
                 TBO_myToughtnessMax.Text = myTghMax.ToString();
 
-                TBO_MyVitality.Text = (myStrMin + myEndMin + myTghMin).ToString();
+                TBO_myVitality.Text = (myStrMin + myEndMin + myTghMin).ToString();
                 PBR_myVitality.Value = Convert.ToInt32(myStrMin + myStrMin + myStrMin);
                 PBR_myStrength.Value = Convert.ToInt32(myStrMax);
                 PBR_myEndurance.Value = Convert.ToInt32(myEndMax);
@@ -204,20 +204,20 @@ namespace mD_WPF_chSheet_01.windows
                 #region dexterity
                 int? myAgiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
                 int? myAgiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
-                TBO_MyAgilityMin.Text = myAgiMin.ToString();
-                TBO_MyAgilityMax.Text = myAgiMax.ToString();
+                TBO_myAgilityMin.Text = myAgiMin.ToString();
+                TBO_myAgilityMax.Text = myAgiMax.ToString();
 
                 int? myPerMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
                 int? myPerMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
-                TBO_MyPerceptionMin.Text = myPerMin.ToString();
-                TBO_MyPerceptionMax.Text = myPerMax.ToString();
+                TBO_myPerceptionMin.Text = myPerMin.ToString();
+                TBO_myPerceptionMax.Text = myPerMax.ToString();
 
                 int? myQuiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
                 int? myQuiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
                 TBO_myQuicknessMin.Text = myQuiMin.ToString();
                 TBO_myQuicknessMax.Text = myQuiMax.ToString();
 
-                TBO_MyDexterity.Text = (myAgiMin + myPerMin + myQuiMin).ToString();
+                TBO_myDexterity.Text = (myAgiMin + myPerMin + myQuiMin).ToString();
                 PBR_myDexterity.Value = Convert.ToInt32(myAgiMin + myPerMin + myQuiMin);
                 PBR_myAgility.Value = Convert.ToInt32(myPerMax);
                 PBR_myPerception.Value = Convert.ToInt32(myPerMax);
@@ -227,21 +227,21 @@ namespace mD_WPF_chSheet_01.windows
                 #region intuition
                 int? myIntMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
                 int? myIntMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
-                TBO_MyIntelligenceMin.Text = myIntMin.ToString();
-                TBO_MyIntelligenceMax.Text = myIntMax.ToString();
+                TBO_myIntelligenceMin.Text = myIntMin.ToString();
+                TBO_myIntelligenceMax.Text = myIntMax.ToString();
 
                 int? myWisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
                 int? myWisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
-                TBO_MyWisdomMin.Text = myWisMin.ToString();
-                TBO_MyWisdomMax.Text = myWisMax.ToString();
+                TBO_myWisdomMin.Text = myWisMin.ToString();
+                TBO_myWisdomMax.Text = myWisMax.ToString();
 
                 int? myResMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
                 int? myResMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
-                TBO_MyResourcefullMin.Text = myResMin.ToString();
-                TBO_MyResourcefullMax.Text = myResMax.ToString();
+                TBO_myResourcefullMin.Text = myResMin.ToString();
+                TBO_myResourcefullMax.Text = myResMax.ToString();
 
                 PBR_myIntuition.ToolTip = (myIntMin + myWisMin + myResMin).ToString();
-                TBO_MyIntuition.Text = (myIntMin + myWisMin + myResMin).ToString();
+                TBO_myIntuition.Text = (myIntMin + myWisMin + myResMin).ToString();
                 PBR_myIntuition.Value = Convert.ToInt32(myIntMin + myWisMin + myResMin);
                 PBR_myIntelligence.Value = Convert.ToInt32(myIntMax);
                 PBR_myWisdom.Value = Convert.ToInt32(myWisMax);
@@ -251,21 +251,21 @@ namespace mD_WPF_chSheet_01.windows
                 #region charisma
                 int? myAppMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
                 int? myAppMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
-                TBO_MyAppearanceMin.Text = myAppMin.ToString();
-                TBO_MyAppearanceMax.Text = myAppMax.ToString();
+                TBO_myAppearanceMin.Text = myAppMin.ToString();
+                TBO_myAppearanceMax.Text = myAppMax.ToString();
 
                 int? myInfMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
                 int? myInfMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
-                TBO_MyInfluenceMin.Text = myInfMin.ToString();
-                TBO_MyInfluenceMax.Text = myInfMax.ToString();
+                TBO_myInfluenceMin.Text = myInfMin.ToString();
+                TBO_myInfluenceMax.Text = myInfMax.ToString();
 
                 int? myLuckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
                 int? myLuckax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
-                TBO_MyLuckMin.Text = myLuckMin.ToString();
-                TBO_MyLuckMax.Text = myLuckax.ToString();
+                TBO_myLuckMin.Text = myLuckMin.ToString();
+                TBO_myLuckMax.Text = myLuckax.ToString();
 
                 PBR_myCharism.ToolTip = (myAppMin + myInfMin + myLuckMin).ToString();
-                TBO_MyCharism.Text = (myAppMin + myInfMin + myLuckMin).ToString();
+                TBO_myCharism.Text = (myAppMin + myInfMin + myLuckMin).ToString();
                 PBR_myCharism.Value = Convert.ToInt32(myAppMin + myInfMin + myLuckMin);
                 PBR_myAppearance.Value = Convert.ToInt32(myAppMax);
                 PBR_myInfluence.Value = Convert.ToInt32(myInfMax);
