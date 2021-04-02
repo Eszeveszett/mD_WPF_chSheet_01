@@ -148,7 +148,7 @@ namespace mD_WPF_chSheet_01.windows
             }
 
             LBO_rRace.ItemsSource = context.Races.Local.ToObservableCollection();
-            LBO_rRace.SelectedIndex = -1;
+            LBO_rRace.SelectedItem = null;
 
             LBO_advantages.ItemsSource = adv;
             LBO_disadvantages.ItemsSource = dis;
@@ -179,18 +179,18 @@ namespace mD_WPF_chSheet_01.windows
                     + " " + ((Races)LBO_rRace.SelectedItem).Description + "\n\n Csak a Bohr állandó";
 
                 #region vitality
-                int? myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
-                int? myStrMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMax;
+                int myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
+                int myStrMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMax;
                 TBO_myStrengthMin.Text = myStrMin.ToString();
                 TBO_myStrengthMax.Text = myStrMax.ToString();
 
-                int? myEndMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMin;
-                int? myEndMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMax;
+                int myEndMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMin;
+                int myEndMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].EnduranceMax;
                 TBO_myEnduranceMin.Text = myEndMin.ToString();
                 TBO_myEnduranceMax.Text = myEndMax.ToString();
 
-                int? myTghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMin;
-                int? myTghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMax;
+                int myTghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMin;
+                int myTghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].ToughtnessMax;
                 TBO_myToughtnessMin.Text = myTghMin.ToString();
                 TBO_myToughtnessMax.Text = myTghMax.ToString();
 
@@ -202,18 +202,18 @@ namespace mD_WPF_chSheet_01.windows
                 #endregion
 
                 #region dexterity
-                int? myAgiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
-                int? myAgiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
+                int myAgiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
+                int myAgiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
                 TBO_myAgilityMin.Text = myAgiMin.ToString();
                 TBO_myAgilityMax.Text = myAgiMax.ToString();
 
-                int? myPerMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
-                int? myPerMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
+                int myPerMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
+                int myPerMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
                 TBO_myPerceptionMin.Text = myPerMin.ToString();
                 TBO_myPerceptionMax.Text = myPerMax.ToString();
 
-                int? myQuiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
-                int? myQuiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
+                int myQuiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
+                int myQuiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
                 TBO_myQuicknessMin.Text = myQuiMin.ToString();
                 TBO_myQuicknessMax.Text = myQuiMax.ToString();
 
@@ -225,18 +225,18 @@ namespace mD_WPF_chSheet_01.windows
                 #endregion
 
                 #region intuition
-                int? myIntMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
-                int? myIntMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
+                int myIntMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
+                int myIntMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
                 TBO_myIntelligenceMin.Text = myIntMin.ToString();
                 TBO_myIntelligenceMax.Text = myIntMax.ToString();
 
-                int? myWisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
-                int? myWisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
+                int myWisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
+                int myWisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
                 TBO_myWisdomMin.Text = myWisMin.ToString();
                 TBO_myWisdomMax.Text = myWisMax.ToString();
 
-                int? myResMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
-                int? myResMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
+                int myResMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
+                int myResMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
                 TBO_myResourcefullMin.Text = myResMin.ToString();
                 TBO_myResourcefullMax.Text = myResMax.ToString();
 
@@ -249,18 +249,18 @@ namespace mD_WPF_chSheet_01.windows
                 #endregion
 
                 #region charisma
-                int? myAppMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
-                int? myAppMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
+                int myAppMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
+                int myAppMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
                 TBO_myAppearanceMin.Text = myAppMin.ToString();
                 TBO_myAppearanceMax.Text = myAppMax.ToString();
 
-                int? myInfMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
-                int? myInfMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
+                int myInfMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
+                int myInfMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
                 TBO_myInfluenceMin.Text = myInfMin.ToString();
                 TBO_myInfluenceMax.Text = myInfMax.ToString();
 
-                int? myLuckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
-                int? myLuckax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
+                int myLuckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
+                int myLuckax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
                 TBO_myLuckMin.Text = myLuckMin.ToString();
                 TBO_myLuckMax.Text = myLuckax.ToString();
 
@@ -303,49 +303,159 @@ namespace mD_WPF_chSheet_01.windows
             }
         }
 
-        private void BTN_qualityOne_Click(object sender, RoutedEventArgs e)
+        private void BTN_vitalityQuality_Click(object sender, RoutedEventArgs e)
         {
-            if (abilityQuality.Count > 0)
+            if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_vitalityQuality.Text = abilityQuality[0].ToString();
+                TBO_strengthQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin);
+                TBO_endurenceQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin);
+                TBO_toughtnessQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin);
+
+                int vq = (vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin +
+                           vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin +
+                           vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin);
+                TBO_vitalityQuality.Text = (abilityQuality[0] - vq).ToString();
                 abilityQuality.Remove(abilityQuality[0]);
+                //BTN_qualityOne.Visibility = Visibility.Hidden;
+                BTN_vitalityQuality.IsEnabled = false;
+            }
+            //if (abilityQuality.Count > 0)
+            //{
+            //    int? vq = (vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin +
+            //               vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin +
+            //               vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin);
+            //    TBO_vitalityQuality.Text = (abilityQuality[0]-vq).ToString();
+            //    abilityQuality.Remove(abilityQuality[0]);
+            //}
+        }
+
+        private void BTN_dexterityQuality_Click(object sender, RoutedEventArgs e)
+        {
+            if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
+            {
+                TBO_agilityQuality.Text = Convert.ToString(dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin);
+                TBO_perceptionQuality.Text = Convert.ToString(dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin);
+                TBO_quicknessQuality.Text = Convert.ToString(dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin);
+
+                int dq = (dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin +
+                           dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin +
+                           dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin);
+                TBO_dexterityQuality.Text = (abilityQuality[0] - dq).ToString();
+                abilityQuality.Remove(abilityQuality[0]);
+                BTN_dexterityQuality.IsEnabled = false;
             }
         }
 
-        private void BTN_qualityTwo_Click(object sender, RoutedEventArgs e)
+        private void BTN_intuitionQuality_Click(object sender, RoutedEventArgs e)
         {
-            if (abilityQuality.Count > 0)
+            if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_dexterityQuality.Text = abilityQuality[0].ToString();
+                TBO_intelligenceQuality.Text = Convert.ToString(intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin);
+                TBO_wisdomQuality.Text = Convert.ToString(intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin);
+                TBO_resourcefullQuality.Text = Convert.ToString(intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin);
+
+                int iq = (intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin +
+                           intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin +
+                           intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin);
+                TBO_intuitionQuality.Text = (abilityQuality[0] - iq).ToString();
                 abilityQuality.Remove(abilityQuality[0]);
+                BTN_intuitionQuality.IsEnabled = false;
             }
+
         }
 
-        private void BTN_qualityThree_Click(object sender, RoutedEventArgs e)
+        private void BTN_charismQuality_Click(object sender, RoutedEventArgs e)
         {
-            if (abilityQuality.Count > 0)
+            if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_intuitionQuality.Text = abilityQuality[0].ToString();
-                abilityQuality.Remove(abilityQuality[0]);
-            }
-            
-        }
+                TBO_appearanceQuality.Text = Convert.ToString(charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin);
+                TBO_influenceQuality.Text = Convert.ToString(charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin);
+                TBO_luckQuality.Text = Convert.ToString(charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin);
 
-        private void BTN_qualityFour_Click(object sender, RoutedEventArgs e)
-        {
-            if (abilityQuality.Count > 0)
-            {
-                TBO_charismQuality.Text = abilityQuality[0].ToString();
+                int cq = (charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin +
+                           charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin +
+                           charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin);
+                TBO_charismaQuality.Text = (abilityQuality[0] - cq).ToString();
                 abilityQuality.Remove(abilityQuality[0]);
+                BTN_charismaQuality.IsEnabled = false;
             }
-            
+
         }
 
         private void BTN_qualityReset_Click(object sender, RoutedEventArgs e)
         {
             abilityQuality.Add(50); abilityQuality.Add(45); abilityQuality.Add(40); abilityQuality.Add(35);
             TBO_vitalityQuality.Text = ""; TBO_dexterityQuality.Text = ""; 
-            TBO_intuitionQuality.Text = ""; TBO_charismQuality.Text = "";
+            TBO_intuitionQuality.Text = ""; TBO_charismaQuality.Text = "";
+
+            TBO_strengthQuality.Text = ""; TBO_endurenceQuality.Text = ""; TBO_toughtnessQuality.Text = "";
+            TBO_agilityQuality.Text = ""; TBO_perceptionQuality.Text = ""; TBO_quicknessQuality.Text = "";
+            TBO_intelligenceQuality.Text = ""; TBO_wisdomQuality.Text = ""; TBO_resourcefullQuality.Text = "";
+            TBO_appearanceQuality.Text = ""; TBO_influenceQuality.Text = ""; TBO_luckQuality.Text = "";
+
+            //BTN_qualityOne.Visibility = Visibility.Visible;
+            BTN_vitalityQuality.IsEnabled = true; BTN_dexterityQuality.IsEnabled = true;
+            BTN_intuitionQuality.IsEnabled = true; BTN_charismaQuality.IsEnabled = true;
+        }
+
+        private void BTN_strengthQualityP_Click(object sender, RoutedEventArgs e)
+        {
+            int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+            int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
+            int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (strAct >= strMax - 1)
+                {
+                    BTN_strengthQualityP.IsEnabled = false;
+                }
+                if (strMin <= strAct)
+                {
+                    strAct++;
+                    pool--;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_strengthQuality.Text = strAct.ToString();
+
+                }
+            }
+        }
+
+        private void BTN_strengthQualityM_Click(object sender, RoutedEventArgs e)
+        {
+            int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+            int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
+            int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
+            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+            if (LBO_rRace.SelectedItem != null)
+            {
+                if (strMin + 1 >= strAct)
+                {
+                    BTN_strengthQualityM.IsEnabled = false;
+                }
+                if (strMin <= strAct)
+                {
+                    strAct--;
+                    pool++;
+                    TBO_vitalityQuality.Text = pool.ToString();
+                    TBO_strengthQuality.Text = strAct.ToString();
+                }
+            }
+        }
+
+        private void BTN_endurenceQualityP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BTN_toughtnessQualityP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BTN_toughtnessQualityM_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

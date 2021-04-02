@@ -599,7 +599,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <TextBox x:Name="TBO_vitalityQuality" Width="100" Margin="5,0,5,5"
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
-                    <ListBox x:Name="LBO_leftUpperBox"
+                    <ListBox x:Name="LBO_vitalityQuality"
                     Height="250" Width="Auto" DataContext="{Binding}"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
@@ -609,23 +609,32 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             <Label Content="Strength" HorizontalContentAlignment="Center"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="+" 
+                                <Button x:Name="BTN_strengthQualityM" Click="BTN_strengthQualityM_Click"
+                                    Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_strengthQuality" Width="100"
+                                <TextBox x:Name="TBO_strengthQuality" 
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="-" 
+                                <Button x:Name="BTN_strengthQualityP" 
+                                    Width="25" Height="25" Content="+" Click="BTN_strengthQualityP_Click"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                
                                 </StackPanel>
                                 <ProgressBar x:Name="PB_strengthQuality" Width="100" Height="10" Margin="5"/>
                             </StackPanel>
                             <Label Content="Endurence" HorizontalContentAlignment="Center"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="+" 
+                                <Button x:Name="BTN_endurenceQualityP" Click="BTN_endurenceQualityP_Click"
+                                    Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_endurenceQuality" Width="100"
+                                <TextBox x:Name="TBO_endurenceQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="-" 
+                                <Button x:Name="BTN_endurenceQualityM"
+                                    Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="PB_endurenceQuality" Width="100" Height="10" Margin="5"/>
@@ -633,11 +642,15 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             <Label Content="Toughtness" HorizontalContentAlignment="Center"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="+" 
+                                <Button x:Name="BTN_toughtnessQualityP" Click="BTN_toughtnessQualityP_Click"
+                                    Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_toughtnessQuality" Width="100"
+                                <TextBox x:Name="TBO_toughtnessQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="-" 
+                                <Button x:Name="BTN_toughtnessQualityM" Click="BTN_toughtnessQualityM_Click"
+                                    Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="PB_toughtnessQuality" Width="100" Height="10" Margin="5"/>
@@ -646,7 +659,6 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ListBoxItem>
                     </ListBox>
                     </StackPanel>
-                        
                         <StackPanel Grid.Column="2" Margin="5">
                             <Button Width="25" Height="25"/>
                             <Button Width="25" Height="25"/>
@@ -678,7 +690,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <TextBox x:Name="TBO_dexterityQuality" Width="100" Margin="5,0,5,5"
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
-                    <ListBox x:Name="LBO_rightUpperBox"
+                    <ListBox x:Name="LBO_dexterityQuality"
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
@@ -690,7 +702,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_agilityQuality" Width="100"
+                                <TextBox x:Name="TBO_agilityQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -702,7 +716,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_perceptionQuality" Width="100"
+                                <TextBox x:Name="TBO_perceptionQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -714,7 +730,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_quicknessQuality" Width="100"
+                                <TextBox x:Name="TBO_quicknessQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -756,7 +774,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <TextBox x:Name="TBO_intuitionQuality" Width="100" Margin="5,0,5,5"
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         
-                    <ListBox x:Name="LBO_lowerLeftBlock"
+                    <ListBox x:Name="LBO_intuitionQuality"
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
@@ -768,7 +786,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_intelligenceQuality" Width="100"
+                                <TextBox x:Name="TBO_intelligenceQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -780,7 +800,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_wisdomQuality" Width="100"
+                                <TextBox x:Name="TBO_wisdomQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -792,7 +814,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_resourcefullQuality" Width="100"
+                                <TextBox x:Name="TBO_resourcefullQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -832,10 +856,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <Label Content="Charism" Margin="5,0,5,0"
                     FontSize="24" FontWeight="Bold"
                     HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="TBO_charismQuality" Width="100" Margin="5,0,5,5"
+                    <TextBox x:Name="TBO_charismaQuality" Width="100" Margin="5,0,5,5"
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         
-                    <ListBox x:Name="LBO_lowerRightBlock"
+                    <ListBox x:Name="LBO_charismaQuality"
                     Height="250" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
@@ -847,7 +871,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_appearanceQuality" Width="100"
+                                <TextBox x:Name="TBO_appearanceQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -859,7 +885,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_influenceQuality" Width="100"
+                                <TextBox x:Name="TBO_influenceQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -871,7 +899,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Orientation="Horizontal">
                                 <Button Width="25" Height="25" Content="+" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
-                                <TextBox x:Name="TBO_luckQuality" Width="100"
+                                <TextBox x:Name="TBO_luckQuality"
+                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                 <Button Width="25" Height="25" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
@@ -916,7 +946,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                     <Button Content="Vitality" Width="75"
-                        x:Name="BTN_qualityOne" Click="BTN_qualityOne_Click"
+                        x:Name="BTN_vitalityQuality" Click="BTN_vitalityQuality_Click"
                         Margin="5" Padding="5"/>
                 </StackPanel>
 
@@ -924,7 +954,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                     <Button Content="Dexterity" Width="75"
-                        x:Name="BTN_qualityTwo" Click="BTN_qualityTwo_Click"
+                        x:Name="BTN_dexterityQuality" Click="BTN_dexterityQuality_Click"
                         Margin="5" Padding="5"/>
                 </StackPanel>
 
@@ -932,15 +962,15 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                     <Button Content="Intuition" Width="75"
-                        x:Name="BTN_qualityThree" Click="BTN_qualityThree_Click"
+                        x:Name="BTN_intuitionQuality" Click="BTN_intuitionQuality_Click"
                         Margin="5" Padding="5"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="6" Grid.Column="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
-                    <Button Content="Charism" Width="75"
-                        x:Name="BTN_qualityFour" Click="BTN_qualityFour_Click"
+                    <Button Content="Charisma" Width="75"
+                        x:Name="BTN_charismaQuality" Click="BTN_charismQuality_Click"
                         Margin="5" Padding="5"/>
                 </StackPanel>
 

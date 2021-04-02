@@ -140,7 +140,7 @@
 
             <Button Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12">
+                FontSize="12" BorderBrush="{x:Null}">
                 
                 <Canvas>
                     <TextBlock Text="Load Game" Width="80" Canvas.Top="-8" Canvas.Right="-38"
@@ -149,16 +149,16 @@
                     Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
                 </Canvas>                   
                 
-                <Button.Resources>
+                <!--<Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
-                </Button.Resources>
+                </Button.Resources>-->
             </Button>
 
             <Button Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12">
+                FontSize="12" BorderBrush="{x:Null}">
                 
                 <Canvas>
                     <TextBlock Text="Options" Width="80" Canvas.Top="-8" Canvas.Right="-38"
@@ -167,11 +167,11 @@
                     Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
                 </Canvas>                  
                 
-                <Button.Resources>
+                <!--<Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
-                </Button.Resources>
+                </Button.Resources>-->
             </Button>
 
             <Button Content="Testing" Margin="5,5,5,2" Background="{x:Null}"

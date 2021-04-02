@@ -17,14 +17,14 @@ namespace mD_WPF_chSheet_01.Models.dzeta
         public int Id { get; set; }
         public string Description { get; set; }
         public string StrengthDescription { get; set; }
-        public int? StrengthMin { get; set; }
-        public int? StrengthMax { get; set; }
+        public int StrengthMin { get; set; }
+        public int StrengthMax { get; set; }
         public string EnduranceDescription { get; set; }
-        public int? EnduranceMin { get; set; }
-        public int? EnduranceMax { get; set; }
+        public int EnduranceMin { get; set; }
+        public int EnduranceMax { get; set; }
         public string ToughtnessDescription { get; set; }
-        public int? ToughtnessMin { get; set; }
-        public int? ToughtnessMax { get; set; }
+        public int ToughtnessMin { get; set; }
+        public int ToughtnessMax { get; set; }
 
         public virtual ICollection<Races> Races { get; set; }
 

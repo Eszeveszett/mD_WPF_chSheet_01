@@ -17,14 +17,14 @@ namespace mD_WPF_chSheet_01.Models.dzeta
         public int Id { get; set; }
         public string Description { get; set; }
         public string IntelligenceDescription { get; set; }
-        public int? IntelligenceMin { get; set; }
-        public int? IntelligenceMax { get; set; }
+        public int IntelligenceMin { get; set; }
+        public int IntelligenceMax { get; set; }
         public string WisdomDescription { get; set; }
-        public int? WisdomMin { get; set; }
-        public int? WisdomMax { get; set; }
+        public int WisdomMin { get; set; }
+        public int WisdomMax { get; set; }
         public string ResourcefullDescription { get; set; }
-        public int? ResourcefullMin { get; set; }
-        public int? ResourcefullMax { get; set; }
+        public int ResourcefullMin { get; set; }
+        public int ResourcefullMax { get; set; }
 
         public virtual ICollection<Races> Races { get; set; }
     }

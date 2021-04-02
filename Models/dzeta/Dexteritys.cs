@@ -17,14 +17,14 @@ namespace mD_WPF_chSheet_01.Models.dzeta
         public int Id { get; set; }
         public string Description { get; set; }
         public string AgilityDescription { get; set; }
-        public int? AgilityMin { get; set; }
-        public int? AgilityMax { get; set; }
+        public int AgilityMin { get; set; }
+        public int AgilityMax { get; set; }
         public string PerceptionDescription { get; set; }
-        public int? PerceptionMin { get; set; }
-        public int? PerceptionMax { get; set; }
+        public int PerceptionMin { get; set; }
+        public int PerceptionMax { get; set; }
         public string QuicknessDescription { get; set; }
-        public int? QuicknessMin { get; set; }
-        public int? QuicknessMax { get; set; }
+        public int QuicknessMin { get; set; }
+        public int QuicknessMax { get; set; }
 
         public virtual ICollection<Races> Races { get; set; }
     }

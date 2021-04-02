@@ -15,10 +15,10 @@ namespace mD_WPF_chSheet_01.Models.dzeta
         public string RaceName { get; set; }
         public string Gender { get; set; }
         public string Description { get; set; }
-        public int? VitalityId { get; set; }
-        public int? DexterityId { get; set; }
-        public int? IntuitionId { get; set; }
-        public int? CharismaId { get; set; }
+        public int VitalityId { get; set; }
+        public int DexterityId { get; set; }
+        public int IntuitionId { get; set; }
+        public int CharismaId { get; set; }
         public string Pictures { get; set; }
 
         public virtual Charisms Charisma { get; set; }
