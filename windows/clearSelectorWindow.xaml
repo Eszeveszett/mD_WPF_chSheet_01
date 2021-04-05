@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d" x:Name="WDW_Csw"
-        Title="Clear Selector Window" Height="900" Width="1600" WindowStyle="None" WindowState="Maximized"
+        Title="Clear Selector Window" Height="900" Width="1600" 
+        WindowStyle="None" WindowState="Maximized"
         WindowStartupLocation="CenterScreen" FontWeight="Bold">
     <!---->
         <Window.Resources>
@@ -600,69 +601,69 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
                     <ListBox x:Name="LBO_vitalityQuality"
-                    Height="250" Width="Auto" DataContext="{Binding}"
+                    Height="285" Width="Auto" DataContext="{Binding}"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                     <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
-                            <Label Content="Strength" HorizontalContentAlignment="Center"/>
+                            <Label Content="Strength" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
                                     
                                 <Button x:Name="BTN_strengthQualityM" Click="BTN_strengthQualityM_Click"
-                                    Width="25" Height="25" Content="-" 
+                                    Width="25" Height="25" Margin="0,0,3,0" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                     
-                                <TextBox x:Name="TBO_strengthQuality" 
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                <TextBox x:Name="TBO_strengthQuality" Width="100" Margin="0,3,0,3"
+                                    FontSize="18" FontWeight="Bold"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                     
-                                <Button x:Name="BTN_strengthQualityP" 
-                                    Width="25" Height="25" Content="+" Click="BTN_strengthQualityP_Click"
+                                <Button x:Name="BTN_strengthQualityP" Click="BTN_strengthQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 
                                 </StackPanel>
                                 <ProgressBar x:Name="PBR_strengthQuality" Foreground="Firebrick"
                                     Width="100" Height="10" Margin="5"/>
                             </StackPanel>
-                            <Label Content="Endurence" HorizontalContentAlignment="Center"/>
+                            <Label Content="Endurence" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
                                     
                                 <Button x:Name="BTN_endurenceQualityM" Click="BTN_endurenceQualityM_Click"
-                                    Width="25" Height="25" Content="-" 
+                                    Width="25" Height="25" Margin="0,0,3,0" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                     
                                 <TextBox x:Name="TBO_endurenceQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" Margin="0,3,0,3" FontSize="18" FontWeight="Bold"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                     
                                 <Button x:Name="BTN_endurenceQualityP" Click="BTN_endurenceQualityP_Click"
-                                    Width="25" Height="25" Content="+" 
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 
                                 </StackPanel>
                                 <ProgressBar x:Name="PBR_endurenceQuality" Foreground="Crimson"
                                     Width="100" Height="10" Margin="5"/>
                             </StackPanel>
-                            <Label Content="Toughtness" HorizontalContentAlignment="Center"/>
+                            <Label Content="Toughtness" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
                                     
                                 <Button x:Name="BTN_toughtnessQualityM" Click="BTN_toughtnessQualityM_Click"
-                                    Width="25" Height="25" Content="-" 
+                                    Width="25" Height="25" Margin="0,0,3,0" Content="-" 
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 
                                 <TextBox x:Name="TBO_toughtnessQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" Margin="0,3,0,3" FontSize="18" FontWeight="Bold"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
                                     
                                 <Button x:Name="BTN_toughtnessQualityP" Click="BTN_toughtnessQualityP_Click"
-                                    Width="25" Height="25" Content="+" 
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                     
                                 </StackPanel>
@@ -705,53 +706,74 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
                     <ListBox x:Name="LBO_dexterityQuality"
-                    Height="250" Width="Auto"
+                    Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                         <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
-                            <Label Content="Agility" HorizontalContentAlignment="Center"/>
+                            <Label Content="Agility" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_agilityQualityM" Click="BTN_agilityQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_agilityQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_agilityQualityP" Click="BTN_agilityQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_agilityQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_agilityQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="Gold"/>
                             </StackPanel>
-                            <Label Content="Perception" HorizontalContentAlignment="Center"/>
+                            <Label Content="Perception" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_perceptionQualityM" Click="BTN_perceptionQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_perceptionQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_perceptionQualityP" Click="BTN_perceptionQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_perceptionQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_perceptionQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="Orange"/>
                             </StackPanel>
-                            <Label Content="Quickness" HorizontalContentAlignment="Center"/>
+                            <Label Content="Quickness" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_quicknessQualityM" Click="BTN_quicknessQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_quicknessQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_quicknessQualityP" Click="BTN_quicknessQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_quicknessQuality" Width="100" Height="10" Margin="5"/>
+                                
+                                <ProgressBar x:Name="PBR_quicknessQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="Goldenrod"/>
                             </StackPanel>
                         </StackPanel>
                     </ListBoxItem>
@@ -789,53 +811,74 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         
                     <ListBox x:Name="LBO_intuitionQuality"
-                    Height="250" Width="Auto"
+                    Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                         <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
-                            <Label Content="Intelligence" HorizontalContentAlignment="Center"/>
+                            <Label Content="Intelligence" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_intelligenceQualityM" Click="BTN_intelligenceQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_intelligenceQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_intelligenceQualityP" Click="BTN_intelligenceQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_intelligenceQuality" Width="100" Height="10" Margin="5"/>
+                                
+                                <ProgressBar x:Name="PBR_intelligenceQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="DarkSlateBlue"/>
                             </StackPanel>
-                            <Label Content="Wisdom" HorizontalContentAlignment="Center"/>
+                            <Label Content="Wisdom" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_wisdomQualityM" Click="BTN_wisdomQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_wisdomQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_wisdomQualityP" Click="BTN_wisdomQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_wisdomQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_wisdomQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="MediumSlateBlue"/>
                             </StackPanel>
-                            <Label Content="Resourcefull" HorizontalContentAlignment="Center"/>
+                            <Label Content="Resourcefull" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_resourcefullQualityM" Click="BTN_resourcefullQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_resourcefullQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_resourcefullQualityP" Click="BTN_resourcefullQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_resourcefullQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_resourcefullQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="DeepSkyBlue"/>
                             </StackPanel>
                         </StackPanel>
                     </ListBoxItem>
@@ -874,53 +917,74 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         
                     <ListBox x:Name="LBO_charismaQuality"
-                    Height="250" Width="Auto"
+                    Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                         <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
-                            <Label Content="Appearance" HorizontalContentAlignment="Center"/>
+                            <Label Content="Appearance" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_appearanceQualityM" Click="BTN_appearanceQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_appearanceQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_appearanceQualityP" Click="BTN_appearanceQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_appearanceQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_appearanceQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="BlueViolet"/>
                             </StackPanel>
-                            <Label Content="Influence" HorizontalContentAlignment="Center"/>
+                            <Label Content="Influence" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_influenceQualityM" Click="BTN_influenceQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_influenceQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_influenceQualityP" Click="BTN_influenceQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_influenceQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_influenceQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="DarkViolet"/>
                             </StackPanel>
-                            <Label Content="Luck" HorizontalContentAlignment="Center"/>
+                            <Label Content="Luck" HorizontalContentAlignment="Center" FontSize="16"/>
                             <StackPanel Margin="5">
                                 <StackPanel Orientation="Horizontal">
-                                <Button Width="25" Height="25" Content="-" 
+                                    
+                                <Button x:Name="BTN_luckQualityM" Click="BTN_luckQualityM_Click"
+                                    Width="25" Height="25" Content="-" Margin="0,0,3,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 <TextBox x:Name="TBO_luckQuality"
-                                    Width="100" FontSize="18" FontWeight="Bold"
+                                    Width="100" FontSize="18" FontWeight="Bold" Margin="0,3,0,3"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                     IsReadOnly="True"/>
-                                <Button Width="25" Height="25" Content="+" 
+                                    
+                                <Button x:Name="BTN_luckQualityP" Click="BTN_luckQualityP_Click"
+                                    Width="25" Height="25" Content="+" Margin="3,0,0,0"
                                     FontWeight="Bold" FontSize="24" Padding="0,-7,0,0"/>
+                                    
                                 </StackPanel>
-                                <ProgressBar x:Name="PBR_luckQuality" Width="100" Height="10" Margin="5"/>
+                                <ProgressBar x:Name="PBR_luckQuality" Width="100" Height="10" Margin="5"
+                                    Foreground="DarkOrchid"/>
                             </StackPanel>
                         </StackPanel>
                     </ListBoxItem>

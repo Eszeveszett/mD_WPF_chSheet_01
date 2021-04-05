@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="drawnCharacterSelectorWindow (Choose your party members)" Height="900" Width="1600">
+        Title="drawnCharacterSelectorWindow (Choose your party members)" 
+        Height="900" Width="1600" WindowStyle="None" WindowState="Maximized"
+        FontWeight="Bold">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

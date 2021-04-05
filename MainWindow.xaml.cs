@@ -76,7 +76,7 @@ namespace mD_WPF_chSheet_01
         private void BTN_newGame_Click(object sender, RoutedEventArgs e)
         {
             quickStartWindow arbitrament = new quickStartWindow();
-            arbitrament.Show();
+            arbitrament.ShowDialog();
         }
 
         private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
@@ -97,14 +97,17 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_testing_Click(object sender, RoutedEventArgs e)
         {
-            testWindow tw = new testWindow();
-            tw.ShowDialog();
+            //testWindow tw = new testWindow();
+            //tw.ShowDialog();
+
+            clearSelectorWindow csw = new clearSelectorWindow();
+            csw.ShowDialog();
         }
 
         private void BTN_Connection_Click(object sender, RoutedEventArgs e)
         {
             ConnectionSelectorWindow csw = new ConnectionSelectorWindow();
-            csw.Show();
+            csw.ShowDialog();
         }
 
         private void BTN_Connection_MouseEnter(object sender, MouseEventArgs e)
@@ -133,12 +136,14 @@ namespace mD_WPF_chSheet_01
 
         private void BTN_newGame_MouseEnter(object sender, MouseEventArgs e)
         {
-            BTN_newGame.Width = 125;
+            TBL_NGlower.FontSize = 14;
+            TBL_NGupper.FontSize = 14;
         }
 
         private void BTN_newGame_MouseLeave(object sender, MouseEventArgs e)
         {
-            BTN_newGame.Width = 100;
+            TBL_NGlower.FontSize = 12;
+            TBL_NGupper.FontSize = 12;
         }
 
         private void BTN_quitGame_MouseEnter(object sender, MouseEventArgs e)

@@ -126,9 +126,11 @@
                 
                 <Canvas>
                     <TextBlock Text="New Game" Width="80" Canvas.Top="-8" Canvas.Right="-38"
-                    Background="{x:Null}" TextAlignment="Center"/>
+                    Background="{x:Null}" TextAlignment="Center"
+                               x:Name="TBL_NGlower"/>
                     <TextBlock Text="New Game" Width="80" Canvas.Top="-9" Canvas.Right="-39"
-                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                    Background="{x:Null}" TextAlignment="Center" Foreground="White"
+                               Name="TBL_NGupper"/>
                 </Canvas>                   
                 
                 <Button.Resources>
