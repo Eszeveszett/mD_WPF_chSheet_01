@@ -199,7 +199,6 @@
       <DependentUpon>ConnectionSelectorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NetworkingCommunication\Server\Packet.cs" />
-    <Compile Include="NetworkingCommunication\Server\serverPacket.cs" />
     <Compile Include="NetworkingCommunication\Server\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
     </Compile>

@@ -27,14 +27,14 @@
                 <Label Content="Gombok"/>
                 <Label Content="Connection to Server"
                     HorizontalAlignment="Center"/>
-                <Button Content="Connect" 
+                <Button Content="Start" 
                     x:Name="BTN_ServerConnection" 
                     Click="BTN_ServerConnection_Click"
                     Margin="5" Padding="5" Width="75"/>
 
                 <Label Content="Disconnected from server"
                     HorizontalAlignment="Center"/>
-                <Button Content="Disconnect"
+                <Button Content="Stopp"
                     x:Name="BTN_ServerDisconnect"
                     Click="BTN_ServerDisconnect_Click"
                     Margin="5" Padding="5" Width="75"/>

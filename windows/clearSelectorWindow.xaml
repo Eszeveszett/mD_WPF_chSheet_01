@@ -561,9 +561,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
         <TabItem Header="Abilityes">
             <Grid Background="LightGreen">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
 
 <!--Right or Left (I do not know) Row: Data Option Column-->
@@ -1044,7 +1044,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         Margin="5" Padding="5"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="6" Grid.Column="0"
+                <StackPanel Grid.Row="5" Grid.Column="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                     <Button Content="Charisma" Width="75"
@@ -1053,7 +1053,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Row="6" Grid.Column="0"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                     <Button Content="Reset" Width="75"
                         x:Name="BTN_qualityReset" Click="BTN_qualityReset_Click"
@@ -1067,14 +1067,389 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </Grid>
 
 <!--Right (or left. I don't know) Row: Characteristic panel-->
-                <StackPanel Margin="5" Grid.Column="2" x:Name="SP_Characteristic">
-                    <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"
-                        HorizontalContentAlignment="Center" Margin="5,5,5,25"/>
-                    <ListBox Margin="15" 
-                        Width="450" Height="650">
+            <StackPanel Grid.Column="2" HorizontalAlignment="Right" Margin="10" x:Name="SP_Characteristic">
+            <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"
+            HorizontalContentAlignment="Center" Margin="5,5,5,5"/>
+            <TabControl>
+                <TabItem Header="Base">
+                    <StackPanel>
+                        <ListBox Width="750" Height="750" Padding="10"
+                        x:Name="LBO_characteristicBase" 
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicBase, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Base Healt" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Red" ToolTip="Cica"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Base Stamina" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Yellow" ToolTip="nem cica"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
                         
-                    </ListBox>
-                </StackPanel>
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicBase, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Base Mana" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Blue" ToolTip="Cica"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Base Impact" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Purple" ToolTip="nem cica"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicBase, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Potency" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Red" ToolTip="Cica"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Regeneration" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0" 
+                                        Foreground="Yellow" ToolTip="nem cica"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        </ListBox>
+                    </StackPanel>    
+                    </TabItem>
+                        
+                <TabItem Header="Attack">
+                    <StackPanel>
+                        <ListBox Width="750" Height="750" Padding="10"
+                        x:Name="LBO_characteristicAttacking" 
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicAttacking, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Slashing" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Crushing" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicAttacking, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Pierce" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Projectile" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        </ListBox>
+                    </StackPanel>
+                    </TabItem>
+                    
+                <TabItem Header="Resistance">
+                        <ListBox Width="750" Height="750" Padding="10"
+                        x:Name="LBO_characteristicResistance" 
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Death" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Physical" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Projectile" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Pierce" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Slashing" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Crushing" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                         
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Fracture" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Bleeding" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Disease" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Infection" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Poison" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Asphyxia" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Energy" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Magic" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Fire" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Earth" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                    <Label Content="Ice" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                                <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                    Width="50" Height="50"/>
+                                <StackPanel Grid.Column="3" Grid.Row="0">
+                                    <Label Content="Air" HorizontalContentAlignment="Center"/>
+                                    <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem>
+                            <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="../images/chIcon/1.jpg" 
+                                Width="50" Height="50"/>
+                            <StackPanel Grid.Column="1" Grid.Row="0">
+                                <Label Content="Dark" HorizontalContentAlignment="Center"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                            </StackPanel>
+                            <Image Grid.Column="2" Source="../images/chIcon/1.jpg" 
+                                Width="50" Height="50"/>
+                            <StackPanel Grid.Column="3" Grid.Row="0">
+                                <Label Content="Light" HorizontalContentAlignment="Center"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                            </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        </ListBox>
+                    </TabItem>
+            </TabControl>
+            </StackPanel>
             </Grid>
         </TabItem>
 
