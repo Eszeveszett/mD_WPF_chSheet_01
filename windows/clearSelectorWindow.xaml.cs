@@ -54,6 +54,16 @@ namespace mD_WPF_chSheet_01.windows
             }
         }
 
+        public class displayedSkill
+        {
+            public int Id { get; set; }
+            public string SkillName { get; set; }
+            public int SkillCost { get; set; }
+            public string SkillClass { get; set; }
+
+            public BitmapImage SkillImage { get; set; }
+        }
+
         #region soksoklistamegacontext
         dzetaContext context = new dzetaContext();
 
@@ -71,7 +81,13 @@ namespace mD_WPF_chSheet_01.windows
         List<advantages> adv = new List<advantages>();
         List<disadvantages> dis = new List<disadvantages>();
 
+        ObservableCollection<displayedSkill> dispSkill = new ObservableCollection<displayedSkill>();
+
+        ObservableCollection<displayedSkill> ismertskill = new ObservableCollection<displayedSkill>();
+        ObservableCollection<displayedSkill> nemismertskill = new ObservableCollection<displayedSkill>();
         List<int> abilityQuality = new List<int>() {50,45,40,35};
+
+
         #endregion
 
         public clearSelectorWindow()
@@ -79,20 +95,22 @@ namespace mD_WPF_chSheet_01.windows
             InitializeComponent();
 
             #region advdisadv
-            adv.Add(new advantages(0,"Sharp eye", "sees farther than others"));
+            adv.Add(new advantages(0,"Sharp eye", "Sees farther than others"));
             adv.Add(new advantages(1, "Escapist", "Is easily and quickly absorbed in danger"));
             adv.Add(new advantages(2, "Brave", "More resistant to fear"));
             adv.Add(new advantages(3, "Clinging soul", "Higher death resistance. His soul is harder to break away from his body"));
             adv.Add(new advantages(4, "Lucky", "Each resistance increases by one point"));
 
 
-            dis.Add(new disadvantages(0, "Missing legg", "One legg is missing"));
-            dis.Add(new disadvantages(1, "Missinf arm", "One larm is missing"));
-            dis.Add(new disadvantages(2, "Blind", "You are blind"));
-            dis.Add(new disadvantages(3, "Phobia", "Unreal fear"));
-            dis.Add(new disadvantages(4, "Fetish", "Compulsive attraction"));
+            dis.Add(new disadvantages(0, "Missing leg", "One leg is missing"));
+            dis.Add(new disadvantages(1, "Missing arm", "One arm is missing"));
+            dis.Add(new disadvantages(2, "Missing head", "One head is missing"));
+            dis.Add(new disadvantages(3, "Blind", "You are blind"));
+            dis.Add(new disadvantages(4, "Phobia", "Unreal fear"));
+            dis.Add(new disadvantages(5, "Fetish", "Compulsive attraction"));
             #endregion
 
+            #region soksokcontext
             context.Races.Load();
             foreach (var item in context.Races)
             {
@@ -146,30 +164,40 @@ namespace mD_WPF_chSheet_01.windows
             {
                 charisms.Add(item);
             }
+            #endregion
 
+            for (int i = 0; i < skills.Count; i++)
+            {
+
+                BitmapImage bi = new BitmapImage();
+
+                bi.BeginInit();
+                bi.UriSource = new Uri(@"/images/skillClassIcon/" + skills[i].SkillClass + ".jpg", UriKind.RelativeOrAbsolute);
+                dispSkill.Add(new displayedSkill()
+                {
+                    Id = skills[i].Id,
+                    SkillName = skills[i].SkillName,
+                    SkillCost = skills[i].SkillCost,
+                    SkillClass = skills[i].SkillClass,
+                    SkillImage = bi
+                });
+                bi.EndInit();
+            }
+            
             LBO_rRace.ItemsSource = context.Races.Local.ToObservableCollection();
             LBO_rRace.SelectedItem = null;
-
+            LBO_rRace.SelectionMode = SelectionMode.Single;
             LBO_advantages.ItemsSource = adv;
             LBO_disadvantages.ItemsSource = dis;
+
+            PRB_baseHealth.ToolTip = "Módosítók nélküli alap életerő";
         }
 
-        private void BTN_Exit_Click(object sender, RoutedEventArgs e)
-        {
-            quickStartWindow qsw = new quickStartWindow();
-            this.Close();
-            qsw.Show();
-        }
 
-        private void BTN_finaly_Click(object sender, RoutedEventArgs e)
-        {
-            characterStatisticWindow csw = new characterStatisticWindow();
-            this.Close();
-            csw.Show();
-        }
 
         private void LBO_rRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             if (LBO_rRace.SelectedItem != null)
             {
                 TBO_raceModifier.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
@@ -294,13 +322,61 @@ namespace mD_WPF_chSheet_01.windows
 
                 IMG_Race.Source = bi;
 
-
             }
             else
             {
                 TBO_raceModifier.Text = "Faji sajátosságok";
                 TBO_placeOfLive.Text = "Faj történelme és élőhelye";
             }
+            skillfilterone();
+        }
+
+        private void skillfilterone()
+        {
+            if (LBO_rRace.SelectedItem != null)
+            {
+                LBO_knownSkill.Items.Clear();
+                LBO_optionalSkill.Items.Clear();
+                ismertskill.Clear();
+                nemismertskill.Clear();
+
+                for (int allskill = 0; allskill < dispSkill.Count; allskill++)
+                {
+                    nemismertskill.Add(dispSkill[allskill]);
+                }
+
+                for (int skillek = 0; skillek < skills.Count; skillek++)
+                {
+                    for (int fajiskillek = 0; fajiskillek < racessklikks.Count; fajiskillek++)
+                    {
+                        if (((Races)LBO_rRace.SelectedItem).Id == racessklikks[fajiskillek].RaceId)
+                        {
+                            if (racessklikks[fajiskillek].SkillId == skills[skillek].Id)
+                            {
+                                ismertskill.Add(dispSkill[fajiskillek]);
+                                nemismertskill.Remove(dispSkill[fajiskillek]);
+                            }
+                        }
+                    }
+                }
+
+
+                for (int i = 0; i < ismertskill.Count; i++)
+                {
+                    LBO_knownSkill.Items.Add(ismertskill[i]);
+                }
+                for (int i = 0; i < nemismertskill.Count; i++)
+                {
+                    LBO_optionalSkill.Items.Add(nemismertskill[i]);
+                }
+                //LBO_knownSkill.ItemsSource = ismertskill;
+                //LBO_optionalSkill.ItemsSource = nemismertskill;
+            }
+        }
+
+        private void baseValues()
+        {
+            
         }
 
         private void BTN_vitalityQuality_Click(object sender, RoutedEventArgs e)
@@ -469,13 +545,14 @@ namespace mD_WPF_chSheet_01.windows
         
         private void BTN_strengthQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_strengthQualityP.IsEnabled = true;
-            int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
-            int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
-            int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
-            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_strengthQualityP.IsEnabled = true;
+                int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+                int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
+                int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
+                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+
                 if (pool+1 > 0)
                 {
                     BTN_strengthQualityP.IsEnabled = true;
@@ -501,19 +578,20 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_strengthQualityM.IsEnabled = true;
-                int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
-                int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
-                int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
-                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
-                if (pool <= 1)
-                {
-                    BTN_strengthQualityP.IsEnabled = false;
-                    BTN_endurenceQualityP.IsEnabled = false;
-                    BTN_toughtnessQualityP.IsEnabled = false;
-                }
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_strengthQualityM.IsEnabled = true;
+                    int strMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin;
+                    int strAct = Convert.ToInt32(TBO_strengthQuality.Text);
+                    int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
+                    int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+                    if (pool <= 1)
+                    {
+                        BTN_strengthQualityP.IsEnabled = false;
+                        BTN_endurenceQualityP.IsEnabled = false;
+                        BTN_toughtnessQualityP.IsEnabled = false;
+                    }
+
                     if (strAct >= strMax - 1)
                     {
                         BTN_strengthQualityP.IsEnabled = false;
@@ -536,13 +614,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_endurenceQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_endurenceQualityP.IsEnabled = true;
-            int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
-            int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
-            int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
-            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_endurenceQualityP.IsEnabled = true;
+                int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+                int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
+                int strMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
+                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+
                 if (pool+1 > 0)
                 {
                     BTN_strengthQualityP.IsEnabled = true;
@@ -568,13 +647,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_endurenceQualityM.IsEnabled = true;
-                int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
-                int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
-                int endMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
-                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_endurenceQualityM.IsEnabled = true;
+                    int endMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMin;
+                    int endAct = Convert.ToInt32(TBO_endurenceQuality.Text);
+                    int endMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].EnduranceMax;
+                    int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_strengthQualityP.IsEnabled = false;
@@ -602,13 +682,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_toughtnessQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_toughtnessQualityP.IsEnabled = true;
-            int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
-            int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
-            int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
-            int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_toughtnessQualityP.IsEnabled = true;
+                int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+                int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
+                int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
+                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+
                 if (pool+1 > 0)
                 {
                     BTN_strengthQualityP.IsEnabled = true;
@@ -634,13 +715,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_toughtnessQualityM.IsEnabled = true;
-                int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
-                int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
-                int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
-                int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_toughtnessQualityM.IsEnabled = true;
+                    int tghMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
+                    int tghAct = Convert.ToInt32(TBO_toughtnessQuality.Text);
+                    int tghMax = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMax;
+                    int pool = Convert.ToInt32(TBO_vitalityQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_strengthQualityP.IsEnabled = false;
@@ -670,13 +752,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_agilityQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_agilityQualityP.IsEnabled = true;
-            int agiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
-            int agiAct = Convert.ToInt32(TBO_agilityQuality.Text);
-            int agiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
-            int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_agilityQualityP.IsEnabled = true;
+                int agiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
+                int agiAct = Convert.ToInt32(TBO_agilityQuality.Text);
+                int agiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
+                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_agilityQualityP.IsEnabled = true;
@@ -702,13 +785,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_agilityQualityM.IsEnabled = true;
-                int agiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
-                int agiAct = Convert.ToInt32(TBO_agilityQuality.Text);
-                int agiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
-                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_agilityQualityM.IsEnabled = true;
+                    int agiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin;
+                    int agiAct = Convert.ToInt32(TBO_agilityQuality.Text);
+                    int agiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
+                    int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_agilityQualityP.IsEnabled = false;
@@ -736,13 +820,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_perceptionQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_perceptionQualityP.IsEnabled = true;
-            int perMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
-            int perAct = Convert.ToInt32(TBO_perceptionQuality.Text);
-            int perMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
-            int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_perceptionQualityP.IsEnabled = true;
+                int perMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
+                int perAct = Convert.ToInt32(TBO_perceptionQuality.Text);
+                int perMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
+                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_agilityQualityP.IsEnabled = true;
@@ -768,13 +853,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_perceptionQualityM.IsEnabled = true;
-                int perMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
-                int perAct = Convert.ToInt32(TBO_perceptionQuality.Text);
-                int perMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
-                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_perceptionQualityM.IsEnabled = true;
+                    int perMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMin;
+                    int perAct = Convert.ToInt32(TBO_perceptionQuality.Text);
+                    int perMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].PerceptionMax;
+                    int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_agilityQualityP.IsEnabled = false;
@@ -802,13 +888,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_quicknessQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_quicknessQualityP.IsEnabled = true;
-            int quiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
-            int quiAct = Convert.ToInt32(TBO_quicknessQuality.Text);
-            int quiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
-            int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_quicknessQualityP.IsEnabled = true;
+                int quiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
+                int quiAct = Convert.ToInt32(TBO_quicknessQuality.Text);
+                int quiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
+                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_agilityQualityP.IsEnabled = true;
@@ -834,13 +921,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_quicknessQualityM.IsEnabled = true;
-                int quiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
-                int quiAct = Convert.ToInt32(TBO_quicknessQuality.Text);
-                int quiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
-                int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_quicknessQualityM.IsEnabled = true;
+                    int quiMin = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMin;
+                    int quiAct = Convert.ToInt32(TBO_quicknessQuality.Text);
+                    int quiMax = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].QuicknessMax;
+                    int pool = Convert.ToInt32(TBO_dexterityQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_agilityQualityP.IsEnabled = false;
@@ -870,13 +958,14 @@ namespace mD_WPF_chSheet_01.windows
         
         private void BTN_intelligenceQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_intelligenceQualityP.IsEnabled = true;
-            int intMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
-            int intAct = Convert.ToInt32(TBO_intelligenceQuality.Text);
-            int intMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
-            int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_intelligenceQualityP.IsEnabled = true;
+                int intMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
+                int intAct = Convert.ToInt32(TBO_intelligenceQuality.Text);
+                int intMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
+                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_intelligenceQualityP.IsEnabled = true;
@@ -902,13 +991,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_intelligenceQualityM.IsEnabled = true;
-                int intMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
-                int intAct = Convert.ToInt32(TBO_intelligenceQuality.Text);
-                int intMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
-                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_intelligenceQualityM.IsEnabled = true;
+                    int intMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin;
+                    int intAct = Convert.ToInt32(TBO_intelligenceQuality.Text);
+                    int intMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
+                    int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_intelligenceQualityP.IsEnabled = false;
@@ -936,13 +1026,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_wisdomQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_wisdomQualityP.IsEnabled = true;
-            int wisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
-            int wisAct = Convert.ToInt32(TBO_wisdomQuality.Text);
-            int wisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
-            int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_wisdomQualityP.IsEnabled = true;
+                int wisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
+                int wisAct = Convert.ToInt32(TBO_wisdomQuality.Text);
+                int wisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
+                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_intelligenceQualityP.IsEnabled = true;
@@ -968,13 +1059,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_wisdomQualityM.IsEnabled = true;
-                int wisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
-                int wisAct = Convert.ToInt32(TBO_wisdomQuality.Text);
-                int wisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
-                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_wisdomQualityM.IsEnabled = true;
+                    int wisMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMin;
+                    int wisAct = Convert.ToInt32(TBO_wisdomQuality.Text);
+                    int wisMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].WisdomMax;
+                    int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_intelligenceQualityP.IsEnabled = false;
@@ -1002,13 +1094,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_resourcefullQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_resourcefullQualityP.IsEnabled = true;
-            int resMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
-            int resAct = Convert.ToInt32(TBO_resourcefullQuality.Text);
-            int resMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
-            int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_resourcefullQualityP.IsEnabled = true;
+                int resMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
+                int resAct = Convert.ToInt32(TBO_resourcefullQuality.Text);
+                int resMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
+                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_intelligenceQualityP.IsEnabled = true;
@@ -1034,13 +1127,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_resourcefullQualityM.IsEnabled = true;
-                int resMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
-                int resAct = Convert.ToInt32(TBO_resourcefullQuality.Text);
-                int resMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
-                int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_resourcefullQualityM.IsEnabled = true;
+                    int resMin = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
+                    int resAct = Convert.ToInt32(TBO_resourcefullQuality.Text);
+                    int resMax = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMax;
+                    int pool = Convert.ToInt32(TBO_intuitionQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_intelligenceQualityP.IsEnabled = false;
@@ -1070,13 +1164,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_appearanceQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_appearanceQualityP.IsEnabled = true;
-            int appMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
-            int appAct = Convert.ToInt32(TBO_appearanceQuality.Text);
-            int appMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
-            int pool = Convert.ToInt32(TBO_charismaQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_appearanceQualityP.IsEnabled = true;
+                int appMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
+                int appAct = Convert.ToInt32(TBO_appearanceQuality.Text);
+                int appMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
+                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_appearanceQualityP.IsEnabled = true;
@@ -1102,13 +1197,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_appearanceQualityM.IsEnabled = true;
-                int appMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
-                int appAct = Convert.ToInt32(TBO_appearanceQuality.Text);
-                int appMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
-                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_appearanceQualityM.IsEnabled = true;
+                    int appMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
+                    int appAct = Convert.ToInt32(TBO_appearanceQuality.Text);
+                    int appMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
+                    int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_appearanceQualityP.IsEnabled = false;
@@ -1136,13 +1232,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_influenceQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_influenceQualityP.IsEnabled = true;
-            int infMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
-            int infAct = Convert.ToInt32(TBO_influenceQuality.Text);
-            int infMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
-            int pool = Convert.ToInt32(TBO_charismaQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_influenceQualityP.IsEnabled = true;
+                int infMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
+                int infAct = Convert.ToInt32(TBO_influenceQuality.Text);
+                int infMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
+                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_appearanceQualityP.IsEnabled = true;
@@ -1168,13 +1265,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_influenceQualityM.IsEnabled = true;
-                int infMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
-                int infAct = Convert.ToInt32(TBO_influenceQuality.Text);
-                int infMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
-                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_influenceQualityM.IsEnabled = true;
+                    int infMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMin;
+                    int infAct = Convert.ToInt32(TBO_influenceQuality.Text);
+                    int infMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].InfluenceMax;
+                    int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_appearanceQualityP.IsEnabled = false;
@@ -1202,13 +1300,14 @@ namespace mD_WPF_chSheet_01.windows
 
         private void BTN_luckQualityM_Click(object sender, RoutedEventArgs e)
         {
-            BTN_luckQualityP.IsEnabled = true;
-            int luckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
-            int luckAct = Convert.ToInt32(TBO_luckQuality.Text);
-            int luckMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
-            int pool = Convert.ToInt32(TBO_charismaQuality.Text);
             if (LBO_rRace.SelectedItem != null)
             {
+                BTN_luckQualityP.IsEnabled = true;
+                int luckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
+                int luckAct = Convert.ToInt32(TBO_luckQuality.Text);
+                int luckMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
+                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                 if (pool + 1 > 0)
                 {
                     BTN_appearanceQualityP.IsEnabled = true;
@@ -1234,13 +1333,14 @@ namespace mD_WPF_chSheet_01.windows
         {
             try
             {
-                BTN_luckQualityM.IsEnabled = true;
-                int luckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
-                int luckAct = Convert.ToInt32(TBO_luckQuality.Text);
-                int luckMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
-                int pool = Convert.ToInt32(TBO_charismaQuality.Text);
                 if (LBO_rRace.SelectedItem != null)
                 {
+                    BTN_luckQualityM.IsEnabled = true;
+                    int luckMin = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMin;
+                    int luckAct = Convert.ToInt32(TBO_luckQuality.Text);
+                    int luckMax = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].LuckMax;
+                    int pool = Convert.ToInt32(TBO_charismaQuality.Text);
+
                     if (pool <= 1)
                     {
                         BTN_appearanceQualityP.IsEnabled = false;
@@ -1264,6 +1364,21 @@ namespace mD_WPF_chSheet_01.windows
             catch (Exception)
             {
             }
+        }
+
+        private async void BTN_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            quickStartWindow qsw = new quickStartWindow();
+            await Task.Delay(125);
+            this.Close();
+            qsw.ShowDialog();
+        }
+
+        private void BTN_finaly_Click(object sender, RoutedEventArgs e)
+        {
+            //characterStatisticWindow csw = new characterStatisticWindow();
+            //this.Close();
+            //csw.Show();
         }
     }
 }

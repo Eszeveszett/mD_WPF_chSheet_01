@@ -11,12 +11,19 @@ namespace mD_WPF_chSheet_01.Models.dzeta
     {
         public int Id { get; set; }
         public string SkillName { get; set; }
-        public int? SkillCost { get; set; }
+        public int SkillCost { get; set; }
         public string SkillClass { get; set; }
 
         public Skills()
         {
 
+        }
+        public Skills(int Id, string SkillName, int SkillCost, String SkillClass)
+        {
+            this.Id = Id;
+            this.SkillName = SkillName;
+            this.SkillCost = SkillCost;
+            this.SkillClass = SkillClass;
         }
     }
 }

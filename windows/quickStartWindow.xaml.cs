@@ -31,13 +31,13 @@ namespace mD_WPF_chSheet_01.windows
         {
             clearSelectorWindow csw = new clearSelectorWindow();
             this.Close();
-            csw.Show();
+            csw.ShowDialog();
         }
 
         private void BTN_readyCharacter_Click(object sender, RoutedEventArgs e)
         {
             drawnCharacterSelectorWindow dcsw = new drawnCharacterSelectorWindow();
-            dcsw.Show();
+            dcsw.ShowDialog();
         }
 
         private void BTN_back_Click(object sender, RoutedEventArgs e)

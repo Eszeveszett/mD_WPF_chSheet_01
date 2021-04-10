@@ -32,7 +32,7 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
             public string dName { get; set; }
             public string dRace { get; set; }
             public string dGender { get; set; }
-            //Igen baszod? Kell? Nesze baszod
+            //  Bitmapimage típus
             public BitmapImage dImage { get; set; }
         }
 
@@ -110,7 +110,7 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
                             dGender = races[r].Gender,
                             dImage = bi
                         });
-                bi.EndInit();
+                        bi.EndInit();
                     }
                 }
 

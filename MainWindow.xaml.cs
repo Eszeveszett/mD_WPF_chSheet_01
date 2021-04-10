@@ -73,15 +73,29 @@ namespace mD_WPF_chSheet_01
 
         }
 
-        private void BTN_newGame_Click(object sender, RoutedEventArgs e)
+        private async void BTN_newGame_Click(object sender, RoutedEventArgs e)
         {
-            quickStartWindow arbitrament = new quickStartWindow();
-            arbitrament.ShowDialog();
+
+            //try
+            //{
+                await Task.Delay(125);
+                quickStartWindow arbitrament = new quickStartWindow();
+                arbitrament.ShowDialog();
+            //}
+            //catch (Exception)
+            //{
+
+            //}
+
+
         }
 
-        private void BTN_quitGame_Click(object sender, RoutedEventArgs e)
+        private async void BTN_quitGame_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBoxResult quitGame = MessageBox.Show("Really escape?", "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            await Task.Delay(125);
+            //MessageBoxResult quitGame = MessageBox.Show("Ha megjelenik mögötted egy ork barbár, és agyonver, ne légy ideges. Csak run time helyett real lifeben debugolok", 
+            //                                            "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             //switch (quitGame)
             //{
             //    case MessageBoxResult.Yes:
@@ -90,7 +104,7 @@ namespace mD_WPF_chSheet_01
             //    case MessageBoxResult.No:
             //        break;
             //}
-            //Thread.Sleep(250);
+            await Task.Delay(125);
             Close();
 
         }
