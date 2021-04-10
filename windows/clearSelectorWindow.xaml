@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d" x:Name="WDW_Csw"
         Title="Clear Selector Window" Height="900" Width="1600" 
-        WindowStyle="None" WindowState="Maximized"
+        WindowStyle="None" WindowState="Maximized" FontSize="16"
         WindowStartupLocation="CenterScreen" FontWeight="Bold">
     <!---->
         <Window.Resources>
@@ -268,14 +268,14 @@ később lesz szerepe. Csak itt most elfér-->
                 
             <Viewbox Grid.Row="0">
             <Label Content="Advantages and disadvantages"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Center" Foreground="Red"
             FontSize="16" FontWeight="Bold"/>
             </Viewbox>
                 
             <Viewbox Grid.Row="1">
-            <ListBox Width="300" Height="300" x:Name="LBO_advantages"
+            <ListBox Width="300" Height="265" x:Name="LBO_advantages"
             ScrollViewer.VerticalScrollBarVisibility="Hidden"
-            ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
+            ScrollViewer.CanContentScroll="True" Margin="5"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             Background="{x:Null}">
             <ListBox.Resources>
@@ -288,9 +288,9 @@ később lesz szerepe. Csak itt most elfér-->
             <Border BorderBrush="Aqua" BorderThickness="2" CornerRadius="5">
                 <StackPanel>
                 <TextBox Text="{Binding adName}" TextWrapping="Wrap"
-                    IsReadOnly="True" FontSize="12"/>
+                    IsReadOnly="True" FontSize="12" TextDecorations="Underline"/>
                 <TextBox Text="{Binding adDesc}" TextWrapping="Wrap"
-                    IsReadOnly="True" FontSize="12"/>
+                    IsReadOnly="True" FontSize="12" TextDecorations="Baseline"/>
                 </StackPanel>
             </Border>
             </DataTemplate>
@@ -299,9 +299,9 @@ később lesz szerepe. Csak itt most elfér-->
             </Viewbox>
                 
             <Viewbox Grid.Row="2">
-            <ListBox Width="300" Height="300" x:Name="LBO_disadvantages"
+            <ListBox Width="300" Height="265" x:Name="LBO_disadvantages"
             ScrollViewer.VerticalScrollBarVisibility="Hidden"
-            ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
+            ScrollViewer.CanContentScroll="True" Margin="5,5,5,0"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             Background="{x:Null}">
             <ListBox.Resources>
@@ -346,8 +346,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             <StackPanel Grid.Column="2">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="325"/>
+                    <ColumnDefinition Width="325"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -356,11 +356,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </Grid.RowDefinitions>
                 <StackPanel Grid.ColumnSpan="2">
                 <Label Content="Attributions" FontSize="24" FontWeight="Bold"
-                HorizontalAlignment="Center" Margin="5"/>
+                HorizontalAlignment="Center" Margin="5" Foreground="Red"/>
                 </StackPanel>
 
-                <StackPanel Grid.Column="0" Grid.Row="1" Margin="20,20,0,30">
-                    <ListBox x:Name="LBO_myVitality" Width="200" Height="295"
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="50,20,0,10">
+                    <ListBox x:Name="LBO_myVitality" Width="250" Height="350"
                     HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
@@ -368,10 +368,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </Style>
                     </ListBox.Resources>
                     <StackPanel Height="{Binding ElementName=LBO_myVitality, Path=ActualHeight}" 
-                        Margin="0,-10,0,0">
+                        Width="225" Margin="0,-10,0,0">
                                 
                     <Label Content="Vitality" HorizontalContentAlignment="Center"
-                           FontSize="16" FontWeight="Bold"/>
+                           FontSize="30" FontWeight="Bold" Foreground="Red"/>
                     <TextBox x:Name="TBO_myVitality" Width="50" IsReadOnly="True" 
                     TextAlignment="Center" Margin="5"/>
                     <ProgressBar x:Name="PBR_myVitality" Minimum="0" Maximum="75"
@@ -385,13 +385,15 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ProgressBar>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <TextBox TextAlignment="Center" x:Name="TBO_myStrengthMin"
-                    ToolTip="Strength" IsReadOnly="True" Width="30"
+                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myStrengthMin"
+                    ToolTip="Strength" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="Strength" Width="75" HorizontalContentAlignment="Center"/>
+                        
+                    <Label Content="Strength" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="Firebrick" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myStrengthMax"
-                    ToolTip="Strength" IsReadOnly="True" Width="30"
+                    ToolTip="Strength" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                         
@@ -400,12 +402,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myEnduranceMin"
-                    ToolTip="Strength" IsReadOnly="True" Width="30"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>        
-                    <Label Content="Endurence" Width="75" HorizontalContentAlignment="Center"/>
+                    ToolTip="Strength" IsReadOnly="True" Width="50"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/> 
+                        
+                    <Label Content="Endurence" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="Crimson" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myEnduranceMax"
-                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    ToolTip="Influence" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                         
@@ -414,13 +418,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myToughtnessMin"
-                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    ToolTip="Luck" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Toughtness" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Toughtness" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="Tomato" FontSize="20"/>
                         
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myToughtnessMax"
-                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    ToolTip="Luck" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                         
@@ -430,11 +435,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </StackPanel>
                     </ListBox>
                 </StackPanel>
-                
-                <Separator/>
 
-                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,20,20,30">
-                    <ListBox x:Name="LBO_myDexterity" Width="200" Height="295"
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,20,50,10">
+                    <ListBox x:Name="LBO_myDexterity" Width="250" Height="350"
                     HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
@@ -442,63 +445,66 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </Style>
                     </ListBox.Resources>
                     <StackPanel Height="{Binding ElementName=LBO_myDexterity, Path=ActualHeight}"
-                        Margin="0,-10,0,0">
+                                Width="225" Margin="0,-10,0,0">
                                 
                     <Label Content="Dexterity" HorizontalContentAlignment="Center"
-                           FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="TBO_myDexterity" Width="150" IsReadOnly="True" 
+                           FontSize="30" FontWeight="Bold" Foreground="Goldenrod"/>
+                    <TextBox x:Name="TBO_myDexterity" Width="50" IsReadOnly="True" 
                     TextAlignment="Center" Margin="5"/>
                     <ProgressBar x:Name="PBR_myDexterity" Minimum="0" Maximum="75"
-                    Height="10" Margin="5" Foreground="SeaGreen"/>
+                    Height="10" Margin="5" Foreground="Goldenrod"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAgilityMin"
-                    ToolTip="Agility" IsReadOnly="True" Width="30"
+                    ToolTip="Agility" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Agility" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Agility" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="Orange" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAgilityMax"
-                    ToolTip="Agility" IsReadOnly="True" Width="30"
+                    ToolTip="Agility" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myAgility" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkGreen"/>
+                    Height="10" Margin="5" Foreground="Orange"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myPerceptionMin"
-                    ToolTip="Perception" IsReadOnly="True" Width="30"
+                    ToolTip="Perception" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
-                    <Label Content="Perception" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Perception" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="Gold" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myPerceptionMax"
-                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    ToolTip="Influence" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myPerception" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="YellowGreen"/>
+                    Height="10" Margin="5" Foreground="Gold"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myQuicknessMin"
-                    ToolTip="Quickness" IsReadOnly="True" Width="30"
+                    ToolTip="Quickness" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Quickness" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Quickness" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="LightGoldenrodYellow" FontSize="20"/>
                         
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myQuicknessMax"
-                    ToolTip="Quickness" IsReadOnly="True" Width="30"
+                    ToolTip="Quickness" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myQuickness" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Olive"/>
+                    Height="10" Margin="5" Foreground="LightGoldenrodYellow"/>
                                 
                     </StackPanel>
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel Grid.Column="0" Grid.Row="2" Margin="20,30,0,20">
-                    <ListBox x:Name="LBO_myIntuition" Width="200" Height="295"
+                <StackPanel Grid.Column="0" Grid.Row="2" Margin="50,10,0,0">
+                    <ListBox x:Name="LBO_myIntuition" Width="250" Height="350"
                     HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
@@ -506,65 +512,68 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </Style>
                     </ListBox.Resources>
                     <StackPanel Height="{Binding ElementName=LBO_myIntuition, Path=ActualHeight}"
-                        Margin="0,-10,0,0">
+                        Width="225" Margin="0,-10,0,0">
                                 
                     <Label Content="Intuition" HorizontalContentAlignment="Center"
-                           FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="TBO_myIntuition" Width="150" IsReadOnly="True" 
+                           FontSize="30" FontWeight="Bold" Foreground="SteelBlue"/>
+                    <TextBox x:Name="TBO_myIntuition" Width="50" IsReadOnly="True" 
                     TextAlignment="Center" Margin="5"/>
                     <ProgressBar x:Name="PBR_myIntuition" Minimum="0" Maximum="75"
-                    Height="10" Margin="5" Foreground="SeaGreen"/>
+                    Height="10" Margin="5" Foreground="SteelBlue"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myIntelligenceMin"
-                    ToolTip="IntelligenceMin" IsReadOnly="True" Width="30"
+                    ToolTip="IntelligenceMin" IsReadOnly="True" Width="45"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Intelligence" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Intelligence" Width="120" HorizontalContentAlignment="Center"
+                           Foreground="DarkSlateBlue" FontSize="20" Background="GhostWhite"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myIntelligenceMax"
-                    ToolTip="IntelligenceMax" IsReadOnly="True" Width="30"
+                    ToolTip="IntelligenceMax" IsReadOnly="True" Width="45"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myIntelligence" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkGreen"/>
+                    Height="10" Margin="5" Foreground="DarkSlateBlue"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myWisdomMin"
-                    ToolTip="Wisdom" IsReadOnly="True" Width="30"
+                    ToolTip="Wisdom" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
-                    <Label Content="Wisdom" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Wisdom" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="MediumSlateBlue" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myWisdomMax"
-                    ToolTip="Wisdom" IsReadOnly="True" Width="30"
+                    ToolTip="Wisdom" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myWisdom" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="YellowGreen"/>
+                    Height="10" Margin="5" Foreground="MediumSlateBlue"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myResourcefullMin"
-                    ToolTip="ResourcefullMin" IsReadOnly="True" Width="30"
+                    ToolTip="ResourcefullMin" IsReadOnly="True" Width="40"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Resourcefull" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Resourcefull" Width="130" HorizontalContentAlignment="Center"
+                           Foreground="DeepSkyBlue" FontSize="20"/>
                         
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myResourcefullMax"
-                    ToolTip="Luck" IsReadOnly="True" Width="30"
+                    ToolTip="Luck" IsReadOnly="True" Width="40"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                         
                     <ProgressBar x:Name="PBR_myLuck" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Olive"/>
+                    Height="10" Margin="5" Foreground="DeepSkyBlue"/>
                                 
                     </StackPanel>
                     </ListBox>
                 </StackPanel>
                 
 
-                <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,30,20,20">
-                    <ListBox x:Name="LBO_myCharism" Width="200" Height="295"
+                <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,10,50,0">
+                    <ListBox x:Name="LBO_myCharism" Width="250" Height="350"
                     HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
@@ -572,56 +581,59 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </Style>
                     </ListBox.Resources>
                     <StackPanel Height="{Binding ElementName=LBO_myCharism, Path=ActualHeight}"
-                        Margin="0,-10,0,0">
+                        Width="225" Margin="0,-10,0,0">
                                 
                     <Label Content="Charism" HorizontalContentAlignment="Center"
-                           FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="TBO_myCharism" Width="150" IsReadOnly="True" 
+                           FontSize="30" FontWeight="Bold" Foreground="Purple"/>
+                    <TextBox x:Name="TBO_myCharism" Width="50" IsReadOnly="True" 
                     TextAlignment="Center" Margin="5"/>
                     <ProgressBar x:Name="PBR_myCharism" Minimum="0" Maximum="75"
-                    Height="10" Margin="5" Foreground="SeaGreen"/>
+                    Height="10" Margin="5" Foreground="Purple"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAppearanceMin"
-                    ToolTip="AppearanceMin" IsReadOnly="True" Width="30"
+                    ToolTip="AppearanceMin" IsReadOnly="True" Width="45"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Appearance" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Appearance" Width="120" HorizontalContentAlignment="Center"
+                           Foreground="BlueViolet" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myAppearanceMax"
-                    ToolTip="AppearanceMax" IsReadOnly="True" Width="30"
+                    ToolTip="AppearanceMax" IsReadOnly="True" Width="45"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myAppearance" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="DarkGreen"/>
+                    Height="10" Margin="5" Foreground="BlueViolet"/>
 
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myInfluenceMin"
-                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    ToolTip="Influence" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>    
                         
-                    <Label Content="Influence" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Influence" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="DarkViolet" FontSize="20"/>
 
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myInfluenceMax"
-                    ToolTip="Influence" IsReadOnly="True" Width="30"
+                    ToolTip="Influence" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myInfluence" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="YellowGreen"/>
+                    Height="10" Margin="5" Foreground="DarkViolet"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myLuckMin"
-                    ToolTip="LuckMin" IsReadOnly="True" Width="30"
+                    ToolTip="LuckMin" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         
-                    <Label Content="Luck" Width="75" HorizontalContentAlignment="Center"/>
+                    <Label Content="Luck" Width="110" HorizontalContentAlignment="Center"
+                           Foreground="DarkOrchid" FontSize="20"/>
                         
                     <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myLuckMax"
-                    ToolTip="Resourcefull" IsReadOnly="True" Width="30"
+                    ToolTip="Resourcefull" IsReadOnly="True" Width="50"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </StackPanel>
                     <ProgressBar x:Name="PBR_myResourcefull" Minimum="3" Maximum="30"
-                    Height="10" Margin="5" Foreground="Olive"/>
+                    Height="10" Margin="5" Foreground="DarkOrchid"/>
                                 
                     </StackPanel>
                     </ListBox>
