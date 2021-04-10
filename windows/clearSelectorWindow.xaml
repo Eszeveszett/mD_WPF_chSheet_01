@@ -15,11 +15,13 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Padding" Value="0,5,0,5"/>
         </Style>
-        </Window.Resources>
+        <!--<Style x:Uid="scrollbarStyle" TargetType="ScrollBar">
+        </Style>-->
+    </Window.Resources>
     
     
         <Viewbox x:Name="VBX_Csw"
-                 Margin="10,0,0,0">
+                 Margin="-5,1,-5,-5">
         <Grid Background="WhiteSmoke"
           Height="{Binding ElementName=WDW_Csw, Path=ActualHeight}"
           Width="{Binding ElementName=WDW_Csw, Path=ActualWidth}">
@@ -34,8 +36,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-<!--Upper Row: Header-->
+        <Image Source="../images/bgImages/startScreen.jpg" Grid.ColumnSpan="3" Grid.RowSpan="2"
+            Stretch="UniformToFill"/>
+            <!--Upper Row: Header-->
         
         <!--<StackPanel Margin="0,5,0,5" Orientation="Horizontal"
             HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -65,13 +68,15 @@
         
     <TabControl Grid.Row="0" Grid.ColumnSpan="3">
         <TabItem Header="Race and Gender">
+            
             <Grid Background="LightGreen">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+                <Image Source="../images/bgImages/faeryeVilage.jpg" Grid.ColumnSpan="3" 
+                       Stretch="UniformToFill"/>
 <!--Race and gender selection-->
             <Grid Name="GRD_rgGrid">
                 <Grid.RowDefinitions>
@@ -82,14 +87,20 @@
             <StackPanel Grid.Column="0" Grid.Row="0" 
             VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Select a race" HorizontalAlignment="Center"
-            FontSize="16" FontWeight="Bold"/>
+            FontSize="16" FontWeight="Bold" Foreground="Aqua"/>
             <StackPanel Orientation="Horizontal" Margin="5"
             x:Name="SP_raceandgender" 
             Width="{Binding ElementName=Sp_rgUpperpanel, Path=ActualWidth}">
             <ListBox Width="380" Height="300"
             Name="LBO_rRace" ItemsSource="{Binding}"
             IsSynchronizedWithCurrentItem="True"
-            SelectionChanged="LBO_rRace_SelectionChanged">
+            SelectionChanged="LBO_rRace_SelectionChanged"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ScrollViewer.PanningDeceleration="5"
+            ScrollViewer.PanningMode="Both"
+            ScrollViewer.PanningRatio="5"
+            Background="{x:Null}">
             <ListBox.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="10"/>
@@ -154,9 +165,10 @@
             TextWrapping="Wrap"
             HorizontalContentAlignment="Center" 
             VerticalContentAlignment="Center"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             ScrollViewer.CanContentScroll="True"
-            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            Background="{x:Null}">
             </TextBox>
             </StackPanel>   
             </Viewbox>
@@ -220,21 +232,19 @@
             <Viewbox Grid.Column="2">
             <StackPanel Margin="10,10,10,30">
             <Label Content="History" HorizontalAlignment="Center"
-            FontSize="16" FontWeight="Bold"/>
+            FontSize="16" FontWeight="Bold" Background="Aqua"/>
             <TextBox Width="375" Height="600" Margin="0,5,0,0"
             x:Name="TBO_placeOfLive" FontSize="36" FontWeight="Bold"
             TextWrapping="Wrap" TextAlignment="Center"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             ScrollViewer.CanContentScroll="True"
-            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            Background="{x:Null}">
             </TextBox>
             </StackPanel>
             </Viewbox>
             </Grid>
         </TabItem>
-        
-        
-        
         
 <!--Előnyök és hátrányok fül. Ablak. Lista. Még nem csinál semmit, 
 később lesz szerepe. Csak itt most elfér-->
@@ -245,7 +255,8 @@ később lesz szerepe. Csak itt most elfér-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-
+            <Image Source="../images/bgImages/forestVilage.jpg" Grid.ColumnSpan="3" Stretch="Fill"/>
+                
             <StackPanel Grid.Column="0">
             <Grid>
             <Grid.RowDefinitions>
@@ -253,6 +264,7 @@ később lesz szerepe. Csak itt most elfér-->
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
                 
             <Viewbox Grid.Row="0">
             <Label Content="Advantages and disadvantages"
@@ -262,9 +274,10 @@ később lesz szerepe. Csak itt most elfér-->
                 
             <Viewbox Grid.Row="1">
             <ListBox Width="300" Height="300" x:Name="LBO_advantages"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
-            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            Background="{x:Null}">
             <ListBox.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="10"/>
@@ -274,12 +287,10 @@ később lesz szerepe. Csak itt most elfér-->
             <DataTemplate>
             <Border BorderBrush="Aqua" BorderThickness="2" CornerRadius="5">
                 <StackPanel>
-                <TextBox Text="{Binding adId}" TextWrapping="Wrap"
-                    IsReadOnly="True"/>
                 <TextBox Text="{Binding adName}" TextWrapping="Wrap"
-                    IsReadOnly="True"/>
+                    IsReadOnly="True" FontSize="12"/>
                 <TextBox Text="{Binding adDesc}" TextWrapping="Wrap"
-                    IsReadOnly="True"/>
+                    IsReadOnly="True" FontSize="12"/>
                 </StackPanel>
             </Border>
             </DataTemplate>
@@ -289,9 +300,10 @@ később lesz szerepe. Csak itt most elfér-->
                 
             <Viewbox Grid.Row="2">
             <ListBox Width="300" Height="300" x:Name="LBO_disadvantages"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             ScrollViewer.CanContentScroll="True" Margin="5,5,5,5"
-            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            Background="{x:Null}">
             <ListBox.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="10"/>
@@ -301,9 +313,10 @@ később lesz szerepe. Csak itt most elfér-->
             <DataTemplate>
             <Border BorderBrush="Aqua" BorderThickness="2" CornerRadius="5">
                 <StackPanel>
-                <TextBox Text="{Binding disId}" TextWrapping="Wrap"/>
-                <TextBox Text="{Binding disName}" TextWrapping="Wrap"/>
-                <TextBox Text="{Binding disDesc}" TextWrapping="Wrap"/>
+                <TextBox Text="{Binding disName}" FontSize="12" 
+                    IsReadOnly="True" TextWrapping="Wrap"/>
+                <TextBox Text="{Binding disDesc}" FontSize="12" 
+                    IsReadOnly="True" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
             </DataTemplate>
@@ -319,9 +332,9 @@ később lesz szerepe. Csak itt most elfér-->
             Foreground="Aquamarine" Background="Red"
             HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal">
-            <Button x:Name="BTN_advantages" 
+            <!--<Button x:Name="BTN_advantages" 
             Margin="5" Padding="10"
-            Content="Advantages and disadvantages"/>
+            Content="Advantages and disadvantages"/>-->
 <!--Click="BTN_advantages_Click"-->
             </StackPanel>
             </StackPanel>
@@ -348,7 +361,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                 <StackPanel Grid.Column="0" Grid.Row="1" Margin="20,20,0,30">
                     <ListBox x:Name="LBO_myVitality" Width="200" Height="295"
-                    HorizontalContentAlignment="Center">
+                    HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -359,7 +372,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 
                     <Label Content="Vitality" HorizontalContentAlignment="Center"
                            FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="TBO_myVitality" Width="150" IsReadOnly="True" 
+                    <TextBox x:Name="TBO_myVitality" Width="50" IsReadOnly="True" 
                     TextAlignment="Center" Margin="5"/>
                     <ProgressBar x:Name="PBR_myVitality" Minimum="0" Maximum="75"
                     Height="10" Margin="5">
@@ -372,7 +385,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ProgressBar>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_myStrengthMin"
+                    <TextBox TextAlignment="Center" x:Name="TBO_myStrengthMin"
                     ToolTip="Strength" IsReadOnly="True" Width="30"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="Strength" Width="75" HorizontalContentAlignment="Center"/>
@@ -422,7 +435,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                 <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,20,20,30">
                     <ListBox x:Name="LBO_myDexterity" Width="200" Height="295"
-                    HorizontalContentAlignment="Center">
+                    HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -486,7 +499,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                 <StackPanel Grid.Column="0" Grid.Row="2" Margin="20,30,0,20">
                     <ListBox x:Name="LBO_myIntuition" Width="200" Height="295"
-                    HorizontalContentAlignment="Center">
+                    HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -552,7 +565,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                 <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,30,20,20">
                     <ListBox x:Name="LBO_myCharism" Width="200" Height="295"
-                    HorizontalContentAlignment="Center">
+                    HorizontalContentAlignment="Center" Background="{x:Null}">
                     <ListBox.Resources>
                     <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -618,9 +631,6 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             </Grid>
             </TabItem>
 
-        
-        
-        
 <!--Tulajdonságok beállítása, és egyéb karakterisztikai adatok. Védelmi és 
     támadási készségek-->
         <TabItem Header="Abilityes">
@@ -630,7 +640,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
-
+                <Image Source="../images/bgImages/middleEarth.jpg" Grid.ColumnSpan="3" Stretch="Fill"/>
 <!--Right or Left (I do not know) Row: Data Option Column-->
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Grid.RowDefinitions>
@@ -652,11 +662,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Margin="5,5,5,5">
+                        <!--<StackPanel Grid.Column="0" Margin="5,5,5,5">
                             <Button Width="25" Height="25"/>
                             <Button Width="25" Height="25"/>
                             <Button Width="25" Height="25"/>
-                        </StackPanel>
+                        </StackPanel>-->
                         
                     <StackPanel Grid.Column="1">
                     <Label Content="Vitality" Margin="5,0,5,0"
@@ -669,7 +679,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="285" Width="Auto" DataContext="{Binding}"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    Background="{x:Null}">
                     <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
                             <Label Content="Strength" HorizontalContentAlignment="Center" FontSize="16"/>
@@ -739,11 +750,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ListBoxItem>
                     </ListBox>
                     </StackPanel>
-                        <StackPanel Grid.Column="2" Margin="5">
+                        <!--<StackPanel Grid.Column="2" Margin="5">
                             <Button Width="25" Height="25"/>
                             <Button Width="25" Height="25"/>
                             <Button Width="25" Height="25"/>
-                        </StackPanel>
+                        </StackPanel>-->
                     </Grid>
                 </StackPanel>
 
@@ -757,11 +768,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Margin="5">
+                    <!--<StackPanel Grid.Column="0" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <StackPanel Grid.Column="1">
                     <Label Content="Dexterity" Margin="5,0,5,0"
@@ -774,7 +785,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    Background="{x:Null}">
                     <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
                             <Label Content="Agility" HorizontalContentAlignment="Center" FontSize="16"/>
@@ -844,11 +856,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ListBoxItem>
                     </ListBox>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Margin="5">
+                    
+                    <!--<StackPanel Grid.Column="2" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </Grid>
                 </StackPanel>
 
@@ -862,11 +875,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Margin="5">
+                    <!--<StackPanel Grid.Column="0" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <StackPanel Grid.Column="1">
                     <Label Content="Intuition" Margin="5,0,5,0"
@@ -879,7 +892,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    Background="{x:Null}">
                     <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
                             <Label Content="Intelligence" HorizontalContentAlignment="Center" FontSize="16"/>
@@ -949,11 +963,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ListBoxItem>
                     </ListBox>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Margin="5">
+                    
+                    <!--<StackPanel Grid.Column="2" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
 
                 </Grid>
                 </StackPanel>
@@ -968,11 +983,11 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Margin="5">
+                    <!--<StackPanel Grid.Column="0" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     
                     <StackPanel Grid.Column="1">
                     <Label Content="Charism" Margin="5,0,5,0"
@@ -985,7 +1000,8 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Height="285" Width="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     ScrollViewer.CanContentScroll="True"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    Background="{x:Null}">
                     <ListBoxItem HorizontalAlignment="Center">
                         <StackPanel>
                             <Label Content="Appearance" HorizontalContentAlignment="Center" FontSize="16"/>
@@ -1056,11 +1072,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </ListBox>
                     </StackPanel>
                         
-                    <StackPanel Grid.Column="2" Margin="5">
+                    <!--<StackPanel Grid.Column="2" Margin="5">
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
                         <Button Width="25" Height="25"/>
-                    </StackPanel>
+                    </StackPanel>-->
+                        
                     </Grid>
                 </StackPanel>
                 </Grid>
@@ -1135,13 +1152,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             <StackPanel Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,20,0" x:Name="SP_Characteristic">
             <Label Content="Characteristic panel" FontSize="24" FontWeight="Bold"
             HorizontalContentAlignment="Center" Margin="5,5,5,5"/>
-            <TabControl>
-                <TabItem Header="Base">
-                    <StackPanel>
-                        <ListBox Width="650" Height="700" Padding="10"
-                        x:Name="LBO_characteristicBase"
+            <TabControl Background="{x:Null}">
+                <TabItem Header="Base" Background="{x:Null}" Width="75" Height="25">
+                    <StackPanel Background="{x:Null}">
+                        <ListBox Width="650" Height="280" Padding="10"
+                        x:Name="LBO_characteristicBase" Background="{x:Null}"
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                        BorderThickness="5" BorderBrush="Red">
                         <ListBoxItem Margin="0,0,0,5">
                             <Grid Width="{Binding ElementName=LBO_characteristicBase, Path=ActualWidth}">
                                 <Grid.ColumnDefinitions>
@@ -1241,19 +1259,17 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 </StackPanel>
                             </Grid>
                         </ListBoxItem>
-                            
-                            
-                            
                         </ListBox>
                     </StackPanel>    
                 </TabItem>
                         
-                <TabItem Header="Attack">
-                    <StackPanel>
-                        <ListBox Width="650" Height="700" Padding="10"
-                        x:Name="LBO_characteristicAttacking" 
+                <TabItem Header="Attack" Background="{x:Null}"  Width="75" Height="25">
+                    <StackPanel Background="{x:Null}">
+                        <ListBox Width="650" Height="550" Padding="10"
+                        x:Name="LBO_characteristicAttacking" Background="{x:Null}"
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                        BorderThickness="5" BorderBrush="Red">
                         <ListBoxItem Margin="0,0,0,5">
                             <Grid Width="{Binding ElementName=LBO_characteristicAttacking, Path=ActualWidth}">
                                 <Grid.ColumnDefinitions>
@@ -1444,11 +1460,12 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </StackPanel>
                 </TabItem>
                 
-                <TabItem Header="Resistance">
+                <TabItem Header="Resistance" Background="{x:Null}"  Width="75" Height="25">
                     <ListBox Width="650" Height="700" Padding="10"
-                    x:Name="LBO_characteristicResistance" 
+                    x:Name="LBO_characteristicResistance" Background="{x:Null}"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                    ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    BorderThickness="5" BorderBrush="Red">
                     <ListBoxItem Margin="0,0,0,5">
                         <Grid Width="{Binding ElementName=LBO_characteristicResistance, Path=ActualWidth}">
                             <Grid.ColumnDefinitions>
@@ -1686,7 +1703,6 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
             </Grid>
         </TabItem>
 
-        
 <!--Skills and Progression-->
         <TabItem Header="Skills and Progression">
             <Grid Background="LightGreen">
@@ -1695,11 +1711,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                    <Image Source="../images/bgimages/humanVilage.png" Grid.ColumnSpan="3"
+                            Stretch="UniformToFill"/>
+
                 <StackPanel Margin="5">
                     <Label Content="Avaliable Skills" FontWeight="Bold" FontSize="16" 
-                           HorizontalContentAlignment="Center" Margin="5"/>
+                           HorizontalContentAlignment="Center" Margin="5" Background="Thistle"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <Label Content="Avaliable skill point: "/>
+                        <Label Content="Avaliable skill point: " Background="LightSlateGray"/>
                         <TextBox x:Name="TBO_avaliableSkillpoint" Width="75"
                             TextAlignment="Center" IsReadOnly="True"/>
                     </StackPanel>
@@ -1759,13 +1778,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <TextBox Text="Skills and Progression. És a megtervezett adatbázis vége" 
-                FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center"
-                Foreground="Blue" Background="Red" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" IsReadOnly="True"
+                Foreground="Blue" Background="{x:Null}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <Label Content="Selected skills" FontWeight="Bold" FontSize="16" Margin="5"
-                        HorizontalContentAlignment="Center"/>
+                    <Label Content="Selected skills" FontWeight="Bold" FontSize="16"
+                        HorizontalContentAlignment="Center" Margin="5" Background="Tan"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Avaliable skill point: "/>
                         <TextBox Width="75" IsReadOnly="True"
@@ -1773,7 +1792,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     </StackPanel>
                     <StackPanel>
                         <ListBox x:Name="LBO_knownSkill" IsSynchronizedWithCurrentItem="True"
-                        Width="{Binding ElementName=SP_optionalSkills}" Background="DarkBlue"
+                        Width="{Binding ElementName=SP_optionalSkills}" Background="{x:Null}"
                         Height="664" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -1833,6 +1852,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+                
+            <Image Source="../images/bgimages/nordicEmperor.jpg" Grid.ColumnSpan="3"
+                Stretch="UniformToFill"/>
+
             <StackPanel>
 
             </StackPanel>
@@ -1856,6 +1879,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <Image Source="../images/bgimages/lifelessDarkMountains.jpg" Grid.ColumnSpan="3"
+                Stretch="UniformToFill"/>
+                
             <StackPanel>
 
             </StackPanel>
@@ -1879,6 +1906,9 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+                
+            <Image Source="../images/bgimages/deadFisherVilage.jpg" Grid.ColumnSpan="3"
+                Stretch="UniformToFill"/>
             <StackPanel>
 
             </StackPanel>
@@ -1902,6 +1932,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+                
+            <Image Source="../images/bgimages/deadFisherVilageTwo.jpg" Grid.ColumnSpan="3"
+                Stretch="UniformToFill"/>
+                
             <StackPanel Grid.Column="0">
 
             </StackPanel>

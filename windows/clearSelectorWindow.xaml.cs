@@ -202,9 +202,11 @@ namespace mD_WPF_chSheet_01.windows
             {
                 TBO_raceModifier.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
                     + " Race Modifier" + "\n\n Na most már minden változik";
+                TBO_raceModifier.Foreground = Brushes.Red;
 
                 TBO_placeOfLive.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
                     + " " + ((Races)LBO_rRace.SelectedItem).Description + "\n\n Csak a Bohr állandó";
+                TBO_placeOfLive.Foreground = Brushes.Red;
 
                 #region vitality
                 int myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
@@ -1366,6 +1368,11 @@ namespace mD_WPF_chSheet_01.windows
             }
         }
 
+        
+        
+        
+        
+        
         private async void BTN_Exit_Click(object sender, RoutedEventArgs e)
         {
             quickStartWindow qsw = new quickStartWindow();
