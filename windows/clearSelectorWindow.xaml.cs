@@ -94,6 +94,8 @@ namespace mD_WPF_chSheet_01.windows
         {
             InitializeComponent();
 
+            
+
             #region advdisadv
             adv.Add(new advantages(0,"Sharp eye", "Sees farther than others"));
             adv.Add(new advantages(1, "Escapist", "Is easily and quickly absorbed in danger"));
@@ -191,6 +193,8 @@ namespace mD_WPF_chSheet_01.windows
             LBO_disadvantages.ItemsSource = dis;
 
             PRB_baseHealth.ToolTip = "Módosítók nélküli alap életerő";
+
+            
         }
 
 
@@ -331,6 +335,11 @@ namespace mD_WPF_chSheet_01.windows
                 TBO_placeOfLive.Text = "Faj történelme és élőhelye";
             }
             skillfilterone();
+        }
+
+        private void LBO_rRace_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
         }
 
         private void skillfilterone()
@@ -1387,5 +1396,6 @@ namespace mD_WPF_chSheet_01.windows
             //this.Close();
             //csw.Show();
         }
+
     }
 }

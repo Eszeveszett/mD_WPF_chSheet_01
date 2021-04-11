@@ -53,8 +53,16 @@
                 </Trigger>-->
             </Style.Triggers>
         </Style>
+
+        <Cursor x:Key="defaultCursor">
+            images/cursorIcon/pointer.cur
+        </Cursor>
+        <Cursor x:Key="pointerCursor">
+            images/cursorIcon/attack.cur
+        </Cursor>
+
     </Window.Resources>
-    <Grid>
+    <Grid Cursor="{StaticResource defaultCursor}">
         <Grid.RowDefinitions>
             <!--<RowDefinition Height="50"/>-->
             <RowDefinition Height="*"/>
@@ -81,7 +89,7 @@
             <Button  Margin="5,35,5,5" Background="{x:Null}"
                 x:Name="BTN_Connection" Click="BTN_Connection_Click"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12" 
+                FontSize="12" Cursor="{StaticResource pointerCursor}"
                 MouseEnter="BTN_Connection_MouseEnter" MouseLeave="BTN_Connection_MouseLeave">
                 
                 <Canvas x:Name="CVS_Con">
@@ -122,7 +130,7 @@
             <Button Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
                 FontSize="12" MouseEnter="BTN_newGame_MouseEnter" MouseLeave="BTN_newGame_MouseLeave"
-                x:Name="BTN_newGame" Click="BTN_newGame_Click">
+                x:Name="BTN_newGame" Click="BTN_newGame_Click" Cursor="{StaticResource pointerCursor}">
                 
                 <Canvas>
                     <TextBlock Text="New Game" Width="80" Canvas.Top="-8" Canvas.Right="-38"
@@ -178,7 +186,7 @@
 
             <Button Content="Testing" Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12"
+                FontSize="12" Cursor="{StaticResource pointerCursor}"
                 x:Name="BTN_testing" Click="BTN_testing_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -190,7 +198,7 @@
             <Button Margin="5,5,5,35" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
                 FontSize="12" MouseEnter="BTN_quitGame_MouseEnter" MouseLeave="BTN_quitGame_MouseLeave"
-                x:Name="BTN_quitGame" Click="BTN_quitGame_Click">
+                x:Name="BTN_quitGame" Click="BTN_quitGame_Click" Cursor="{StaticResource pointerCursor}">
                 
                 <Canvas>
                     <TextBlock Text="Q u i t" Width="80" Canvas.Top="-7" Canvas.Right="-38"
