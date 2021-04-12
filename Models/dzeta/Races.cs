@@ -19,7 +19,7 @@ namespace mD_WPF_chSheet_01.Models.dzeta
         public int DexterityId { get; set; }
         public int IntuitionId { get; set; }
         public int CharismaId { get; set; }
-        public string Pictures { get; set; }
+        public string History { get; set; }
 
         public virtual Charisms Charisma { get; set; }
         public virtual Dexteritys Dexterity { get; set; }
@@ -43,7 +43,7 @@ namespace mD_WPF_chSheet_01.Models.dzeta
                 //{
                 //    return string.Format("..\\..\\images\\chIcon\\{0}.jpg", Id);
                 //}
-                return string.Format("..\\..\\images\\chIcon\\{0}.jpg", Pictures);
+                return string.Format("..\\..\\images\\chIcon\\{0}.jpg", Id);
             }
         }
 

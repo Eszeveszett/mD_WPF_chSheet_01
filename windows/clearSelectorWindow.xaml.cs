@@ -188,7 +188,6 @@ namespace mD_WPF_chSheet_01.windows
             
             LBO_rRace.ItemsSource = context.Races.Local.ToObservableCollection();
             LBO_rRace.SelectedItem = null;
-            LBO_rRace.SelectionMode = SelectionMode.Single;
             LBO_advantages.ItemsSource = adv;
             LBO_disadvantages.ItemsSource = dis;
 
@@ -204,13 +203,12 @@ namespace mD_WPF_chSheet_01.windows
 
             if (LBO_rRace.SelectedItem != null)
             {
-                TBO_raceModifier.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
-                    + " Race Modifier" + "\n\n Na most már minden változik";
-                TBO_raceModifier.Foreground = Brushes.Red;
+                TBO_raceModifier.Text = ((Races)LBO_rRace.SelectedItem).Description;
+                TBO_raceModifier.Foreground = Brushes.LightGoldenrodYellow;
+                
 
-                TBO_placeOfLive.Text = ((Races)LBO_rRace.SelectedItem).RaceName + " " + ((Races)LBO_rRace.SelectedItem).Gender
-                    + " " + ((Races)LBO_rRace.SelectedItem).Description + "\n\n Csak a Bohr állandó";
-                TBO_placeOfLive.Foreground = Brushes.Red;
+                TBO_placeOfLive.Text = ((Races)LBO_rRace.SelectedItem).History;
+                TBO_placeOfLive.Foreground = Brushes.LightGoldenrodYellow;
 
                 #region vitality
                 int myStrMin = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId-1)].StrengthMin;
@@ -321,7 +319,7 @@ namespace mD_WPF_chSheet_01.windows
 
                 bi.BeginInit();
                 //bi.UriSource = new Uri(@"/images/chIcon/13.jpg", UriKind.RelativeOrAbsolute);
-                bi.UriSource = new Uri(@"/images/chIcon/" + ((Races)LBO_rRace.SelectedItem).Pictures.ToString() + ".jpg",UriKind.RelativeOrAbsolute);
+                bi.UriSource = new Uri(@"/images/chIcon/" + ((Races)LBO_rRace.SelectedItem).Id.ToString() + ".jpg",UriKind.RelativeOrAbsolute);
                 bi.EndInit();
 
                 //simpleImage.Source = bi;
@@ -329,17 +327,12 @@ namespace mD_WPF_chSheet_01.windows
                 IMG_Race.Source = bi;
 
             }
-            else
-            {
-                TBO_raceModifier.Text = "Faji sajátosságok";
-                TBO_placeOfLive.Text = "Faj történelme és élőhelye";
-            }
+            //else
+            //{
+            //    TBO_raceModifier.Text = "Faji sajátosságok";
+            //    TBO_placeOfLive.Text = "Faj történelme és élőhelye";
+            //}
             skillfilterone();
-        }
-
-        private void LBO_rRace_MouseEnter(object sender, MouseEventArgs e)
-        {
-            
         }
 
         private void skillfilterone()
