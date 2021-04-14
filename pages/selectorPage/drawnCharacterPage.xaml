@@ -252,14 +252,14 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <StackPanel Orientation="Vertical" Margin="5">
                             <Label Content="Vitality" HorizontalContentAlignment="Center"
-                            FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            FontSize="16" FontWeight="Bold" Foreground="DarkRed"/>
                             <TextBox x:Name="TBO_Vitality" Width="150" IsReadOnly="True" TextAlignment="Center"
                             FontSize="16" FontWeight="Bold"/>
                             <ProgressBar x:Name="PBR_Vitality" Minimum="30" Maximum="55"
                             Height="10" Margin="5" Foreground="DarkRed"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Strength" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Strength" Width="125" FontSize="16" FontWeight="Bold" Foreground="Firebrick"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Strength"
                             ToolTip="Strength" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -268,7 +268,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                             Height="10" Margin="5" Foreground="Firebrick"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Endurance" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Endurance" Width="125" FontSize="16" FontWeight="Bold" Foreground="Crimson"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Endurance" 
                             ToolTip="Endurance" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -277,7 +277,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                             Height="10" Margin="5" Foreground="Crimson"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Toughtness" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Toughtness" Width="125" FontSize="16" FontWeight="Bold" Foreground="Tomato"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Toughtness"
                             ToolTip="Toughtness" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -291,14 +291,14 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
 
                         <StackPanel Orientation="Vertical" Margin="5">
                             <Label Content="Dexterity" HorizontalContentAlignment="Center"
-                            FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            FontSize="16" FontWeight="Bold" Foreground="SeaGreen"/>
                             <TextBox x:Name="TBO_Dexterity" Width="150" IsReadOnly="True" TextAlignment="Center"
                             FontSize="16" FontWeight="Bold"/>
                             <ProgressBar x:Name="PBR_Dexterity" Minimum="30" Maximum="55"
                             Height="10" Margin="5" Foreground="SeaGreen"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Agility" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Agility" Width="125" FontSize="16" FontWeight="Bold" Foreground="DarkGreen"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Agility"
                             ToolTip="Agility" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -307,7 +307,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                             Height="10" Margin="5" Foreground="DarkGreen"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Perception" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Perception" Width="125" FontSize="16" FontWeight="Bold" Foreground="YellowGreen"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Perception"
                             ToolTip="Perception" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -316,7 +316,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                             Height="10" Margin="5" Foreground="YellowGreen"/>
 
                             <StackPanel Orientation="Horizontal">
-                            <Label Content="Quickness" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                            <Label Content="Quickness" Width="125" FontSize="16" FontWeight="Bold" Foreground="Olive"/>
                             <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Quickness"
                             ToolTip="Quickness" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                             </StackPanel>
@@ -329,14 +329,14 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <StackPanel Orientation="Vertical" Margin="5">
                         <Label Content="Intuition" HorizontalContentAlignment="Center"
-                        FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                        FontSize="16" FontWeight="Bold" Foreground="Blue"/>
                         <TextBox x:Name="TBO_Intuition" Width="150" IsReadOnly="True" TextAlignment="Center"
                         FontSize="16" FontWeight="Bold"/>
                         <ProgressBar x:Name="PBR_Intuition" Minimum="30" Maximum="55"
                         Height="10" Margin="5" Foreground="Blue"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Intelligence" Width="125" FontSize="16" FontWeight="Bold" Foreground="SaddleBrown"/>
+                        <Label Content="Intelligence" Width="125" FontSize="16" FontWeight="Bold" Foreground="DarkSlateBlue"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Intelligence"
                         ToolTip="Intelligence" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
@@ -344,7 +344,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                         Height="10" Margin="5" Foreground="DarkSlateBlue"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Wisdom" Width="125" FontSize="16" FontWeight="Bold" Foreground="SaddleBrown"/>
+                        <Label Content="Wisdom" Width="125" FontSize="16" FontWeight="Bold" Foreground="MediumSlateBlue"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Wisdom"
                         ToolTip="Wisdom" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
@@ -352,7 +352,7 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
                         Height="10" Margin="5" Foreground="MediumSlateBlue"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Resourcefull" Width="125" FontSize="16" FontWeight="Bold" Foreground="SaddleBrown"/>
+                        <Label Content="Resourcefull" Width="125" FontSize="16" FontWeight="Bold" Foreground="DeepSkyBlue"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Resourcefull"
                         ToolTip="Resourcefull" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
@@ -364,14 +364,14 @@ Vagy csináljon jobbat hajnali 5-kor, négy nap nemalvás után-->
 Hát a lónak a faszát-->
                         <StackPanel Orientation="Vertical" Margin="5">
                         <Label Content="Charisma" HorizontalContentAlignment="Center"
-                        FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                        FontSize="16" FontWeight="Bold" Foreground="Purple"/>
                         <TextBox x:Name="TBO_Charisma" Width="150" IsReadOnly="True" TextAlignment="Center"
                         FontSize="16" FontWeight="Bold"/>
                         <ProgressBar x:Name="PBR_Charisma" Minimum="30" Maximum="55"
                         Height="10" Margin="5" Foreground="Purple"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Appearance" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                        <Label Content="Appearance" Width="125" FontSize="16" FontWeight="Bold" Foreground="BlueViolet"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Appearance"
                         ToolTip="Appearance" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
@@ -379,7 +379,7 @@ Hát a lónak a faszát-->
                         Height="10" Margin="5" Foreground="BlueViolet"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Influence" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                        <Label Content="Influence" Width="125" FontSize="16" FontWeight="Bold" Foreground="DarkViolet"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Influence"
                         ToolTip="Influence" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
@@ -387,7 +387,7 @@ Hát a lónak a faszát-->
                         Height="10" Margin="5" Foreground="DarkViolet"/>
 
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="Luck" Width="125" FontSize="16" FontWeight="Bold" Foreground="SandyBrown"/>
+                        <Label Content="Luck" Width="125" FontSize="16" FontWeight="Bold" Foreground="DarkOrchid"/>
                         <TextBox Text="Value" TextAlignment="Center" x:Name="TBO_Luck"
                         ToolTip="Luck" IsReadOnly="True" Width="50" FontSize="16" FontWeight="Bold"/>
                         </StackPanel>
