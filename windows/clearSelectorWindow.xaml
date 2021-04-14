@@ -47,15 +47,21 @@
             <Setter Property="Cursor" Value="{StaticResource identCursor}"/>
         </Style>
 
+        <Style x:Uid="tabitemStyle" TargetType="TabItem">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="10,0,10,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+        </Style>
+
         <!--<Style x:Uid="scrollbarStyle" TargetType="ScrollBar">
         </Style>-->
     </Window.Resources>
     
     
-        <Viewbox x:Name="VBX_Csw" Margin="-5,1,-5,-5" Cursor="{StaticResource defaultCursor}">
-        <Grid Background="WhiteSmoke"
-          Height="{Binding ElementName=WDW_Csw, Path=ActualHeight}"
-          Width="{Binding ElementName=WDW_Csw, Path=ActualWidth}">
+    <Viewbox x:Name="VBX_Csw" Margin="-5,0,-5,-5" Cursor="{StaticResource defaultCursor}">
+    <Grid Background="WhiteSmoke"
+        Height="{Binding ElementName=WDW_Csw, Path=ActualHeight}"
+        Width="{Binding ElementName=WDW_Csw, Path=ActualWidth}">
 
         <Grid.RowDefinitions>
             <!--<RowDefinition Height="50"/>-->
@@ -1189,50 +1195,60 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     <!--<Image Source="..\images\chImages\twoThief.png"
                 Grid.ColumnSpan="3" Grid.RowSpan="7" Stretch="Fill"/>-->
 
-                <StackPanel Grid.Row="1" Grid.Column="0"
+                <TextBlock Text="Abilities and Resistances" FontSize="26" FontWeight="Bold"
+                    Grid.ColumnSpan="3" Grid.Row="0" Foreground="DarkGoldenrod"
+                    HorizontalAlignment="Center" VerticalAlignment="Top"
+                    TextWrapping="Wrap" TextAlignment="Center"/>  
+                    <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="4"
+                        Height="350" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image x:Name="IMG_AARPicture" Stretch="Fill" Height="400">
+                        <Image.Clip>
+                            <RectangleGeometry RadiusX="200" RadiusY="200" Rect="0,0,375,350"/>
+                        </Image.Clip>
+                    </Image>
+                    </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Top">
                     <Button Content="Vitality" Width="100"
                         x:Name="BTN_vitalityQuality" Click="BTN_vitalityQuality_Click"
-                        Margin="5" Padding="5"/>
+                        Margin="5" Padding="1"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" Grid.Column="0"
+                <StackPanel Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
                     <Button Content="Dexterity" Width="100"
                         x:Name="BTN_dexterityQuality" Click="BTN_dexterityQuality_Click"
-                        Margin="5" Padding="5"/>
+                        Margin="5" Padding="1"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1" Grid.Column="2"
+                <StackPanel Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Bottom">
                     <Button Content="Intuition" Width="100"
                         x:Name="BTN_intuitionQuality" Click="BTN_intuitionQuality_Click"
-                        Margin="5" Padding="5"/>
+                        Margin="5" Padding="1"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" Grid.Column="2"
+                <StackPanel Grid.Row="5" Grid.Column="0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Top"
+                            Margin="0,20,0,0">
                     <Button Content="Charisma" Width="100"
                         x:Name="BTN_charismaQuality" Click="BTN_charismQuality_Click"
-                        Margin="5" Padding="5"/>
+                        Margin="5" Padding="1"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="3" Grid.Column="1"
+                <StackPanel Grid.Row="5" Grid.Column="0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Bottom">
                     <Button Content="Reset" Width="100"
                         x:Name="BTN_qualityReset" Click="BTN_qualityReset_Click"
-                        Margin="5" Padding="5"/>
+                        Margin="5" Padding="1"/>
                 </StackPanel>
 
-                    <TextBlock Text="Abilities and Resistances" FontSize="26" FontWeight="Bold"
-                    Grid.ColumnSpan="3" Grid.Row="0" Foreground="DarkGoldenrod"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    TextWrapping="Wrap" TextAlignment="Center"/>
+                    
                 </Grid>
 
 <!--Right (or left. I don't know) Row: Characteristic panel-->
@@ -1902,10 +1918,10 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         <TextBox x:Name="TBO_avaliableSkillpoint" Width="75"
                             TextAlignment="Center" IsReadOnly="True"/>
                     </StackPanel>
-                    <StackPanel x:Name="SP_optionalSkills">
+                    <StackPanel x:Name="SP_optionalSkills" Margin="30,0,10,0">
                         <ListBox x:Name="LBO_optionalSkill"
-                        Width="{Binding ElementName=SP_optionalSkills}" Background="{x:Null}"
-                        Height="797" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Width="{Binding ElementName=SP_optionalSkills, Path=ActualWidth}" Background="{x:Null}"
+                        Height="750" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                         BorderBrush="{x:Null}"
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -1914,6 +1930,46 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="Background" Value="Chocolate"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                            <Setter Property="Template">
+                            <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5,5,5,5">
+                            <ContentPresenter/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Chocolate"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Background" Value="{x:Null}"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Setter Property="BorderBrush" Value="{x:Null}"/>
+                            </Trigger>
+                                
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="DarkOrange"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Background" Value="{x:Null}"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Setter Property="BorderBrush" Value="{x:Null}"/>
+                            </Trigger>
+                            </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                            </Setter.Value>
+                            </Setter>
+                            </Style>
                         </ListBox.Resources>
                             
                         <ListBox.ItemTemplate>
@@ -1923,41 +1979,44 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
+                            
                                 
+                            <StackPanel Orientation="Horizontal" Height="120">
                             <Viewbox Grid.Column="0" Grid.Row="0">
                             <StackPanel>
                             <Image Source="{Binding SkillImage}" 
-                            Width="120" Height="120" Margin="0,0,25,0"/>
+                            Width="115" Height="115" Margin="0,0,25,0"/>
                             </StackPanel>
                             </Viewbox>   
                                 
-                            <Viewbox Grid.Column="1" Grid.Row="0" Margin="5,-20,0,-20">
-                            <StackPanel>
-                            <StackPanel Background="Brown"
+                            <Viewbox Grid.Column="1" Grid.Row="0" Margin="5,0,0,0">
+                            <StackPanel HorizontalAlignment="Center">
+                            <StackPanel
                             HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label Content="Quality: I" Padding="0"/>
-                            <TextBlock Text="{Binding SkillName}"
-                            Width="250" Background="Goldenrod" Padding="0"
+                            <Label Content="Quality: I" Padding="0" Background="Brown" Height="20"/>
+                            <TextBlock Text="{Binding SkillName}" Height="20"
+                            Width="350" Background="Goldenrod" 
                             TextAlignment="Center"/>
                             </StackPanel>
                                 
-                            <StackPanel Background="Brown"
+                            <StackPanel
                             HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label Content="Cost" Padding="0"/>
-                            <TextBlock Text="{Binding SkillCost}"
-                            Width="250" Background="Goldenrod" Padding="0"
+                            <Label Content="Cost" Padding="0" Background="Brown" Height="20"/>
+                            <TextBlock Text="{Binding SkillCost}" Height="20"
+                            Width="350" Background="Goldenrod" Padding="0"
                             TextAlignment="Center"/>
                             </StackPanel> 
                                     
-                            <StackPanel Background="Brown"
+                            <StackPanel
                             HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label Content="Category" Padding="0"/>
-                            <TextBlock Text="{Binding SkillClass}"
-                            Width="250" Background="Goldenrod" Padding="0"
+                            <Label Content="Category" Padding="0" Background="Brown" Height="20"/>
+                            <TextBlock Text="{Binding SkillClass}" Height="20"
+                            Width="350" Background="Goldenrod" Padding="0"
                             TextAlignment="Center"/>
                             </StackPanel>
                             </StackPanel>
                             </Viewbox>
+                            </StackPanel>
                             </Grid>
                         </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -1967,12 +2026,19 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
-                <TextBlock Text="Skills and Progression" 
-                FontSize="48" FontWeight="Bold" TextAlignment="Center"
-                Foreground="DarkGoldenrod" Background="{x:Null}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-                <TextBlock Text="És a megtervezett adatbázis vége" 
-                FontSize="24" FontWeight="Bold" TextAlignment="Center"
-                Foreground="Blue" Background="{x:Null}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Text="Skills and Progression" 
+                    FontSize="48" FontWeight="Bold" TextAlignment="Center"
+                    Foreground="DarkGoldenrod" Background="{x:Null}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                    
+                    <TextBlock Text="És a megtervezett adatbázis vége" Padding="0,0,0,10"
+                    FontSize="24" FontWeight="Bold" TextAlignment="Center"
+                    Foreground="Blue" Background="{x:Null}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                            
+                    <Image x:Name="IMG_SAPimage" Width="375" Height="375" Stretch="Fill">
+                        <Image.Clip>
+                            <RectangleGeometry RadiusX="200" RadiusY="200" Rect="0,0,375,375"/>
+                        </Image.Clip>
+                    </Image>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
@@ -2155,15 +2221,15 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
         
     </TabControl>
         
-        <!--<Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-        x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>-->
+<!--<Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+x:Name="FRM_incoming" NavigationUIVisibility="Hidden"/>-->
 
-        <StackPanel Grid.Row="3" Grid.Column="0"
-            HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
-            VerticalAlignment="Center"
-            Margin="5" Padding="5"/>
-        </StackPanel>
+    <StackPanel Grid.Row="3" Grid.Column="0"
+        HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Button Content="EXIT" x:Name="BTN_Exit" Click="BTN_Exit_Click"
+        VerticalAlignment="Center"
+        Margin="5" Padding="5"/>
+    </StackPanel>
 
         <StackPanel Orientation="Horizontal"
             HorizontalAlignment="Center" VerticalAlignment="Center"

@@ -113,11 +113,9 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
                         bi.EndInit();
                     }
                 }
-
             }
 
             LBO_PlayingCharacter.ItemsSource = dData;
-
             CBO_RaceSelector.ItemsSource = dData.Select(x => x.dRace).Distinct();
             //CBO_RaceSelectorTwo.ItemsSource = dData.Select(x => x.dRace).Distinct();
 
@@ -195,11 +193,13 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
                 TBX_Race.Text = ((displayedData)LBO_PlayingCharacter.SelectedItem).dRace;
                 TBX_Gender.Text = ((displayedData)LBO_PlayingCharacter.SelectedItem).dGender;
 
+                IMG_DCPImage.Source = ((displayedData)LBO_PlayingCharacter.SelectedItem).dImage;
+
                 foreach (var item in races)
                 {
                     if (((displayedData)LBO_PlayingCharacter.SelectedItem).drId == item.Id)
                     {
-                        TBX_Desc.Text = item.Description;
+                        TBX_Desc.Text = item.History + "\n\n" + item.Description;
                     }
                 }
 
@@ -207,7 +207,7 @@ namespace mD_WPF_chSheet_01.pages.selectorPage
                 {
                     if (((displayedData)LBO_PlayingCharacter.SelectedItem).dcId == characters[idFilter].Id)
                     {
-                        TBO_Vitality.Text = characters[idFilter].Vitality.ToString();               //  Ugyan ez a többire. Nincs értelme darabolni
+                        TBO_Vitality.Text = characters[idFilter].Vitality.ToString();                   //  Ugyan ez a többire. Nincs értelme darabolni
                         PBR_Vitality.Value = Convert.ToDouble(characters[idFilter].Vitality);
 
                         TBO_Strength.Text = characters[idFilter].Strength.ToString();

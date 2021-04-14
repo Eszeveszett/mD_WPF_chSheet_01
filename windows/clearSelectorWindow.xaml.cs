@@ -325,7 +325,8 @@ namespace mD_WPF_chSheet_01.windows
                 //simpleImage.Source = bi;
 
                 IMG_Race.Source = bi;
-
+                IMG_SAPimage.Source = bi;
+                IMG_AARPicture.Source = bi;
             }
             //else
             //{
