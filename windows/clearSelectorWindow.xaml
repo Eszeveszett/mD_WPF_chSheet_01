@@ -53,6 +53,19 @@
             <Setter Property="MinWidth" Value="100"/>
         </Style>
 
+        <Style x:Uid="toolTippStyle" TargetType="ToolTip">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel>
+                        <TextBlock Text="{Binding}" MaxWidth="400" TextWrapping="Wrap" 
+                            FontWeight="Bold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!--<Style x:Uid="scrollbarStyle" TargetType="ScrollBar">
         </Style>-->
     </Window.Resources>
@@ -1199,6 +1212,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                     Grid.ColumnSpan="3" Grid.Row="0" Foreground="DarkGoldenrod"
                     HorizontalAlignment="Center" VerticalAlignment="Top"
                     TextWrapping="Wrap" TextAlignment="Center"/>  
+                    
                     <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="4"
                         Height="350" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Image x:Name="IMG_AARPicture" Stretch="Fill" Height="400">
@@ -1206,7 +1220,13 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             <RectangleGeometry RadiusX="200" RadiusY="200" Rect="0,0,375,350"/>
                         </Image.Clip>
                     </Image>
+                        
                     </StackPanel>
+                    
+                <StackPanel Grid.Row="4" Grid.Column="1">
+                    <TextBox x:Name="TBO_TestBox" Width="100" Height="25" Background="White"/>
+                </StackPanel>
+                    
                 <StackPanel Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top">
@@ -1283,14 +1303,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Grid.Column="1" Grid.Row="0" Width="250">
                                     <Label Content="Base Healt" HorizontalContentAlignment="Center"/>
                                     <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseHealth"
-                                        Foreground="Red"/>
+                                        Foreground="Red" Minimum="0" Maximum="50"/>
                                 </StackPanel>
                                 <Image Grid.Column="2" Source="../images/characteristicImage/Base Stamina.jpg" 
                                     Width="50" Height="50"/>
                                 <StackPanel Grid.Column="3" Grid.Row="0" Width="250">
                                     <Label Content="Base Stamina" HorizontalContentAlignment="Center"/>
                                     <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseStamina"
-                                        Foreground="Yellow"/>
+                                        Foreground="Yellow" Minimum="0" Maximum="50"/>
                                 </StackPanel>
                             </Grid>
                         </ListBoxItem>
@@ -1308,14 +1328,14 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                                 <StackPanel Grid.Column="1" Grid.Row="0" Width="250">
                                     <Label Content="Base Mana" HorizontalContentAlignment="Center"/>
                                     <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseMana"
-                                        Foreground="Blue"/>
+                                        Foreground="Blue" Minimum="0" Maximum="50"/>
                                 </StackPanel>
                                 <Image Grid.Column="2" Source="../images/characteristicImage/Base Impact.jpg"
                                     Width="50" Height="50"/>
                                 <StackPanel Grid.Column="3" Grid.Row="0" Width="250">
                                     <Label Content="Base Impact" HorizontalContentAlignment="Center"/>
                                     <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseImpact"
-                                        Foreground="Purple"/>
+                                        Foreground="Purple" Minimum="0" Maximum="50"/>
                                 </StackPanel>
                             </Grid>
                         </ListBoxItem>
@@ -1717,7 +1737,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Fracture" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseFracturePtot"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/Bleeding.jpg" 
@@ -1725,7 +1745,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Bleeding" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseBleedingProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1744,7 +1764,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Disease" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseDiseaseProt"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/Infection.jpg" 
@@ -1752,7 +1772,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Infection" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseInfectionProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1771,7 +1791,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Poison" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_basePoisonProt"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/Asphyxia.jpg" 
@@ -1779,7 +1799,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Asphyxia" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseAsphyxiaProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1798,7 +1818,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Energy" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseEnergyProt"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/MagicR.jpg" 
@@ -1806,7 +1826,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Magic" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseMagicProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1825,7 +1845,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Burn" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseBurningProt"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/EarthR.jpg" 
@@ -1833,7 +1853,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Earth" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseEarthProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1852,7 +1872,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="1" Grid.Row="0">
                                 <Label Content="Frostbite" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseFrostbiteProt"/>
                             </StackPanel>
                             
                             <Image Grid.Column="2" Source="../images/characteristicImage/AirR.jpg" 
@@ -1860,7 +1880,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                             <StackPanel Grid.Column="3" Grid.Row="0">
                                 <Label Content="Air" HorizontalContentAlignment="Center"/>
-                                <ProgressBar Height="10" Margin="5,0,5,0"/>
+                                <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseAirProt"/>
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
@@ -1879,7 +1899,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                         <StackPanel Grid.Column="1" Grid.Row="0">
                             <Label Content="Dark" HorizontalContentAlignment="Center"/>
-                            <ProgressBar Height="10" Margin="5,0,5,0"/>
+                            <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseDarkProt"/>
                         </StackPanel>
                             
                         <Image Grid.Column="2" Source="../images/characteristicImage/LightR.jpg" 
@@ -1887,7 +1907,7 @@ meg egy elefánt. Megelégszem azzal, ha megujjazza-->
                             
                         <StackPanel Grid.Column="3" Grid.Row="0">
                             <Label Content="Light" HorizontalContentAlignment="Center"/>
-                            <ProgressBar Height="10" Margin="5,0,5,0"/>
+                            <ProgressBar Height="10" Margin="5,0,5,0" x:Name="PRB_baseLightProt"/>
                         </StackPanel>
                         </Grid>
                     </ListBoxItem>

@@ -193,7 +193,7 @@ namespace mD_WPF_chSheet_01.windows
 
             PRB_baseHealth.ToolTip = "Módosítók nélküli alap életerő";
 
-            
+            toolTipp();
         }
 
 
@@ -379,15 +379,66 @@ namespace mD_WPF_chSheet_01.windows
             }
         }
 
-        private void baseValues()
+        private void toolTipp()
         {
-            
+            PRB_baseHealth.ToolTip = "Vitality harminc feletti része";
+            PRB_baseStamina.ToolTip = "Dexterity harminc feletti része";
+            PRB_baseMana.ToolTip = "Intuition harminc feletti része";
+            PRB_baseImpact.ToolTip = "Charisma harminc feletti része";
+            PRB_basePotency.ToolTip = "Tulajdonság egy és Tulajdonság kettő bónuszok, plussz a felvett képzettségek fokozata, plusz a felvett képzettségek minősége után " +
+                "adott minőségben minden fokozat után plusz egy, minőségnövekedésenként újraszámolva";
+            PRB_baseRegeneration.ToolTip = "Endurence I + Tougthness II";
+            PRB_baseKnowledge.ToolTip = "";
+            PRB_basePiety.ToolTip = "";
+
+            PRB_baseSlashingAttack.ToolTip = "";
+            PRB_baseCrushingAttack.ToolTip = "";
+            PRB_basePierceAttack.ToolTip = "";
+            PRB_baseProjectileAttack.ToolTip = "";
+            PRB_baseFireAttack.ToolTip = "";
+            PRB_baseIceAttack.ToolTip = "";
+            PRB_baseEarthAttack.ToolTip = "";
+            PRB_baseAirAttack.ToolTip = "";
+            PRB_baseMagicAttack.ToolTip = "";
+            PRB_baseDivineAttack.ToolTip = "";
+            PRB_baseRevengeAttavk.ToolTip = "";
+            PRB_baseThrowingAttack.ToolTip = "";
+            PRB_baseDarkAttack.ToolTip = "";
+            PRB_baseLightAttack.ToolTip = "";
+            PRB_baseMindAttack.ToolTip = "";
+            PRB_baseControllAttack.ToolTip = "";
+
+            PRB_baseDeathProt.ToolTip = "";
+            PRB_basePhysicalProt.ToolTip = "";
+            PRB_baseProjectileProt.ToolTip = "";
+            PRB_basePierceProt.ToolTip = "";
+            PRB_baseSlashingProt.ToolTip = "";
+            PRB_baseCrushingProt.ToolTip = "";
+            PRB_baseFracturePtot.ToolTip = "";
+            PRB_baseBleedingProt.ToolTip = "";
+            PRB_baseDiseaseProt.ToolTip = "";
+            PRB_baseInfectionProt.ToolTip = "";
+            PRB_basePoisonProt.ToolTip = "";
+            PRB_baseAsphyxiaProt.ToolTip = "";
+            PRB_baseEnergyProt.ToolTip = "";
+            PRB_baseMagicProt.ToolTip = "";
+            PRB_baseBurningProt.ToolTip = "";
+            PRB_baseEarthProt.ToolTip = "";
+            PRB_baseFrostbiteProt.ToolTip = "";
+            PRB_baseAirProt.ToolTip = "";
+            PRB_baseDarkProt.ToolTip = "";
+            PRB_baseLightProt.ToolTip = "";
         }
 
         private void BTN_vitalityQuality_Click(object sender, RoutedEventArgs e)
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
+                TBO_TestBox.Text = "";
+                int basehealth = abilityQuality[0] - 30;
+                PRB_baseHealth.Value = basehealth;
+                TBO_TestBox.Text = (basehealth).ToString();
+
                 TBO_strengthQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin);
                 PBR_strengthQuality.Maximum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
 
@@ -410,6 +461,8 @@ namespace mD_WPF_chSheet_01.windows
                 PBR_toughtnessQuality.Value = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].ToughtnessMin;
 
                 BTN_strengthQualityM.IsEnabled = false; BTN_endurenceQualityM.IsEnabled = false; BTN_toughtnessQualityM.IsEnabled = false;
+
+                
             }
         }
 
@@ -417,6 +470,11 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
+                TBO_TestBox.Text = "";
+                int baseStamina = abilityQuality[0] - 30;
+                PRB_baseStamina.Value = baseStamina;
+                TBO_TestBox.Text = (baseStamina).ToString();
+
                 TBO_agilityQuality.Text = Convert.ToString(dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin);
                 PBR_agilityQuality.Maximum = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
 
@@ -445,6 +503,11 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
+                TBO_TestBox.Text = "";
+                int basemana = abilityQuality[0] - 30;
+                PRB_baseMana.Value = basemana;
+                TBO_TestBox.Text = (basemana).ToString();
+
                 TBO_intelligenceQuality.Text = Convert.ToString(intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin);
                 PBR_intelligenceQuality.Maximum = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
 
@@ -474,6 +537,11 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
+                TBO_TestBox.Text = "";
+                int baseimpact = abilityQuality[0] - 30;
+                PRB_baseImpact.Value = baseimpact;
+                TBO_TestBox.Text = (baseimpact).ToString();
+
                 TBO_appearanceQuality.Text = Convert.ToString(charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin);
                 PBR_appearanceQuality.Maximum = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
 
