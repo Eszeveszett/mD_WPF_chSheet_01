@@ -121,6 +121,76 @@ namespace mD_WPF_chSheet_01.objects.characterObject
             this.luckA = luckA;
             this.luckP = luckP;
         }
+
+        public characterAttribution()
+        {
+
+        }
+
+        public characterAttribution
+            (
+            int endurence, int endurenceA, int endurenceP, int toughness, int toughnessA, int toughnessP, int strength, int strengthA, int strengthP,
+            int perception, int perceptionA, int perceptionP, int quickness, int quicknessA, int quicknessP, int agility, int agilityA, int agilityP,
+            int intelligence, int intelligenceA, int intelligenceP, int wisdom, int wisdomA, int wisdomP, int resourcefull, int resourcefullA, int resourcefullP,
+            int influence, int influenceA, int influenceP, int appearance, int appearanceA, int appearanceP, int luck, int luckA, int luckP
+            )
+        {
+
+            this.endurence = endurence;
+            this.endurenceA = endurenceA;
+            this.endurenceP = endurenceP;
+
+            this.toughness = toughness;
+            this.toughnessA = toughnessA;
+            this.toughnessP = toughnessP;
+
+            this.strength = strength;
+            this.strengthA = strengthA;
+            this.strengthP = strengthP;
+
+            this.perception = perception;
+            this.perceptionA = perceptionA;
+            this.perceptionP = perceptionP;
+
+            this.quickness = quickness;
+            this.quicknessA = quicknessA;
+            this.quicknessP = quicknessP;
+
+            this.agility = agility;
+            this.agilityA = agilityA;
+            this.agilityP = agilityP;
+
+            this.intelligence = intelligence;
+            this.intelligenceA = intelligenceA;
+            this.intelligenceP = intelligenceP;
+
+            this.wisdom = wisdom;
+            this.wisdomA = wisdomA;
+            this.wisdomP = wisdomP;
+
+            this.resourcefull = resourcefull;
+            this.resourcefullA = resourcefullA;
+            this.resourcefullP = resourcefullP;
+
+            this.influence = influence;
+            this.influenceA = influenceA;
+            this.influenceP = influenceP;
+
+            this.appearance = appearance;
+            this.appearanceA = appearanceA;
+            this.appearanceP = appearanceP;
+
+            this.luck = luck;
+            this.luckA = luckA;
+            this.luckP = luckP;
+        }
+
+
+        //public characterAttribution(int strI, int strII, int endI, int endII, int tghI, int tghII)
+        //{
+        //    this.strengthA = strI; this.strengthP = strII; this.endurenceA = endI; this.endurenceP = endII; this.toughnessA = tghI; this.toughnessP = tghII;
+        //}
+
         //public override string ToString()
         //{
         //    return string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}{20}{21}" +
@@ -131,6 +201,7 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         //        intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
         //        influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
         //}
+
         //public override string ToString()
         //{
         //    return string.Format("Vitality: {0} Base Health: {4}\t\tDexterity: {1} Base Exhaustion: {5}\tIntuition: {2} Base Mana: {6}\tCharisma: {3} Base Charm: {7}\n" +
@@ -143,17 +214,18 @@ namespace mD_WPF_chSheet_01.objects.characterObject
         //            intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
         //            influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
         //}
-        public override string ToString()
-        {
-            return string.Format("Vitality: {0} Base Health: {4}Dexterity: {1} Base Exhaustion: {5}Intuition: {2} Base Mana: {6}Charisma: {3} Base Charm: {7}\n" +
-            "endurence: {8}I: {11} II: {14}agility:    {19} I: {22} II: {25}intelligence: {26} I: {29} II: {32}influence:  {35} I: {38} II: {41}\n" +
-            "toughness: {9}I: {12} II: {15}perception: {17} I: {20} II: {23}wisdom:       {27} I: {30} II: {33}appearance: {36} I: {39} II: {42}\n" +
-            "strength:  {10}I: {13} II: {16}quickness:  {18} I: {21} II: {24}resourcefull: {28} I: {31} II: {34}luck:       {37} I: {40} II: {43}\n",
-                    vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
-                    endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
-                    perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,
-                    intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
-                    influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
-        }
+
+        //public override string ToString()
+        //{
+        //    return string.Format("Vitality: {0} Base Health: {4}Dexterity: {1} Base Exhaustion: {5}Intuition: {2} Base Mana: {6}Charisma: {3} Base Charm: {7}\n" +
+        //    "endurence: {8}I: {11} II: {14}agility:    {19} I: {22} II: {25}intelligence: {26} I: {29} II: {32}influence:  {35} I: {38} II: {41}\n" +
+        //    "toughness: {9}I: {12} II: {15}perception: {17} I: {20} II: {23}wisdom:       {27} I: {30} II: {33}appearance: {36} I: {39} II: {42}\n" +
+        //    "strength:  {10}I: {13} II: {16}quickness:  {18} I: {21} II: {24}resourcefull: {28} I: {31} II: {34}luck:       {37} I: {40} II: {43}\n",
+        //            vitality, dexterity, intuition, charisma, vitalityBonus, dexterityBonus, intuitionBonus, charismaBonus,
+        //            endurence, toughness, strength, endurenceA, toughnessA, strengthA, endurenceP, toughnessP, strengthP,
+        //            perception, quickness, agility, perceptionA, quicknessA, agilityA, perceptionP, quicknessP, agilityP,
+        //            intelligence, wisdom, resourcefull, intelligenceA, wisdomA, resourcefullA, intelligenceP, wisdomP, resourcefullP,
+        //            influence, appearance, luck, influenceA, appearanceA, luckA, influenceP, appearanceP, luckP);
+        //}
     }
 }

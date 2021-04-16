@@ -22,7 +22,10 @@ using System.Media;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+
+
 using mD_WPF_chSheet_01.Models.dzeta;
+using mD_WPF_chSheet_01.objects.characterObject;
 
 namespace mD_WPF_chSheet_01.windows
 {
@@ -67,27 +70,28 @@ namespace mD_WPF_chSheet_01.windows
         #region soksoklistamegacontext
         dzetaContext context = new dzetaContext();
 
-        List<Races> races = new List<Races>();
-        List<Characters> characters = new List<Characters>();
-        List<Charactersskills> charactersskills = new List<Charactersskills>();
-        List<Racesskills> racessklikks = new List<Racesskills>();
-        List<Skills> skills = new List<Skills>();
+        ObservableCollection<Races> races = new ObservableCollection<Races>();
+        ObservableCollection<Characters> characters = new ObservableCollection<Characters>();
+        ObservableCollection<Charactersskills> charactersskills = new ObservableCollection<Charactersskills>();
+        ObservableCollection<Racesskills> racessklikks = new ObservableCollection<Racesskills>();
+        ObservableCollection<Skills> skills = new ObservableCollection<Skills>();
 
-        List<Vitalitys> vitalitys = new List<Vitalitys>();
-        List<Dexteritys> dexteritys = new List<Dexteritys>();
-        List<Intuitions> intuitions = new List<Intuitions>();
-        List<Charisms> charisms = new List<Charisms>();
+        ObservableCollection<Vitalitys> vitalitys = new ObservableCollection<Vitalitys>();
+        ObservableCollection<Dexteritys> dexteritys = new ObservableCollection<Dexteritys>();
+        ObservableCollection<Intuitions> intuitions = new ObservableCollection<Intuitions>();
+        ObservableCollection<Charisms> charisms = new ObservableCollection<Charisms>();
 
-        List<advantages> adv = new List<advantages>();
-        List<disadvantages> dis = new List<disadvantages>();
+        ObservableCollection<advantages> adv = new ObservableCollection<advantages>();
+        ObservableCollection<disadvantages> dis = new ObservableCollection<disadvantages>();
 
         ObservableCollection<displayedSkill> dispSkill = new ObservableCollection<displayedSkill>();
 
         ObservableCollection<displayedSkill> ismertskill = new ObservableCollection<displayedSkill>();
         ObservableCollection<displayedSkill> nemismertskill = new ObservableCollection<displayedSkill>();
-        List<int> abilityQuality = new List<int>() {50,45,40,35};
 
+        ObservableCollection<int> abilityQuality = new ObservableCollection<int>() {50,45,40,35};
 
+        ObservableCollection<characterAttribution> characterIstic = new ObservableCollection<characterAttribution>();
         #endregion
 
         public clearSelectorWindow()
@@ -190,6 +194,9 @@ namespace mD_WPF_chSheet_01.windows
             LBO_rRace.SelectedItem = null;
             LBO_advantages.ItemsSource = adv;
             LBO_disadvantages.ItemsSource = dis;
+
+            characterIstic.Add(new characterAttribution());
+
 
             PRB_baseHealth.ToolTip = "Módosítók nélküli alap életerő";
 
@@ -327,6 +334,7 @@ namespace mD_WPF_chSheet_01.windows
                 IMG_Race.Source = bi;
                 IMG_SAPimage.Source = bi;
                 IMG_AARPicture.Source = bi;
+                IMG_AADicture.Source = bi;
             }
             //else
             //{
@@ -381,63 +389,94 @@ namespace mD_WPF_chSheet_01.windows
 
         private void toolTipp()
         {
-            PRB_baseHealth.ToolTip = "Vitality harminc feletti része";
-            PRB_baseStamina.ToolTip = "Dexterity harminc feletti része";
-            PRB_baseMana.ToolTip = "Intuition harminc feletti része";
-            PRB_baseImpact.ToolTip = "Charisma harminc feletti része";
-            PRB_basePotency.ToolTip = "Tulajdonság egy és Tulajdonság kettő bónuszok, plussz a felvett képzettségek fokozata, plusz a felvett képzettségek minősége után " +
+            LBL_Vitality.ToolTip = vitalitys[0].Description;
+            LBL_Dexterity.ToolTip = dexteritys[0].Description;
+            LBL_Intuition.ToolTip = intuitions[0].Description;
+            LBL_Charisma.ToolTip = charisms[0].Description;
+
+            LBL_Strength.ToolTip = vitalitys[0].StrengthDescription;
+            LBL_Endurence.ToolTip = vitalitys[0].EnduranceDescription;
+            LBL_Toughtness.ToolTip = vitalitys[0].ToughtnessDescription;
+
+            LBL_Agility.ToolTip = dexteritys[0].AgilityDescription;
+            LBL_Perception.ToolTip = dexteritys[0].PerceptionDescription;
+            LBL_Quickness.ToolTip = dexteritys[0].QuicknessDescription;
+
+            LBL_Intelligence.ToolTip = intuitions[0].IntelligenceDescription;
+            LBL_Wisdom.ToolTip = intuitions[0].WisdomDescription;
+            LBL_Resourcefull.ToolTip = intuitions[0].ResourcefullDescription;
+
+            LBL_Appearance.ToolTip = charisms[0].AppearanceDescription;
+            LBL_Influence.ToolTip = charisms[0].InfluenceDescription;
+            LBL_Luck.ToolTip = charisms[0].LuckDescription;
+
+            
+            SP_baseHealth.ToolTip = "Vitality harminc feletti része";
+            SP_baseStamina.ToolTip = "Dexterity harminc feletti része";
+            SP_baseMana.ToolTip = "Intuition harminc feletti része";
+            SP_baseImpact.ToolTip = "Charisma harminc feletti része";
+            SP_basePotency.ToolTip = "Tulajdonság egy és Tulajdonság kettő bónuszok, plussz a felvett képzettségek fokozata, plusz a felvett képzettségek minőségfokozata után " +
                 "adott minőségben minden fokozat után plusz egy, minőségnövekedésenként újraszámolva";
-            PRB_baseRegeneration.ToolTip = "Endurence I + Tougthness II";
-            PRB_baseKnowledge.ToolTip = "";
-            PRB_basePiety.ToolTip = "";
+            SP_baseRegeneration.ToolTip = "Endurence I + Endurence II + Tougthness I + Tougthness II Naponta";
+            SP_baseKnowledge.ToolTip = "Intelligencia I + Intelligencia II + Wisdom I + Wisdom II";
+            SP_basePiety.ToolTip = "(Wisdom I + Wisdom II)*3";
 
-            PRB_baseSlashingAttack.ToolTip = "";
-            PRB_baseCrushingAttack.ToolTip = "";
-            PRB_basePierceAttack.ToolTip = "";
-            PRB_baseProjectileAttack.ToolTip = "";
-            PRB_baseFireAttack.ToolTip = "";
-            PRB_baseIceAttack.ToolTip = "";
-            PRB_baseEarthAttack.ToolTip = "";
-            PRB_baseAirAttack.ToolTip = "";
-            PRB_baseMagicAttack.ToolTip = "";
-            PRB_baseDivineAttack.ToolTip = "";
-            PRB_baseRevengeAttavk.ToolTip = "";
-            PRB_baseThrowingAttack.ToolTip = "";
-            PRB_baseDarkAttack.ToolTip = "";
-            PRB_baseLightAttack.ToolTip = "";
-            PRB_baseMindAttack.ToolTip = "";
-            PRB_baseControllAttack.ToolTip = "";
+            SP_baseSlashingAttack.ToolTip = "Agility I + Strength II";
+            SP_baseCrushingAttack.ToolTip = "Strength I + Endurence II";
+            SP_basePierceAttack.ToolTip = "Agility I + Quickness II";
+            SP_baseProjectileAttack.ToolTip = "Agility I + Perception II";
+            SP_baseFireAttack.ToolTip = "Intelligence I + Wisdom I + Skill";
+            SP_baseIceAttack.ToolTip = "Intelligence I + Wisdom I + Skill";
+            SP_baseEarthAttack.ToolTip = "Intelligence I + Wisdom I + Skill";
+            SP_baseAirAttack.ToolTip = "Intelligence I + Wisdom I + Skill";
+            SP_baseMagicAttack.ToolTip = "Intelligence I + Wisdom I + Skill";
+            SP_baseDivineAttack.ToolTip = "Wisdom I + Resourcefull II + Skill";
+            SP_baseRevengeAttavk.ToolTip = "Perception I + Resourcefull I + Quickness II";
+            SP_baseThrowingAttack.ToolTip = "Agility II + Perception II + Resourcefull II + Luck II";
+            SP_baseDarkAttack.ToolTip = "Intelligence I + Resourcefull II";
+            SP_baseLightAttack.ToolTip = "Wisdom I + Resourcefull II";
+            SP_baseMindAttack.ToolTip = "Appearance I + Influence II";
+            SP_baseControllAttack.ToolTip = "Appearance II + Influence II + Wisdom II + Intelligence II";
 
-            PRB_baseDeathProt.ToolTip = "";
-            PRB_basePhysicalProt.ToolTip = "";
-            PRB_baseProjectileProt.ToolTip = "";
-            PRB_basePierceProt.ToolTip = "";
-            PRB_baseSlashingProt.ToolTip = "";
-            PRB_baseCrushingProt.ToolTip = "";
-            PRB_baseFracturePtot.ToolTip = "";
-            PRB_baseBleedingProt.ToolTip = "";
-            PRB_baseDiseaseProt.ToolTip = "";
-            PRB_baseInfectionProt.ToolTip = "";
-            PRB_basePoisonProt.ToolTip = "";
-            PRB_baseAsphyxiaProt.ToolTip = "";
-            PRB_baseEnergyProt.ToolTip = "";
-            PRB_baseMagicProt.ToolTip = "";
-            PRB_baseBurningProt.ToolTip = "";
-            PRB_baseEarthProt.ToolTip = "";
-            PRB_baseFrostbiteProt.ToolTip = "";
-            PRB_baseAirProt.ToolTip = "";
-            PRB_baseDarkProt.ToolTip = "";
-            PRB_baseLightProt.ToolTip = "";
+            SP_baseDeathProt.ToolTip = "Wisdom II + Luck I + Luck II";
+            SP_basePhysicalProt.ToolTip = "Endurence I + Toughtness II";
+            SP_baseProjectileProt.ToolTip = "Perception I + Quickness II";
+            SP_basePierceProt.ToolTip = "Quickness I + Agility II";
+            SP_baseSlashingProt.ToolTip = "Agility I + Toughtness II";
+            SP_baseCrushingProt.ToolTip = "Toughtness I + Toughtness II";
+            SP_baseFracturePtot.ToolTip = "Endurence I + Toughtness II";
+            SP_baseBleedingProt.ToolTip = "Endurence I + Endurence II";
+            SP_baseDiseaseProt.ToolTip = "Endurence I + Endurence II";
+            SP_baseInfectionProt.ToolTip = "Endurence I + Endurence II + Luck II";
+            SP_basePoisonProt.ToolTip = "Endurence I + Endurence II";
+            SP_baseAsphyxiaProt.ToolTip = "Endurence I + Toughtness I";
+            SP_baseEnergyProt.ToolTip = "Intelligence I + Intelligence II";
+            SP_baseMagicProt.ToolTip = "Intelligence I + Wisdom I";
+            SP_baseBurningProt.ToolTip = "Perception I + Quickness II";
+            SP_baseEarthProt.ToolTip = "Endurence I + Wisdom I";
+            SP_baseFrostbiteProt.ToolTip = "Toughtness I + Wisdom I";
+            SP_baseAirProt.ToolTip = "Endurence I + Endurence II";
+            SP_baseDarkProt.ToolTip = "Intelligence I + Sesourcefull II";
+            SP_baseLightProt.ToolTip = "Wisdom I + Sesourcefull II";
+        }
+
+        private void characteristicPanel()
+        {
+            if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
+            {
+                
+            }
+            
         }
 
         private void BTN_vitalityQuality_Click(object sender, RoutedEventArgs e)
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_TestBox.Text = "";
+                //TBO_TestBox.Text = "";
                 int basehealth = abilityQuality[0] - 30;
                 PRB_baseHealth.Value = basehealth;
-                TBO_TestBox.Text = (basehealth).ToString();
+                //TBO_TestBox.Text = (basehealth).ToString();
 
                 TBO_strengthQuality.Text = Convert.ToString(vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMin);
                 PBR_strengthQuality.Maximum = vitalitys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).VitalityId - 1)].StrengthMax;
@@ -470,10 +509,10 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_TestBox.Text = "";
+                //TBO_TestBox.Text = "";
                 int baseStamina = abilityQuality[0] - 30;
                 PRB_baseStamina.Value = baseStamina;
-                TBO_TestBox.Text = (baseStamina).ToString();
+                //TBO_TestBox.Text = (baseStamina).ToString();
 
                 TBO_agilityQuality.Text = Convert.ToString(dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMin);
                 PBR_agilityQuality.Maximum = dexteritys[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).DexterityId - 1)].AgilityMax;
@@ -503,10 +542,10 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_TestBox.Text = "";
+                //TBO_TestBox.Text = "";
                 int basemana = abilityQuality[0] - 30;
                 PRB_baseMana.Value = basemana;
-                TBO_TestBox.Text = (basemana).ToString();
+                //TBO_TestBox.Text = (basemana).ToString();
 
                 TBO_intelligenceQuality.Text = Convert.ToString(intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMin);
                 PBR_intelligenceQuality.Maximum = intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].IntelligenceMax;
@@ -537,10 +576,10 @@ namespace mD_WPF_chSheet_01.windows
         {
             if (LBO_rRace.SelectedItem != null && abilityQuality.Count > 0)
             {
-                TBO_TestBox.Text = "";
+                //TBO_TestBox.Text = "";
                 int baseimpact = abilityQuality[0] - 30;
                 PRB_baseImpact.Value = baseimpact;
-                TBO_TestBox.Text = (baseimpact).ToString();
+                //TBO_TestBox.Text = (baseimpact).ToString();
 
                 TBO_appearanceQuality.Text = Convert.ToString(charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin);
                 PBR_appearanceQuality.Maximum = charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMax;
@@ -600,7 +639,9 @@ namespace mD_WPF_chSheet_01.windows
             PBR_resourcefullQuality.Value = 0;
             //intuitions[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).IntuitionId - 1)].ResourcefullMin;
 
-            TBO_appearanceQuality.Text = ""; TBO_influenceQuality.Text = ""; TBO_luckQuality.Text = "";
+            TBO_appearanceQuality.Text = "";
+            TBO_influenceQuality.Text = ""; TBO_INFI.Text = ""; TBO_INFII.Text = "";
+            TBO_luckQuality.Text = ""; TBO_LuckI.Text = ""; TBO_LuckII.Text = "";
             PBR_appearanceQuality.Value = 0;
             //charisms[Convert.ToInt32(((Races)LBO_rRace.SelectedItem).CharismaId - 1)].AppearanceMin;
             PBR_influenceQuality.Value = 0;
@@ -612,6 +653,7 @@ namespace mD_WPF_chSheet_01.windows
             //BTN_qualityOne.Visibility = Visibility.Visible;
             BTN_vitalityQuality.IsEnabled = true; BTN_dexterityQuality.IsEnabled = true;
             BTN_intuitionQuality.IsEnabled = true; BTN_charismaQuality.IsEnabled = true;
+
         }
 
         
@@ -643,6 +685,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_vitalityQuality.Text = pool.ToString();
                     TBO_strengthQuality.Text = strAct.ToString();
                     PBR_strengthQuality.Value = strAct;
+
+                    characterIstic[0].strengthA = (strAct - 10) / 2;
+                    TBO_STRI.Text = characterIstic[0].strengthA.ToString();
+                    characterIstic[0].strengthP = (strAct - 10) / 3;
+                    TBO_STRII.Text = characterIstic[0].strengthP.ToString();
                 }
             }
         }
@@ -676,6 +723,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_vitalityQuality.Text = pool.ToString();
                         TBO_strengthQuality.Text = strAct.ToString();
                         PBR_strengthQuality.Value = strAct;
+
+                        characterIstic[0].strengthA = (strAct - 10) / 2;
+                        TBO_STRI.Text = characterIstic[0].strengthA.ToString();
+                        characterIstic[0].strengthP = (strAct - 10) / 3;
+                        TBO_STRII.Text = characterIstic[0].strengthP.ToString();
                     }
 
                 }
@@ -712,6 +764,12 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_vitalityQuality.Text = pool.ToString();
                     TBO_endurenceQuality.Text = endAct.ToString();
                     PBR_endurenceQuality.Value = endAct;
+
+                    characterIstic[0].endurenceA = (endAct - 10) / 2;
+                    TBO_ENDI.Text = characterIstic[0].endurenceA.ToString();
+                    characterIstic[0].endurenceP = (endAct - 10) / 3;
+                    TBO_ENDII.Text = characterIstic[0].endurenceP.ToString();
+
                 }
             }
         }
@@ -745,6 +803,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_vitalityQuality.Text = pool.ToString();
                         TBO_endurenceQuality.Text = endAct.ToString();
                         PBR_endurenceQuality.Value = endAct;
+
+                        characterIstic[0].endurenceA = (endAct - 10) / 2;
+                        TBO_ENDI.Text = characterIstic[0].endurenceA.ToString();
+                        characterIstic[0].endurenceP = (endAct - 10) / 3;
+                        TBO_ENDII.Text = characterIstic[0].endurenceP.ToString();
                     }
                 }
             }
@@ -780,6 +843,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_vitalityQuality.Text = pool.ToString();
                     TBO_toughtnessQuality.Text = tghAct.ToString();
                     PBR_toughtnessQuality.Value = tghAct;
+
+                    characterIstic[0].toughnessA = (tghAct - 10) / 2;
+                    TBO_TGHI.Text = characterIstic[0].toughnessA.ToString();
+                    characterIstic[0].toughnessP = (tghAct - 10) / 3;
+                    TBO_TGHII.Text = characterIstic[0].toughnessP.ToString();
                 }
             }
         }
@@ -813,6 +881,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_vitalityQuality.Text = pool.ToString();
                         TBO_toughtnessQuality.Text = tghAct.ToString();
                         PBR_toughtnessQuality.Value = tghAct;
+
+                        characterIstic[0].toughnessA = (tghAct - 10) / 2;
+                        TBO_TGHI.Text = characterIstic[0].toughnessA.ToString();
+                        characterIstic[0].toughnessP = (tghAct - 10) / 3;
+                        TBO_TGHII.Text = characterIstic[0].toughnessP.ToString();
                     }
                 }
             }
@@ -850,6 +923,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_dexterityQuality.Text = pool.ToString();
                     TBO_agilityQuality.Text = agiAct.ToString();
                     PBR_agilityQuality.Value = agiAct;
+
+                    characterIstic[0].agilityA = (agiAct - 10) / 2;
+                    TBO_AGII.Text = characterIstic[0].agilityA.ToString();
+                    characterIstic[0].agilityP = (agiAct - 10) / 3;
+                    TBO_AGIII.Text = characterIstic[0].agilityP.ToString();
                 }
             }
         }
@@ -883,6 +961,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_dexterityQuality.Text = pool.ToString();
                         TBO_agilityQuality.Text = agiAct.ToString();
                         PBR_agilityQuality.Value = agiAct;
+
+                        characterIstic[0].agilityA = (agiAct - 10) / 2;
+                        TBO_AGII.Text = characterIstic[0].agilityA.ToString();
+                        characterIstic[0].agilityP = (agiAct - 10) / 3;
+                        TBO_AGIII.Text = characterIstic[0].agilityP.ToString();
                     }
                 }
             }
@@ -918,6 +1001,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_dexterityQuality.Text = pool.ToString();
                     TBO_perceptionQuality.Text = perAct.ToString();
                     PBR_perceptionQuality.Value = perAct;
+
+                    characterIstic[0].perceptionA = (perAct - 10) / 2;
+                    TBO_PERI.Text = characterIstic[0].perceptionA.ToString();
+                    characterIstic[0].perceptionP = (perAct - 10) / 3;
+                    TBO_PERII.Text = characterIstic[0].perceptionP.ToString();
                 }
             }
         }
@@ -951,6 +1039,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_dexterityQuality.Text = pool.ToString();
                         TBO_perceptionQuality.Text = perAct.ToString();
                         PBR_perceptionQuality.Value = perAct;
+
+                        characterIstic[0].perceptionA = (perAct - 10) / 2;
+                        TBO_PERI.Text = characterIstic[0].perceptionA.ToString();
+                        characterIstic[0].perceptionP = (perAct - 10) / 3;
+                        TBO_PERII.Text = characterIstic[0].perceptionP.ToString();
                     }
                 }
             }
@@ -986,6 +1079,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_dexterityQuality.Text = pool.ToString();
                     TBO_quicknessQuality.Text = quiAct.ToString();
                     PBR_quicknessQuality.Value = quiAct;
+
+                    characterIstic[0].quicknessA = (quiAct - 10) / 2;
+                    TBO_QUII.Text = characterIstic[0].quicknessA.ToString();
+                    characterIstic[0].quicknessP = (quiAct - 10) / 3;
+                    TBO_QUIII.Text = characterIstic[0].quicknessP.ToString();
                 }
             }
         }
@@ -1019,6 +1117,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_dexterityQuality.Text = pool.ToString();
                         TBO_quicknessQuality.Text = quiAct.ToString();
                         PBR_quicknessQuality.Value = quiAct;
+
+                        characterIstic[0].quicknessA = (quiAct - 10) / 2;
+                        TBO_QUII.Text = characterIstic[0].quicknessA.ToString();
+                        characterIstic[0].quicknessP = (quiAct - 10) / 3;
+                        TBO_QUIII.Text = characterIstic[0].quicknessP.ToString();
                     }
                 }
             }
@@ -1056,6 +1159,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_intuitionQuality.Text = pool.ToString();
                     TBO_intelligenceQuality.Text = intAct.ToString();
                     PBR_intelligenceQuality.Value = intAct;
+
+                    characterIstic[0].intelligenceA = (intAct - 10) / 2;
+                    TBO_INTI.Text = characterIstic[0].intelligenceA.ToString();
+                    characterIstic[0].intelligenceP = (intAct - 10) / 3;
+                    TBO_INTII.Text = characterIstic[0].intelligenceP.ToString();
                 }
             }
         }
@@ -1089,6 +1197,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_intuitionQuality.Text = pool.ToString();
                         TBO_intelligenceQuality.Text = intAct.ToString();
                         PBR_intelligenceQuality.Value = intAct;
+
+                        characterIstic[0].intelligenceA = (intAct - 10) / 2;
+                        TBO_INTI.Text = characterIstic[0].intelligenceA.ToString();
+                        characterIstic[0].intelligenceP = (intAct - 10) / 3;
+                        TBO_INTII.Text = characterIstic[0].intelligenceP.ToString();
                     }
                 }
             }
@@ -1124,6 +1237,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_intuitionQuality.Text = pool.ToString();
                     TBO_wisdomQuality.Text = wisAct.ToString();
                     PBR_wisdomQuality.Value = wisAct;
+
+                    characterIstic[0].wisdomA = (wisAct - 10) / 2;
+                    TBO_WISI.Text = characterIstic[0].wisdomA.ToString();
+                    characterIstic[0].wisdomP = (wisAct - 10) / 3;
+                    TBO_WISII.Text = characterIstic[0].wisdomP.ToString();
                 }
             }
         }
@@ -1157,6 +1275,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_intuitionQuality.Text = pool.ToString();
                         TBO_wisdomQuality.Text = wisAct.ToString();
                         PBR_wisdomQuality.Value = wisAct;
+
+                        characterIstic[0].wisdomA = (wisAct - 10) / 2;
+                        TBO_WISI.Text = characterIstic[0].wisdomA.ToString();
+                        characterIstic[0].wisdomP = (wisAct - 10) / 3;
+                        TBO_WISII.Text = characterIstic[0].wisdomP.ToString();
                     }
                 }
             }
@@ -1192,6 +1315,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_intuitionQuality.Text = pool.ToString();
                     TBO_resourcefullQuality.Text = resAct.ToString();
                     PBR_resourcefullQuality.Value = resAct;
+
+                    characterIstic[0].resourcefullA = (resAct - 10) / 2;
+                    TBO_RESI.Text = characterIstic[0].resourcefullA.ToString();
+                    characterIstic[0].resourcefullP = (resAct - 10) / 3;
+                    TBO_RESII.Text = characterIstic[0].resourcefullP.ToString();
                 }
             }
         }
@@ -1225,6 +1353,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_intuitionQuality.Text = pool.ToString();
                         TBO_resourcefullQuality.Text = resAct.ToString();
                         PBR_resourcefullQuality.Value = resAct;
+
+                        characterIstic[0].resourcefullA = (resAct - 10) / 2;
+                        TBO_RESI.Text = characterIstic[0].resourcefullA.ToString();
+                        characterIstic[0].resourcefullP = (resAct - 10) / 3;
+                        TBO_RESII.Text = characterIstic[0].resourcefullP.ToString();
                     }
                 }
             }
@@ -1262,6 +1395,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_charismaQuality.Text = pool.ToString();
                     TBO_appearanceQuality.Text = appAct.ToString();
                     PBR_appearanceQuality.Value = appAct;
+
+                    characterIstic[0].appearanceA = (appAct - 10) / 2;
+                    TBO_APPI.Text = characterIstic[0].appearanceA.ToString();
+                    characterIstic[0].appearanceP = (appAct - 10) / 3;
+                    TBO_APPII.Text = characterIstic[0].appearanceP.ToString();
                 }
             }
         }
@@ -1295,6 +1433,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_charismaQuality.Text = pool.ToString();
                         TBO_appearanceQuality.Text = appAct.ToString();
                         PBR_appearanceQuality.Value = appAct;
+
+                        characterIstic[0].appearanceA = (appAct - 10) / 2;
+                        TBO_APPI.Text = characterIstic[0].appearanceA.ToString();
+                        characterIstic[0].appearanceP = (appAct - 10) / 3;
+                        TBO_APPII.Text = characterIstic[0].appearanceP.ToString();
                     }
                 }
             }
@@ -1330,6 +1473,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_charismaQuality.Text = pool.ToString();
                     TBO_influenceQuality.Text = infAct.ToString();
                     PBR_influenceQuality.Value = infAct;
+
+                    characterIstic[0].influenceA = (infAct - 10) / 2;
+                    TBO_INFI.Text = characterIstic[0].influenceA.ToString();
+                    characterIstic[0].influenceP = (infAct - 10) / 3;
+                    TBO_INFII.Text = characterIstic[0].influenceP.ToString();
                 }
             }
         }
@@ -1363,6 +1511,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_charismaQuality.Text = pool.ToString();
                         TBO_influenceQuality.Text = infAct.ToString();
                         PBR_influenceQuality.Value = infAct;
+
+                        characterIstic[0].influenceA = (infAct - 10) / 2;
+                        TBO_INFI.Text = characterIstic[0].influenceA.ToString();
+                        characterIstic[0].influenceP = (infAct - 10) / 3;
+                        TBO_INFII.Text = characterIstic[0].influenceP.ToString();
                     }
                 }
             }
@@ -1398,6 +1551,11 @@ namespace mD_WPF_chSheet_01.windows
                     TBO_charismaQuality.Text = pool.ToString();
                     TBO_luckQuality.Text = luckAct.ToString();
                     PBR_luckQuality.Value = luckAct;
+
+                    characterIstic[0].luckA = (luckAct - 10) / 2;
+                    TBO_LuckI.Text = characterIstic[0].luckA.ToString();
+                    characterIstic[0].luckP = (luckAct - 10) / 3;
+                    TBO_LuckII.Text = characterIstic[0].luckP.ToString();
                 }
             }
         }
@@ -1431,6 +1589,11 @@ namespace mD_WPF_chSheet_01.windows
                         TBO_charismaQuality.Text = pool.ToString();
                         TBO_luckQuality.Text = luckAct.ToString();
                         PBR_luckQuality.Value = luckAct;
+
+                        int BonusI = (luckAct - 10) / 2;
+                        TBO_LuckI.Text = BonusI.ToString();
+                        int BonusII = (luckAct - 10) / 3;
+                        TBO_LuckII.Text = BonusII.ToString();
                     }
                 }
             }
@@ -1440,6 +1603,11 @@ namespace mD_WPF_chSheet_01.windows
         }
 
         
+        
+        private void LBO_optionalSkill_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
         
         
         
@@ -1458,6 +1626,7 @@ namespace mD_WPF_chSheet_01.windows
             //this.Close();
             //csw.Show();
         }
+
 
     }
 }
