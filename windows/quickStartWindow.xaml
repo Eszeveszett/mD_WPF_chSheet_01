@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mD_WPF_chSheet_01.windows"
         mc:Ignorable="d"
-        Title="quickStartWindow" Height="600" Width="800"
+        Title="quickStartWindow" Height="600" Width="800" FontSize="16"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Uid="buttonForeground" TargetType="Button">
@@ -17,16 +17,16 @@
         <Image Source="..\images\bgImages\chreateCharacter.jpg" Stretch="Fill"/>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-            <Button Margin="10" Padding="10" Width="150" Height="40"
+            <Button Margin="10" Padding="10" Width="200" Height="50"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_newCharacter"
                 Click="BTN_newCharacter_Click">
 
                 <Canvas>
-                    <TextBlock Text="New Caracter" Width="80" Canvas.Top="-8" Canvas.Right="-38"
-                    Background="{x:Null}" TextAlignment="Center"/>
-                    <TextBlock Text="New Caracter" Width="80" Canvas.Top="-9" Canvas.Right="-39"
-                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="New Character" Width="150" Canvas.Top="-10" Canvas.Right="-77"
+                    Background="{x:Null}" TextAlignment="Center" FontSize="16" Foreground="Black"/>
+                    <TextBlock Text="New Character" Width="150" Canvas.Top="-11" Canvas.Right="-79"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="PaleGoldenrod"/>
                 </Canvas>
 
                 <Button.Resources>
@@ -36,16 +36,16 @@
                 </Button.Resources>
             </Button>
 
-            <Button Margin="10" Padding="10" Width="150" Height="40"
+            <Button Margin="10" Padding="10" Width="200" Height="50"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_readyCharacter"
                 Click="BTN_readyCharacter_Click">
 
-                <Canvas>
-                    <TextBlock Text="Ready Characters" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <TextBlock Text="Ready Characters" Width="150" Canvas.Top="-8" Canvas.Right="-77"
                     Background="{x:Null}" TextAlignment="Center"/>
-                    <TextBlock Text="Ready Characters" Width="80" Canvas.Top="-9" Canvas.Right="-39"
-                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Ready Characters" Width="150" Canvas.Top="-9" Canvas.Right="-79"
+                    Background="{x:Null}" TextAlignment="Center" Foreground="PaleGoldenrod"/>
                 </Canvas>
 
                 <Button.Resources>
@@ -55,16 +55,16 @@
                 </Button.Resources>
             </Button>
 
-            <Button Margin="10" Padding="10" Width="150" Height="40"
+            <Button Margin="10" Padding="10" Width="200" Height="50"
                 HorizontalAlignment="Center" Background="{x:Null}"
                 x:Name="BTN_back"
                 Click="BTN_back_Click">
 
                 <Canvas>
-                    <TextBlock Text="B a c k" Width="80" Canvas.Top="-8" Canvas.Right="-38"
+                    <TextBlock Text="B a c k" Width="80" Canvas.Top="-8" Canvas.Right="-37"
                     Background="{x:Null}" TextAlignment="Center"/>
                     <TextBlock Text="B a c k" Width="80" Canvas.Top="-9" Canvas.Right="-39"
-                    Background="{x:Null}" TextAlignment="Center" Foreground="White"/>
+                    Background="{x:Null}" TextAlignment="Center" Foreground="PaleGoldenrod"/>
                 </Canvas>
 
                 <Button.Resources>

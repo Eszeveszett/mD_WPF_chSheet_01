@@ -34,7 +34,7 @@
 
                 <Label Content="Disconnected from server"
                     HorizontalAlignment="Center"/>
-                <Button Content="Stopp"
+                <Button Content="Stop"
                     x:Name="BTN_ServerDisconnect"
                     Click="BTN_ServerDisconnect_Click"
                     Margin="5" Padding="5" Width="75"/>

@@ -141,8 +141,24 @@ namespace mD_WPF_chSheet_01.NetworkingCommunication.Client
 
         private void BTN_Disconnect_Click(object sender, RoutedEventArgs e)
         {
-            clientSocket.Close();
-            serverListener.Abort();
+            if (clientSocket == null)
+            {
+                Close();
+            }
+            else
+            {
+                try
+                {
+                    clientSocket.Close();
+                    serverListener.Abort();
+                }
+                catch (Exception)
+                {
+                    Close();
+                }
+
+            }
+
             Close();
         }
     }

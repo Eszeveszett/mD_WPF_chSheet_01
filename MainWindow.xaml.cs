@@ -18,6 +18,8 @@ using System.Windows.Shapes;
 
 using System.Collections.ObjectModel;
 
+using System.Media;
+
 using mD_WPF_chSheet_01.pages;
 using mD_WPF_chSheet_01.windows;
 using mD_WPF_chSheet_01.NetworkingCommunication;
@@ -94,18 +96,22 @@ namespace mD_WPF_chSheet_01
         {
 
             await Task.Delay(125);
-            //MessageBoxResult quitGame = MessageBox.Show("Ha megjelenik mögötted egy ork barbár, és agyonver, ne légy ideges. Csak run time helyett real lifeben debugolok", 
-            //                                            "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            //switch (quitGame)
-            //{
-            //    case MessageBoxResult.Yes:
-            //        Close();
-            //        break;
-            //    case MessageBoxResult.No:
-            //        break;
-            //}
-            await Task.Delay(125);
-            Close();
+            SystemSounds.Beep.Play();
+            MessageBoxResult quitGame = MessageBox.Show("Ha megjelenik mögötted egy ork barbár, és agyonver, nincs baj. Csak run time helyett real lifeben debugoltam",
+                                                        "Escape?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            
+            switch (quitGame)
+            {
+                case MessageBoxResult.Yes:
+                    SystemSounds.Exclamation.Play();
+                    Close();
+                    break;
+                case MessageBoxResult.No:
+                    SystemSounds.Asterisk.Play();
+                    break;
+            }
+            //await Task.Delay(125);
+            //Close();
 
         }
 
@@ -146,6 +152,11 @@ namespace mD_WPF_chSheet_01
         {
             TBL_cLower.FontSize = 12;
             TBL_cUpper.FontSize = 12;
+        }
+
+        private void BTN_Continue_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void BTN_newGame_MouseEnter(object sender, MouseEventArgs e)

@@ -10,7 +10,7 @@
         <StackPanel Margin="5">
             <StackPanel Orientation="Horizontal">
                 <!--Ide majd a létrehozott karakter neve fog bekerülni-->
-                <Label Content="Név: " Margin="5,5,10,5"/>
+                <Label Content="Name: " Margin="5,5,10,5"/>
                 <TextBox x:Name="TBO_Nev" Margin="5" Width="120"/>
                 <Button x:Name="BTN_Kapcsolodas" 
                 Content="Connect" Margin="35,5,5,5" Padding="5"
@@ -26,7 +26,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Content="Ütenet: " Margin="5"/>
+                <Label Content="Message: " Margin="5"/>
                 <TextBox x:Name="TBO_Uzenet" 
                 Margin="5" Width="300"/>
                 <Button x:Name="BTN_Kuldes" Click="BTN_Kuldes_Click"

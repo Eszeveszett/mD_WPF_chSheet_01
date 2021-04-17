@@ -75,15 +75,16 @@
         </Grid.ColumnDefinitions>
         <Image Source="images\bgImages\startScreen.jpg" Stretch="Fill" Grid.ColumnSpan="3"/>
         
-        <Viewbox Grid.Column="0">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <Label Content="Left" Foreground="DarkGray"/>
-                </StackPanel>
-            </StackPanel>
-        </Viewbox>
         
-        <Viewbox Grid.Column="1">
+            <!--<StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Label Content="Left" Foreground="DarkGray" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                    FontSize="132"/>
+                </StackPanel>
+            </StackPanel>-->
+
+            <Viewbox Grid.Column="1">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="SP_Buttons" Grid.Column="1">
 
             <Button  Margin="5,35,5,5" Background="{x:Null}"
@@ -109,7 +110,7 @@
 
             <Button Margin="5,5,5,2" Background="{x:Null}" x:Name="BTN_Continue"
                 HorizontalAlignment="Center" Width="100" Height="25"
-                FontSize="12" BorderBrush="{x:Null}"
+                FontSize="12" BorderBrush="{x:Null}" Click="BTN_Continue_Click"
                 MouseEnter="BTN_Continue_MouseEnter" MouseLeave="BTN_Continue_MouseLeave">
                 
                 <Canvas>
@@ -184,7 +185,7 @@
                 </Button.Resources>-->
             </Button>
 
-            <Button Content="Testing" Margin="5,5,5,2" Background="{x:Null}"
+            <!--<Button Content="Testing" Margin="5,5,5,2" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
                 FontSize="12" Cursor="{StaticResource pointerCursor}"
                 x:Name="BTN_testing" Click="BTN_testing_Click">
@@ -193,7 +194,7 @@
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
-            </Button>
+            </Button>-->
 
             <Button Margin="5,5,5,35" Background="{x:Null}"
                 HorizontalAlignment="Center" Width="100" Height="25"
@@ -216,11 +217,13 @@
         </StackPanel>
         </Viewbox>
 
-        <Viewbox Grid.Column="2">
+        <!--<StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <Label Content="Right" Foreground="DarkGray"/>
+                <Label Content="Right" Foreground="DarkGray" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                    FontSize="132"/>
             </StackPanel>
-        </Viewbox>
+        </StackPanel>-->
 
         <!--<Frame x:Name="FRM_startPage" NavigationUIVisibility="Hidden"/>-->
     </Grid>
